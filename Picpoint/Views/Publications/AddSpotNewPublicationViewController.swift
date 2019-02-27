@@ -15,25 +15,89 @@ class AddSpotNewPublicationViewController: UIViewController, CLLocationManagerDe
     let locationManager = CLLocationManager()
     @IBOutlet weak var map: MKMapView!
     var spots = [Spot]()
+    public static var pointSelected : Spot!
     
     @IBOutlet weak var imgSelected: UIImageView!
     @IBOutlet weak var nameSelected: UILabel!
     @IBOutlet weak var viewSelected: UIView!
     
+    @IBOutlet weak var acceptBtn: UIBarButtonItem!
+    
+    func selectPin () {
+        acceptBtn.isEnabled = true
+        centerMap(latitude: AddSpotNewPublicationViewController.pointSelected.latitude!, longitude: AddSpotNewPublicationViewController.pointSelected.longitude!)
+        setDetails(name: AddSpotNewPublicationViewController.pointSelected.name!, image: AddSpotNewPublicationViewController.pointSelected.image!)
+        
+        for pin in map.annotations
+        {
+            if (pin is MKUserLocation)
+            {
+                continue
+            }
+            
+            let pinSelected = pin as! PinAnnotation
+            
+            if(AddSpotNewPublicationViewController.pointSelected.id! == pinSelected.id!){
+                resizePinImage(pin: pin, width: 40, height: 65,map: map)
+            }
+        }
+    }
+    
+    func resizePinImage(pin:MKAnnotation,width:Int,height:Int,map:MKMapView){
+        
+        let pinView = map.view(for: pin)
+        
+        // Cambiar imagen de tamaño
+        let pinImage = UIImage(named: "pin_full")
+        let size = CGSize(width: width, height: height) //proporcion 0.625
+        UIGraphicsBeginImageContext(size)
+        pinImage!.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
+        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+        
+        pinView?.image = resizedImage
+        pinView?.centerOffset = CGPoint(x:0, y:((pinView?.image!.size.height)! / -2));
+    }
+    
+    @IBAction func cancelPoint(_ sender: Any) {
+        AddSpotNewPublicationViewController.pointSelected = nil
+        backToDetail()
+    }
+    
+    @IBAction func acceptPoint(_ sender: Any) {
+        backToDetail()
+    }
+    
+    func backToDetail(){
+        NewPublicationViewController.pointSelected = AddSpotNewPublicationViewController.pointSelected
+        dismiss(animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSelected.isHidden = true
         map.delegate = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        AddSpotNewPublicationViewController.pointSelected = NewPublicationViewController.pointSelected
+        
+        if AddSpotNewPublicationViewController.pointSelected == nil{
+            centerMap(latitude: locationManager.location!.coordinate.latitude, longitude: locationManager.location!.coordinate.longitude)
+        }
+        
         getSpots()
+    }
+    
+    func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
+        if AddSpotNewPublicationViewController.pointSelected != nil{
+            selectPin()
+        }
     }
     
     
     @IBAction func centerMapBtn(_ sender: UIButton) {
-        centerMap()
+        centerMap(latitude: locationManager.location!.coordinate.latitude, longitude: locationManager.location!.coordinate.longitude)
     }
     
     func getSpots() {
@@ -70,6 +134,7 @@ class AddSpotNewPublicationViewController: UIViewController, CLLocationManagerDe
                     }
 
                     self.updateMap()
+                    
                 }
             //Si falla la conexión se muestra un alert.
             case .failure(let error):
@@ -82,6 +147,12 @@ class AddSpotNewPublicationViewController: UIViewController, CLLocationManagerDe
                 self.present(alert, animated: true, completion: nil)
             }
         }
+    }
+    
+    func setDetails(name: String, image: UIImage) {
+        viewSelected.isHidden = false
+        imgSelected.image = image
+        nameSelected.text = name
     }
     
     func getSpotImage(imageName: String, spot: Spot){
@@ -116,8 +187,8 @@ class AddSpotNewPublicationViewController: UIViewController, CLLocationManagerDe
     }
     
     // Centra el mapa
-    func centerMap(){
-        let coordinates = CLLocationCoordinate2D.init(latitude: locationManager.location!.coordinate.latitude, longitude: locationManager.location!.coordinate.longitude)
+    func centerMap(latitude: Double, longitude: Double){
+        let coordinates = CLLocationCoordinate2D.init(latitude: latitude, longitude: longitude)
         let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
         let region = MKCoordinateRegion(center: coordinates, span: span)
         map.setRegion(region, animated: true)
@@ -152,20 +223,23 @@ class AddSpotNewPublicationViewController: UIViewController, CLLocationManagerDe
         changeStateAnn()
         let spotSelected = searchSpot(id: annotation.id!)
         
-        let span = MKCoordinateSpan(latitudeDelta: 1, longitudeDelta: 1)
-        let region = MKCoordinateRegion(center: annotation.coordinate, span: span)
-        map.setRegion(region, animated: true)
+        centerMap(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
         
-        view.image = UIImage(named: "pin_full")
-        viewSelected.isHidden = false
-        imgSelected.image = spotSelected.image
-        nameSelected.text = annotation.title
+        acceptBtn.isEnabled = true
+        
+        resizePinImage(pin: annotation, width: 40, height: 65,map: map)
+
+        setDetails(name: spotSelected.name!, image: spotSelected.image!)
+        
+        AddSpotNewPublicationViewController.pointSelected = spotSelected
     
     }
     
     @IBAction func mapTap(_ sender: Any) {
         changeStateAnn()
+        AddSpotNewPublicationViewController.pointSelected = nil
         viewSelected.isHidden = true
+        acceptBtn.isEnabled = false
     }
     
     
