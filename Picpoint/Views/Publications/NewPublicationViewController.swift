@@ -17,7 +17,7 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
     public static var tagsId:[Tag] = [Tag]()
     public static var clase: NewPublicationViewController?
     
-    public static var spotId: Spot?
+    public static var pointSelected: Spot?
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleTextField: UITextField!
@@ -29,6 +29,10 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
     @IBOutlet weak var personalRadioBtn: UIButton!
     @IBOutlet weak var portfolioRadiobtn: UIButton!
     @IBOutlet weak var addTagsBtn: UIButton!
+    
+    @IBOutlet weak var namePoint: UILabel!
+    @IBOutlet weak var addressPoint: UILabel!
+    
     
     let utils = Utils()
     
@@ -88,6 +92,18 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
         //flowLayout?.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0)
         
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        if NewPublicationViewController.pointSelected != nil {
+            namePoint.text = NewPublicationViewController.pointSelected?.name
+            addressPoint.text = NewPublicationViewController.pointSelected?.desc
+        }
+        else {
+            namePoint.text = "Point name"
+            addressPoint.text = "Address"
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
