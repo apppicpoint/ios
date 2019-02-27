@@ -1878,16 +1878,26 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="CLB-Bc-rpC">
-                                                        <rect key="frame" x="140" y="30" width="140" height="20.5"/>
+                                                        <rect key="frame" x="140" y="0.0" width="140" height="80.5"/>
                                                         <subviews>
+                                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="624-0D-gC8">
+                                                                <rect key="frame" x="0.0" y="0.0" width="140" height="70"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="1"/>
+                                                                <state key="normal" title="Button" image="Point bubble"/>
+                                                                <connections>
+                                                                    <segue destination="L5s-qg-jUb" kind="showDetail" id="gzK-06-hbN"/>
+                                                                </connections>
+                                                            </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add point" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCj-nv-Zey">
-                                                                <rect key="frame" x="0.0" y="0.0" width="140" height="20.5"/>
+                                                                <rect key="frame" x="0.0" y="70" width="140" height="10.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
                                                         <constraints>
+                                                            <constraint firstItem="624-0D-gC8" firstAttribute="centerX" secondItem="CLB-Bc-rpC" secondAttribute="centerX" id="7Uf-ZY-nGa"/>
+                                                            <constraint firstItem="624-0D-gC8" firstAttribute="leading" secondItem="CLB-Bc-rpC" secondAttribute="leading" id="Muw-AK-KrG"/>
                                                             <constraint firstItem="NCj-nv-Zey" firstAttribute="centerX" secondItem="CLB-Bc-rpC" secondAttribute="centerX" id="gYw-20-cGa"/>
                                                             <constraint firstItem="NCj-nv-Zey" firstAttribute="leading" secondItem="CLB-Bc-rpC" secondAttribute="leading" id="hJV-pg-eEU"/>
                                                         </constraints>
