@@ -13,6 +13,7 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
     
     var spot = Spot()
     var tags:[Tag] = [Tag]()
+    var tagsHardcoded = [Tag]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,11 +27,15 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
         getUserName()
         getSpotImage(imageName: spot.imageName!)
         getTagsSpot()
+        print(spot.id!)
         
+        tagsHardcoded.append(Tag(id: 2, name: "Hola"))
         
         let flowLayout = TagCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
         
         flowLayout?.scrollDirection = .horizontal
+        
+        self.TagCollectionView.reloadData()
     }
     
     @IBAction func showInMapButton(_ sender: Any) {
@@ -44,10 +49,6 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
     
     @IBAction func goAuthorProfile(_ sender: Any) {
         
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     func getTagsSpot(){
@@ -75,11 +76,10 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
                     let tags = jsonResponse["tags"] as! [[String: Any]]
                     
                     for tag in tags{
-                        
                         self.tags.append(Tag(id: tag["id"] as! Int, name: tag["name"] as! String))
-                        
                     }
-                    print(tags.count)
+                    
+                    print("tags.count",tags.count)
                 }
                 break
                 
@@ -131,20 +131,27 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
             response in
             let jsonResponse = response.result.value as! [String:Any]
             let data = jsonResponse["user"] as! [String: Any]
-            self.author.titleLabel?.text = data["name"] as! String
+            self.author.titleLabel?.text = data["nickName"] as? String
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return tags.count
+        return tagsHardcoded.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         var cell = SpotDetailTagCollectionViewCell()
         cell = collectionView.dequeueReusableCell(withReuseIdentifier: "spotDetailTagCell", for: indexPath) as! SpotDetailTagCollectionViewCell
-        cell.SpotTagName.text = tags[indexPath.row].name
-        print(cell.SpotTagName.text)
+        
+        /*cell.SpotTagName.text = tags[indexPath.row].name
+        print("cell tag name",cell.SpotTagName.text)*/
+        
+        print(cell.SpotTagName.text!)
+        print(tagsHardcoded.count)
+        print("collectionView weeeeeee")
+        
+        cell.SpotTagName.text = tagsHardcoded[indexPath.row].name
         return cell
     }
     

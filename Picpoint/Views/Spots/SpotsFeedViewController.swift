@@ -64,8 +64,6 @@ class SpotsFeedViewController: UIViewController,  UICollectionViewDelegate, UICo
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
-    
-    
     @IBAction func centerMapBtn(_ sender: UIButton) {
         map.centerMap()
     }
@@ -81,6 +79,17 @@ class SpotsFeedViewController: UIViewController,  UICollectionViewDelegate, UICo
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return (spots.count)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("SELECTED")
+        /*let vc = self.storyboard?.instantiateViewController(withIdentifier: "SpotDetailViewController" ) as! SpotDetailViewController
+        vc.spot = spots[indexPath.row]*/
+        let sender = collectionView.cellForItem(at: indexPath)
+        performSegue(withIdentifier: "goToDetail", sender: sender)
+        //self.present(vc, animated: true, completion: nil)
+        //navigationController?.pushViewController(vc, animated: true)
+    }
+
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -243,12 +252,11 @@ class SpotsFeedViewController: UIViewController,  UICollectionViewDelegate, UICo
     
     //Prepara la clase de destino.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.destination is SpotDetailViewController {            
+        if segue.destination is SpotDetailViewController {
             let destination = segue.destination as! SpotDetailViewController
             let cell = sender as! SpotCollectionViewCell
             print(cell.id!)
             destination.spot = spots[cell.index!]
-            
             
         }
     }
