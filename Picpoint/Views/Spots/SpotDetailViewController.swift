@@ -25,7 +25,7 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
         
         getUserName()
         getSpotImage(imageName: spot.imageName!)
-        //getTagsSpot()
+        getTagsSpot()
         
         
         let flowLayout = TagCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
@@ -50,7 +50,7 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
-    /*func getTagsSpot(){
+    func getTagsSpot(){
         let url = Constants.url+"spotHasTags"
         let headers: HTTPHeaders = [
             "Content-Type":"application/x-www-form-urlencoded",
@@ -64,27 +64,41 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
         Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: headers).responseJSON {
             response in
             
-            print("spot_id: ", self.spot.id)
-            
-            self.tags = [Tag]()
-           
-            print("response.data:",response.data)
-            print("response.result.value",response.result.value)
-            
-            
-            if response.result.value == nil {
-                print("No hay tags asociados")
-            } else {
-                let jsonResponse = response.result.value as! [String: Any]
-                for _ in jsonResponse{
-                    print(jsonResponse["id"], jsonResponse["name"])
-                    self.tags.append(Tag(id: jsonResponse["id"] as! Int, name: jsonResponse["name"] as! String))
-                     print("self.tags.count: ",self.tags.count)
-                    print("********* array tags relleno ***********")
+            switch response.result {
+            case .success:
+                
+                if(response.response?.statusCode == 200){
+                    
+                    self.tags = [Tag]()
+                    print("getTags 200")
+                    let jsonResponse = response.result.value as! [String:Any]
+                    let tags = jsonResponse["tags"] as! [[String: Any]]
+                    
+                    for tag in tags{
+                        
+                        self.tags.append(Tag(id: tag["id"] as! Int, name: tag["name"] as! String))
+                        
+                    }
+                    print(tags.count)
                 }
+                break
+                
+            //Si falla la conexión se muestra un alert.
+            case .failure(let error):
+                
+                print("Sin conexión en get tags")
+                print(error)
+                let alert = UIAlertController(title: "Ups! Something was wrong.", message:
+                    "Check your connection and try it later", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "ok", style:
+                    .cancel, handler: { (accion) in}))
+                self.present(alert, animated: true, completion: nil)
+                break
+                
             }
+        
         }
-    }*/
+    }
     
     func getSpotImage(imageName: String){
         let url = Constants.url+"imgFull/"+imageName //Se le pasa el nombre de la foto, el cual lo tiene el spot.
@@ -122,25 +136,37 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return NewSpotViewController.tagsId.count
+        return tags.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        var cell = SpotTagCollectionViewCell()
-        cell = collectionView.dequeueReusableCell(withReuseIdentifier: "tagCellDetaill", for: indexPath) as! SpotTagCollectionViewCell
-        cell.TagName.text = NewSpotViewController.tagsId[indexPath.row].name!
+        var cell = SpotDetailTagCollectionViewCell()
+        cell = collectionView.dequeueReusableCell(withReuseIdentifier: "spotDetailTagCell", for: indexPath) as! SpotDetailTagCollectionViewCell
+        cell.SpotTagName.text = tags[indexPath.row].name
+        print(cell.SpotTagName.text)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let letras = NewSpotViewController.tagsId[indexPath.row].name?.count
-        
-        
+        let letras = tags[indexPath.row].name?.count
         let dimensions = CGFloat((8 * letras!) + 20)
         return CGSize(width: dimensions,height: 40)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        let totalCellWidth = 80 * collectionView.numberOfItems(inSection: 0)
+        let totalSpacingWidth = 10 * (collectionView.numberOfItems(inSection: 0) - 1)
+        
+        let leftInset = (collectionView.layer.frame.size.width - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
+        let rightInset = leftInset
+        
+        return UIEdgeInsetsMake(0, leftInset, 0, rightInset)
+        
+    }
+    
     
 }
 
