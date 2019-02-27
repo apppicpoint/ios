@@ -646,7 +646,7 @@
                                             </stackView>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ptQ-Op-XJT" userLabel="Collection View Tags" customClass="SpotsCollectionViewController" customModule="Picpoint" customModuleProvider="target">
                                                 <rect key="frame" x="23" y="475" width="274" height="57"/>
-                                                <color key="backgroundColor" red="0.96278211805555558" green="0.66145833333333337" blue="0.35679796006944442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="57" id="eeY-Fz-bVm"/>
                                                 </constraints>
@@ -1039,7 +1039,6 @@
         <!--Item-->
         <scene sceneID="FqK-tO-cu7">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="n8y-gT-lHZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="feedSpotNavigation" id="0pS-o9-Ihf" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="PHH-mc-plN"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="c5M-gl-rYS">
@@ -1053,6 +1052,7 @@
                         <segue destination="BIn-5q-fBR" kind="relationship" relationship="rootViewController" id="wHO-oh-7Dq"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n8y-gT-lHZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-5115" y="3293"/>
         </scene>

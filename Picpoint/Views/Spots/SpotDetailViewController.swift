@@ -29,7 +29,7 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
         getTagsSpot()
         print(spot.id!)
         
-        tagsHardcoded.append(Tag(id: 2, name: "Hola"))
+        //tagsHardcoded.append(Tag(id: 2, name: "Hola"))
         
         let flowLayout = TagCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
         
@@ -136,28 +136,24 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return tagsHardcoded.count
+        return spot.tags!.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         var cell = SpotDetailTagCollectionViewCell()
         cell = collectionView.dequeueReusableCell(withReuseIdentifier: "spotDetailTagCell", for: indexPath) as! SpotDetailTagCollectionViewCell
+        print("cell tag name",cell.SpotTagName.text)
+        cell.SpotTagName.text = spot.tags![indexPath.row].name
         
-        /*cell.SpotTagName.text = tags[indexPath.row].name
-        print("cell tag name",cell.SpotTagName.text)*/
         
-        print(cell.SpotTagName.text!)
-        print(tagsHardcoded.count)
-        print("collectionView weeeeeee")
-        
-        cell.SpotTagName.text = tagsHardcoded[indexPath.row].name
         return cell
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let letras = tags[indexPath.row].name?.count
+        let letras = spot.tags![indexPath.row].name?.count
         let dimensions = CGFloat((8 * letras!) + 20)
         return CGSize(width: dimensions,height: 40)
     }

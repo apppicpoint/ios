@@ -61,7 +61,9 @@ class AddSpotNewPublicationViewController: UIViewController, CLLocationManagerDe
                                         latitude: dataItem["latitude"] as! Double,
                                         user_id: dataItem["user_id"] as! Int,
                                         distance: 0,
-                                        imageName: dataItem["image"] as! String
+                                        imageName: dataItem["image"] as! String,
+                                        tags: dataItem["tags"] as? [Tag]
+
                         )
                         self.spots.append(spot) //Por cada objeto en el json se añade un spot al array.
                         self.getSpotImage(imageName: spot.imageName!, spot: spot)

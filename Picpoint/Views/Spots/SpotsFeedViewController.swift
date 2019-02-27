@@ -197,6 +197,16 @@ class SpotsFeedViewController: UIViewController,  UICollectionViewDelegate, UICo
                     let data = jsonResponse["spots"] as! [[String: Any]]
                     for dataItem in data {
                         let distance = dataItem["distance_user"] as! Double
+                        
+                        let dataTag = dataItem["tags"] as! [[String:Any]]
+                        
+                        var tags = [Tag]()
+                        for dataTagItem in dataTag {
+                            let tag = Tag(id: dataTagItem["id"] as! Int, name: dataTagItem["name"] as! String)
+                            tags.append(tag)
+                        }
+                        
+                        
                         let spot = Spot(id: dataItem["id"] as! Int,
                                         name: dataItem["name"] as! String,
                                         desc: dataItem["description"] as? String,
@@ -204,8 +214,11 @@ class SpotsFeedViewController: UIViewController,  UICollectionViewDelegate, UICo
                                         latitude: dataItem["latitude"] as! Double,
                                         user_id: dataItem["user_id"] as! Int,
                                         distance: Float(round(10*distance)/10),
-                                        imageName: dataItem["image"] as! String
+                                        imageName: dataItem["image"] as? String,
+                                        tags: tags
                                         )
+                        //print("*** tags ", spot.tags!.count)
+                        print("*** spot ", spot.tags?.count)
                         self.spots.append(spot) //Por cada objeto en el json se añade un spot al array.
                         self.getSpotImage(imageName: spot.imageName!, spot: spot)
                         

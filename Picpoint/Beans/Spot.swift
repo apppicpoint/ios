@@ -19,11 +19,13 @@ class Spot {
     var user_id: Int?
     var image: UIImage?
     var imageName: String?
+    var tags: [Tag]?
     
     init() {
         
     }
-    init(id: Int, name: String, desc: String?, longitude:Double, latitude:Double, user_id:Int, distance: Float?, imageName: String?) {
+    
+    init(id: Int, name: String, desc: String?, longitude:Double, latitude:Double, user_id:Int, distance: Float?, imageName: String?, tags: [Tag]?) {
         self.id = id
         self.name = name
         self.desc = desc
@@ -32,5 +34,7 @@ class Spot {
         self.user_id = user_id
         self.distance = distance
         self.imageName = imageName
+        self.tags = tags
+        
     }
 }

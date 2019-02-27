@@ -223,7 +223,9 @@ class MapNewSpotViewController: UIViewController, CLLocationManagerDelegate, MKM
                                         latitude: dataItem["latitude"] as! Double,
                                         user_id: dataItem["user_id"] as! Int,
                                         distance: dataItem["distance_user"] as? Float,
-                                        imageName: dataItem["image"] as? String)
+                                        imageName: dataItem["image"] as? String,
+                                        tags: dataItem["tags"] as? [Tag]
+)
                         self.spots.append(spot) //Por cada objeto en el json se añade una ubicación al array.
                         
                     }

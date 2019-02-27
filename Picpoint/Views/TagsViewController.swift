@@ -76,7 +76,7 @@ class TagsViewController: UIViewController , UICollectionViewDelegate , UICollec
 
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(tags.count , "numero detags que hay")
+        print(tags.count , "numero de tags que hay")
         return tags.count
     }
     
