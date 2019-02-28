@@ -1733,7 +1733,7 @@
                                                         <connections>
                                                             <action selector="tagsBtn:" destination="54s-FN-6no" eventType="touchUpInside" id="6Q7-FM-AbO"/>
                                                         </connections>
-                                                    </button>
+                                                    </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
