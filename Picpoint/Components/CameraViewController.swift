@@ -36,16 +36,15 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
     
     func showAlert() {
         
-        let alert = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Select an option", message: "Select an option", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: {(action: UIAlertAction) in
             self.getImage(fromSourceType: .camera)
         }))
         alert.addAction(UIAlertAction(title: "Gallery", style: .default, handler: {(action: UIAlertAction) in
             self.getImage(fromSourceType: .savedPhotosAlbum)
         }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: {(action: UIAlertAction) in
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {(action: UIAlertAction) in
             //self.dismiss(animated: true, completion: nil)
-            
         }))
         self.present(alert, animated: true, completion: nil)
     }
