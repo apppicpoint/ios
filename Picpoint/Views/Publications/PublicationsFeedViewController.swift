@@ -19,11 +19,12 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         table.delegate = self
+        getPublications()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        getPublications()
+        
     }
     
     func getPublications(){
@@ -171,7 +172,7 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
     
     func tableView(_ tableView: UITableView,
                             heightForRowAt indexPath: IndexPath) -> CGFloat{
-        return 398
+        return 465
     }
     
     //Generación de cada celda
