@@ -51,8 +51,7 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
                                                       tags: dataItem["tags"] as! [Tag]
                         )
                         
-                        //print("*** tags ", spot.tags!.count)
-                        self.publications.append(publication) //Por cada objeto en el json se añade un spot al array.
+                         //Por cada objeto en el json se añade un spot al array.
                         self.getPointImage(imageName: publication.imageName!, publication: publication)
                         self.getUserData(publication: publication, user_id: publication.user_id!)
                         
@@ -63,6 +62,8 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
                         else {
                             publication.spot_id = nil
                         }
+                        
+                        self.publications.append(publication)
                     }
 
                     
@@ -143,7 +144,7 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
                 let jsonResponse = response.result.value as! [String:Any]
                 let data = jsonResponse["spot"] as! [String: Any]
                 publication.spotName = data["name"] as! String
-                
+                print(publication.spotName)
             case .failure(let error):
                 print(error,"error spot")
                 let alert = UIAlertController(title: "Ups! Something was wrong.", message:
@@ -184,12 +185,10 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
         cell.publicationImage.image = publications[indexPath.row].image
         cell.descriptionPub.text = publications[indexPath.row].description
         cell.userName.text = publications[indexPath.row].userName
+        cell.userImage.image = UIImage(named: "circle_point")
         
         if publications[indexPath.row].spot_id != nil {
             cell.pointName.titleLabel?.text = publications[indexPath.row].spotName
-        }
-        else {
-            cell.pointName.isHidden = true
         }
         
         return cell

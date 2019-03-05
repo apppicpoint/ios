@@ -143,9 +143,10 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
         
         
         let parameters: Parameters = [
-            "name":titleTextField.text ?? "",
+            "description":titleTextField.text ?? "",
             "media":imageName!,
-            "tag_id": sendid
+            "tag_id": sendid,
+            "spot_id": NewPublicationViewController.pointSelected?.id ?? nil
         ]
         let url = Constants.url+"publications"
         let _headers : HTTPHeaders = [
