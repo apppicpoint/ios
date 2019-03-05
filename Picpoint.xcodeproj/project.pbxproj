@@ -38,6 +38,7 @@
 		7F27ACD02214101F00146B57 /* SpotsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F27ACCF2214101F00146B57 /* SpotsCollectionViewController.swift */; };
 		7F327EE9222558CA00ABD796 /* AddSpotNewPublicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F327EE8222558CA00ABD796 /* AddSpotNewPublicationViewController.swift */; };
 		7F912FA6222597F900F116AB /* SpotDetailTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F912FA5222597F900F116AB /* SpotDetailTagCollectionViewCell.swift */; };
+		7FB4A0A3222E8A71000B2EFD /* SpotCommentsCollectionViewController.swift in Resources */ = {isa = PBXBuildFile; fileRef = 7F144049222E7A2E00E32B60 /* SpotCommentsCollectionViewController.swift */; };
 		7FD34B57221EF2DD00268775 /* SpotTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD34B56221EF2DD00268775 /* SpotTagCollectionViewCell.swift */; };
 		7FD4FD80222E6D3B0041420C /* Publication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4FD7F222E6D3B0041420C /* Publication.swift */; };
 		7FE602B1221C33960032A2D1 /* TagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE602B0221C33960032A2D1 /* TagsViewController.swift */; };
@@ -204,6 +205,14 @@
 			path = Spots;
 			sourceTree = "<group>";
 		};
+		7FB4A0A2222E89BE000B2EFD /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				7FD4FD7F222E6D3B0041420C /* Publication.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		7FE602AF221C33690032A2D1 /* Tags */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,6 +237,7 @@
 				D2C2EAB121EC7D1500D547BD /* Products */,
 				544DCEB6A3EE3ECEFB8A9F55 /* Pods */,
 				C56A70AE010E6CD43AD7729B /* Frameworks */,
+				7FB4A0A2222E89BE000B2EFD /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -314,6 +324,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FB4A0A3222E8A71000B2EFD /* SpotCommentsCollectionViewController.swift in Resources */,
 				D2C2EABB21EC7D1600D547BD /* Assets.xcassets in Resources */,
 				D2C2EAB921EC7D1500D547BD /* Main.storyboard in Resources */,
 			);
