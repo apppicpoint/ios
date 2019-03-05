@@ -2315,9 +2315,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="307"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="P1F-hm-VqG">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="299"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="P1F-hm-VqG">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="307"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5DV-r8-YVo">
                                     <size key="itemSize" width="110" height="110"/>
@@ -2350,6 +2349,12 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.48603572169490017" blue="0.14088429784327983" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="P1F-hm-VqG" firstAttribute="leading" secondItem="0hk-WE-bRe" secondAttribute="leading" id="DwL-jt-qNA"/>
+                            <constraint firstItem="P1F-hm-VqG" firstAttribute="top" secondItem="0hk-WE-bRe" secondAttribute="top" id="SLV-Rs-roA"/>
+                            <constraint firstItem="P1F-hm-VqG" firstAttribute="trailing" secondItem="0hk-WE-bRe" secondAttribute="trailing" id="dJo-nQ-uQi"/>
+                            <constraint firstItem="0hk-WE-bRe" firstAttribute="bottom" secondItem="P1F-hm-VqG" secondAttribute="bottom" id="r6R-SV-VML"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="0hk-WE-bRe"/>
                     </view>
                 </viewController>

@@ -13,6 +13,7 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
     
     @IBOutlet weak var commentsView: UIView!
     @IBOutlet weak var picsView: UIView!
+    
     var spot = Spot()
     var tags:[Tag] = [Tag]()
     

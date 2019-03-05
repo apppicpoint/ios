@@ -14,11 +14,15 @@ class SpotCommentsCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("ViewDIdLoad")
         // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "commentCell")
         
         comments.append(Comment(id: 5, text: "Que chuloooo", user_id: 2,comment_id: 2, spot_id: 6, userImage: #imageLiteral(resourceName: "mari"), userName: "Mari"))
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("ViewWillAppear")
     }
     
     
@@ -35,7 +39,7 @@ class SpotCommentsCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! SpotCommentsCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "commentCell", for: indexPath) as! SpotCommentsCollectionViewCell
         cell.comment.text = comments[indexPath.row].text
         cell.userName.text = comments[indexPath.row].userName
         cell.imageUser.image = comments[indexPath.row].userImage
