@@ -16,6 +16,8 @@ class PublicationTableViewCell: UITableViewCell {
     @IBOutlet weak var pointName: UIButton!
     @IBOutlet weak var descriptionPub: UILabel!
     
+    @IBOutlet weak var likeBtn: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -26,5 +28,5 @@ class PublicationTableViewCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
-    
+
 }

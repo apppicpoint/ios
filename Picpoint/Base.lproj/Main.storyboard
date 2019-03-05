@@ -259,9 +259,10 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ru-DB-2NF">
                                                     <rect key="frame" x="249" y="363" width="56" height="30"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="56" id="46o-bW-zQf"/>
+                                                        <constraint firstAttribute="height" constant="30" id="FTA-TG-A0V"/>
+                                                        <constraint firstAttribute="width" constant="30" id="xFE-PG-n8q"/>
                                                     </constraints>
-                                                    <state key="normal" title="corazon"/>
+                                                    <state key="normal" title="corazon" image="heartfalse"/>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trabajito to guapi" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="onx-FJ-GkT">
                                                     <rect key="frame" x="15" y="399" width="290" height="16"/>
@@ -294,6 +295,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="descriptionPub" destination="onx-FJ-GkT" id="mO0-PX-U1j"/>
+                                            <outlet property="likeBtn" destination="3Ru-DB-2NF" id="nLq-vv-A9L"/>
                                             <outlet property="pointName" destination="vdf-ss-WD0" id="lFc-CH-URz"/>
                                             <outlet property="publicationImage" destination="GpY-fX-sJu" id="aPO-ku-iAZ"/>
                                             <outlet property="userImage" destination="FX7-55-uw1" id="x4L-Ra-8vS"/>
@@ -2535,6 +2537,7 @@
         <image name="feed_inactive" width="23" height="18"/>
         <image name="google maps" width="48" height="48"/>
         <image name="gps_button" width="39" height="39"/>
+        <image name="heartfalse" width="30" height="30"/>
         <image name="no-image" width="592" height="444"/>
         <image name="noLogged" width="283" height="351"/>
         <image name="points_active" width="15" height="24"/>

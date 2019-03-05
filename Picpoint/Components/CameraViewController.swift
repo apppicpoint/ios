@@ -82,7 +82,6 @@ class CameraViewController: UIViewController, UINavigationControllerDelegate, UI
             
             print(imageName! , "en prepare clase CameraViewController")
             print(image! , "en prepare clase CameraViewController")
-            print(new!)
             
             destination.imageName = imageName
             destination.image = self.image!
