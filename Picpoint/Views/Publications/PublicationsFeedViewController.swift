@@ -55,15 +55,13 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
                         self.getPointImage(imageName: publication.imageName!, publication: publication)
                         self.getUserData(publication: publication, user_id: publication.user_id!)
                         
-                        print(dataItem["spot_id"])
-
-//                        if dataItem["spot_id"] != nil{
-//                            publication.spot_id = dataItem["spot_id"] as? Int
-//                            self.getSpotData(publication: publication, spot_id: publication.spot_id!)
-//                        }
-//                        else {
-//                            publication.spot_id = nil
-//                        }
+                        if let spot_id = dataItem["spot_id"] as? Int{
+                            publication.spot_id = spot_id
+                            self.getSpotData(publication: publication, spot_id: publication.spot_id!)
+                        }
+                        else {
+                            publication.spot_id = nil
+                        }
                     }
 
                     
@@ -130,7 +128,7 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
     }
     
     func getSpotData(publication: Publication, spot_id: Int){
-        let url = Constants.url+"spot/"+String(spot_id)
+        let url = Constants.url+"spots/"+String(spot_id)
         let _headers : HTTPHeaders = [
             "Content-Type":"application/x-www-form-urlencoded",
             "Authorization":UserDefaults.standard.string(forKey: "token")!
@@ -188,6 +186,9 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
         
         if publications[indexPath.row].spot_id != nil {
             cell.pointName.titleLabel?.text = publications[indexPath.row].spotName
+        }
+        else {
+            cell.pointName.isHidden = true
         }
         
         return cell

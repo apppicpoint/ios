@@ -199,7 +199,7 @@
 			path = Spots;
 			sourceTree = "<group>";
 		};
-		7FB4A0A2222E89BE000B2EFD /* Recovered References */ = {
+		7F4805FA222E8C6700095610 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -230,7 +230,7 @@
 				D2C2EAB121EC7D1500D547BD /* Products */,
 				544DCEB6A3EE3ECEFB8A9F55 /* Pods */,
 				C56A70AE010E6CD43AD7729B /* Frameworks */,
-				7FB4A0A2222E89BE000B2EFD /* Recovered References */,
+				7F4805FA222E8C6700095610 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
