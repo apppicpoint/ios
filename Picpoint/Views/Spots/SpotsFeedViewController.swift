@@ -22,6 +22,7 @@ class SpotsFeedViewController: UIViewController,  UICollectionViewDelegate, UICo
     var currentLatitude: Double?
     let locationManager = CLLocationManager()
     
+    @IBOutlet weak var changeMap: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +65,9 @@ class SpotsFeedViewController: UIViewController,  UICollectionViewDelegate, UICo
             compassButton.trailingAnchor.constraint(equalTo: map.trailingAnchor, constant: -12).isActive = true
             compassButton.topAnchor.constraint(equalTo: map.topAnchor, constant: 12).isActive = true
         }
+        
+        changeMap.setImage(UIImage.init(imageLiteralResourceName: "mapa"), forSegmentAt: 0)
+        changeMap.setImage(UIImage.init(imageLiteralResourceName: "satelite"), forSegmentAt: 1)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,7 +80,16 @@ class SpotsFeedViewController: UIViewController,  UICollectionViewDelegate, UICo
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
-    
+    @IBAction func changeMap(_ sender: UISegmentedControl) {
+        
+        if(sender.selectedSegmentIndex == 0) {
+            
+            self.map.mapType = MKMapType.standard
+        }else {
+            
+            self.map.mapType = MKMapType.satellite
+        }
+    }
     
     @IBAction func centerMapBtn(_ sender: UIButton) {
         map.centerMap()
