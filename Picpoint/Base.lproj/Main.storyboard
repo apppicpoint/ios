@@ -1070,6 +1070,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="changeMap" destination="cU9-h1-XsZ" id="iZs-R7-hKA"/>
                         <outlet property="map" destination="6sp-Zb-OUg" id="kwb-rB-I2h"/>
                         <outlet property="searchDisplayController" destination="dds-h4-key" id="4dK-Lc-97F"/>
                         <segue destination="DNp-1N-RFl" kind="show" identifier="camera" id="Wpa-CT-FGJ"/>

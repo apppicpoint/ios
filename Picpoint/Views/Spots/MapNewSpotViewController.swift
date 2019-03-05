@@ -21,7 +21,8 @@ class MapNewSpotViewController: UIViewController, CLLocationManagerDelegate, MKM
     var currentLatitude: Double?
     var spotNear: Bool?
     @IBOutlet weak var map: MKMapView!
-
+    @IBOutlet weak var changeMap: UISegmentedControl!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,32 @@ class MapNewSpotViewController: UIViewController, CLLocationManagerDelegate, MKM
             getSpots()
             map.tintColor = UIColor.init(red: 15, green: 188, blue: 249, alpha: 1)
         }
+        
+        changeMap.setImage(UIImage.init(imageLiteralResourceName: "mapa"), forSegmentAt: 0)
+        changeMap.setImage(UIImage.init(imageLiteralResourceName: "satelite"), forSegmentAt: 1)
+        goVertical()
+    }
+    
+    func goVertical() {
+        
+        /*changeMap.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI_2))
+        for segment in changeMap.subviews {
+            for segmentSubview in segment.subviews {
+                if segmentSubview is UILabel {
+                    (segmentSubview as! UILabel).transform = CGAffineTransform(rotationAngle: CGFloat(-M_PI_2))
+                }
+            }
+        }
+        
+        changeMap.translatesAutoresizingMaskIntoConstraints = false
+        //let horizontalConstraint = NSLayoutConstraint(item: changeMap, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1, constant: 0)
+        //let verticalConstraint = NSLayoutConstraint(item: changeMap, attribute: .centerY, relatedBy: .equal, toItem: self.view, attribute: .centerY, multiplier: 1, constant: 0)
+        
+        changeMap.centerXAnchor.constraint(equalTo: self.map.leftAnchor).isActive = true
+        changeMap.centerYAnchor.constraint(equalTo: self.map.centerYAnchor).isActive = true
+        //let widthConstraint = NSLayoutConstraint(item: changeMap, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 100)
+        //let heightConstraint = NSLayoutConstraint(item: changeMap, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 100)
+        //NSLayoutConstraint.activate([horizontalConstraint, verticalConstraint])*/
     }
     
     @IBAction func changeMap(_ sender: UISegmentedControl) {
