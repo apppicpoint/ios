@@ -18,6 +18,7 @@ class Publication {
     var spot_id:Int?
     var tags:[Tag]?
     var userName:String?
+    var userImage:UIImage?
     var spotName:String?
     
     init(id: Int, description: String, imageName: String, user_id: Int, tags:[Tag]) {
