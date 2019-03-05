@@ -16,16 +16,16 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
     var publications = [Publication]()
     @IBOutlet weak var table: UITableView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         table.delegate = self
-        getPublications()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        getPublications()
     }
+    
     
     func getPublications(){
         publications = [Publication]()
@@ -144,7 +144,6 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
                 let jsonResponse = response.result.value as! [String:Any]
                 let data = jsonResponse["spot"] as! [String: Any]
                 publication.spotName = data["name"] as! String
-                print(publication.spotName)
             case .failure(let error):
                 print(error,"error spot")
                 let alert = UIAlertController(title: "Ups! Something was wrong.", message:

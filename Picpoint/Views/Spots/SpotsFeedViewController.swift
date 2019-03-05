@@ -66,8 +66,8 @@ class SpotsFeedViewController: UIViewController,  UICollectionViewDelegate, UICo
             compassButton.topAnchor.constraint(equalTo: map.topAnchor, constant: 12).isActive = true
         }
         
-        changeMap.setImage(UIImage.init(imageLiteralResourceName: "mapa"), forSegmentAt: 0)
-        changeMap.setImage(UIImage.init(imageLiteralResourceName: "satelite"), forSegmentAt: 1)
+//        changeMap.setImage(UIImage.init(imageLiteralResourceName: "mapa"), forSegmentAt: 0)
+//        changeMap.setImage(UIImage.init(imageLiteralResourceName: "satelite"), forSegmentAt: 1)
     }
     
     override func viewWillAppear(_ animated: Bool) {
