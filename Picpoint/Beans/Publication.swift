@@ -21,12 +21,11 @@ class Publication {
     var userName:String?
     var spotName:String?
     
-    init(id: Int, description: String, imageName: String, user_id: Int, spot_id: Int, tags:[Tag]) {
+    init(id: Int, description: String, imageName: String, user_id: Int, tags:[Tag]) {
         self.id = id
         self.description = description
         self.imageName = imageName
         self.user_id = user_id
-        self.spot_id = spot_id
         self.tags = tags
     }
 }

@@ -19,11 +19,11 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         table.delegate = self
-        getPublications()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        getPublications()
     }
     
     func getPublications(){
@@ -47,24 +47,27 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
                                                       description: dataItem["description"] as! String,
                                                       imageName: dataItem["media"] as! String,
                                                       user_id: dataItem["user_id"] as! Int,
-                                                      spot_id: dataItem["spot_id"] as! Int,
                                                       tags: dataItem["tags"] as! [Tag]
                         )
                         
+                        //print("*** tags ", spot.tags!.count)
                         self.publications.append(publication) //Por cada objeto en el json se añade un spot al array.
-                        print(self.publications, " *** ", self.publications.count)
-//                        self.getPointImage(imageName: publication.imageName!, publication: publication)
-//                        self.getUserData(publication: publication, user_id: publication.user_id!)
+                        self.getPointImage(imageName: publication.imageName!, publication: publication)
+                        self.getUserData(publication: publication, user_id: publication.user_id!)
                         
-//                        if publication.spot_id != nil{
+                        print(dataItem["spot_id"])
+
+//                        if dataItem["spot_id"] != nil{
+//                            publication.spot_id = dataItem["spot_id"] as? Int
 //                            self.getSpotData(publication: publication, spot_id: publication.spot_id!)
 //                        }
-                        
-                        
+//                        else {
+//                            publication.spot_id = nil
+//                        }
                     }
-                   
-                    self.table.reloadData()
+
                     
+                    self.table.reloadData()
                 }
                 
             case .failure(let error):
@@ -99,7 +102,6 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
     }
     
     func getUserData(publication: Publication, user_id: Int){
-        publications = [Publication]()
         let url = Constants.url+"users/"+String(user_id)
         let _headers : HTTPHeaders = [
             "Content-Type":"application/x-www-form-urlencoded",
@@ -128,7 +130,6 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
     }
     
     func getSpotData(publication: Publication, spot_id: Int){
-        publications = [Publication]()
         let url = Constants.url+"spot/"+String(spot_id)
         let _headers : HTTPHeaders = [
             "Content-Type":"application/x-www-form-urlencoded",
@@ -183,6 +184,11 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
         
         cell.publicationImage.image = publications[indexPath.row].image
         cell.descriptionPub.text = publications[indexPath.row].description
+        cell.userName.text = publications[indexPath.row].userName
+        
+        if publications[indexPath.row].spot_id != nil {
+            cell.pointName.titleLabel?.text = publications[indexPath.row].spotName
+        }
         
         return cell
     }
