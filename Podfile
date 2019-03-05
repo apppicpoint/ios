@@ -9,7 +9,7 @@ use_frameworks!
 use_frameworks!
 pod 'Alamofire', '~> 4.5'
 pod 'AlamofireImage', '~> 3.5'
-pod ’SJSegmentedScrollView’, ‘1.3.8'
+pod 'SJSegmentedScrollView', '~> 1.4'
 
 end
 
