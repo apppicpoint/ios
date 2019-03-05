@@ -11,6 +11,8 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
     @IBOutlet weak var createdBy: UILabel!
     @IBOutlet weak var TagCollectionView: UICollectionView!
     
+    @IBOutlet weak var commentsView: UIView!
+    @IBOutlet weak var picsView: UIView!
     var spot = Spot()
     var tags:[Tag] = [Tag]()
     
@@ -167,6 +169,16 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
         
     }
     
+    @IBAction func segmentedControl(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            commentsView.alpha = 1
+            picsView.alpha = 0
+        } else {
+            commentsView.alpha = 0
+            picsView.alpha = 1
+        }
+        
+    }
     
 }
 

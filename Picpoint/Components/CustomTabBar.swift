@@ -10,7 +10,7 @@ import UIKit
 
 class CustomTabBarController:  UITabBarController, UITabBarControllerDelegate {
     
-    var spotsFeedViewController: SpotsFeedViewController!
+    var spotsFeedViewController: UINavigationController!
     var searchViewController: SearchViewController!
     var customAlert: CustomAlertViewController!
     var publicationsFeedViewController: PublicationsFeedViewController!
@@ -38,7 +38,7 @@ class CustomTabBarController:  UITabBarController, UITabBarControllerDelegate {
         }       
         
         //Se hace referencia a todas las vistas del tabbar.
-        spotsFeedViewController = storyboard?.instantiateViewController(withIdentifier: "spotsFeed") as?SpotsFeedViewController
+        spotsFeedViewController = storyboard?.instantiateViewController(withIdentifier: "feedSpotNavigation") as? UINavigationController
         searchViewController = storyboard?.instantiateViewController(withIdentifier: "search") as?SearchViewController
         customAlert = storyboard?.instantiateViewController(withIdentifier: "customAlert") as?CustomAlertViewController
         publicationsFeedViewController = storyboard?.instantiateViewController(withIdentifier: "publicationsFeed") as?PublicationsFeedViewController
