@@ -171,11 +171,11 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
     
     @IBAction func segmentedControl(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
-            commentsView.alpha = 0
-            picsView.alpha = 1
-        } else {
             commentsView.alpha = 1
             picsView.alpha = 0
+        } else {
+            commentsView.alpha = 0
+            picsView.alpha = 1
         }
         
     }
