@@ -39,7 +39,21 @@ class MapNewSpotViewController: UIViewController, CLLocationManagerDelegate, MKM
             // Do any additional setup after loading the view.
             getSpots()
             map.tintColor = UIColor.init(red: 15, green: 188, blue: 249, alpha: 1)
+            
+            map.showsCompass = false  // Hide built-in compass
+            
+            let compassButton = MKCompassButton(mapView: map)   // Make a new compass
+            compassButton.compassVisibility = .visible          // Make it visible
+            
+            map.addSubview(compassButton) // Add it to the view
+            
+            // Position it as required
+            
+            compassButton.translatesAutoresizingMaskIntoConstraints = false
+            compassButton.trailingAnchor.constraint(equalTo: map.trailingAnchor, constant: -12).isActive = true
+            compassButton.topAnchor.constraint(equalTo: map.topAnchor, constant: 12).isActive = true
         }
+
         
         changeMap.setImage(UIImage.init(imageLiteralResourceName: "mapa"), forSegmentAt: 0)
         changeMap.setImage(UIImage.init(imageLiteralResourceName: "satelite"), forSegmentAt: 1)
