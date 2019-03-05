@@ -36,6 +36,7 @@
 		7F14404C222E83C500E32B60 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14404B222E83C500E32B60 /* Comment.swift */; };
 		7F27ACD02214101F00146B57 /* SpotsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F27ACCF2214101F00146B57 /* SpotsCollectionViewController.swift */; };
 		7F327EE9222558CA00ABD796 /* AddSpotNewPublicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F327EE8222558CA00ABD796 /* AddSpotNewPublicationViewController.swift */; };
+		7F3CB8B4222E908200006A58 /* Publication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3CB8B3222E908200006A58 /* Publication.swift */; };
 		7F912FA6222597F900F116AB /* SpotDetailTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F912FA5222597F900F116AB /* SpotDetailTagCollectionViewCell.swift */; };
 		7FD34B57221EF2DD00268775 /* SpotTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD34B56221EF2DD00268775 /* SpotTagCollectionViewCell.swift */; };
 		7FE602B1221C33960032A2D1 /* TagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE602B0221C33960032A2D1 /* TagsViewController.swift */; };
@@ -81,6 +82,7 @@
 		7F14404B222E83C500E32B60 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		7F27ACCF2214101F00146B57 /* SpotsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotsCollectionViewController.swift; sourceTree = "<group>"; };
 		7F327EE8222558CA00ABD796 /* AddSpotNewPublicationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSpotNewPublicationViewController.swift; sourceTree = "<group>"; };
+		7F3CB8B3222E908200006A58 /* Publication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publication.swift; sourceTree = "<group>"; };
 		7F912FA5222597F900F116AB /* SpotDetailTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetailTagCollectionViewCell.swift; sourceTree = "<group>"; };
 		7FD34B56221EF2DD00268775 /* SpotTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotTagCollectionViewCell.swift; sourceTree = "<group>"; };
 		7FE602B0221C33960032A2D1 /* TagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				639EFB8D22045ED4005AC6A1 /* Spot.swift */,
 				7FE602B4221C56510032A2D1 /* Tag.swift */,
 				7F14404B222E83C500E32B60 /* Comment.swift */,
+				7F3CB8B3222E908200006A58 /* Publication.swift */,
 			);
 			path = Beans;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				639EFB732200CD38005AC6A1 /* CustomTabBar.swift in Sources */,
 				639EFB8E22045ED4005AC6A1 /* Spot.swift in Sources */,
 				639EFB752200CDA4005AC6A1 /* SpotsFeedViewController.swift in Sources */,
+				7F3CB8B4222E908200006A58 /* Publication.swift in Sources */,
 				639EFB7D2200CE3A005AC6A1 /* NewSpotViewController.swift in Sources */,
 				7F912FA6222597F900F116AB /* SpotDetailTagCollectionViewCell.swift in Sources */,
 				639EFB7F2200CF96005AC6A1 /* SearchViewController.swift in Sources */,
