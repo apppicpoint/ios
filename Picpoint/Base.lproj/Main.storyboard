@@ -1003,10 +1003,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6sp-Zb-OUg">
-                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <rect key="frame" x="0.0" y="120" width="414" height="616"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aaw-dQ-OLQ">
-                                <rect key="frame" x="370" y="140" width="24" height="24"/>
+                                <rect key="frame" x="378" y="182" width="24" height="24"/>
                                 <state key="normal" image="center_map"/>
                                 <connections>
                                     <action selector="centerMapBtn:" destination="T0F-7n-y2V" eventType="touchUpInside" id="Bkg-XI-OaY"/>
@@ -1049,18 +1049,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="6sp-Zb-OUg" firstAttribute="leading" secondItem="VLt-6g-Jb1" secondAttribute="leading" id="0OB-Ng-gme"/>
                             <constraint firstItem="VLt-6g-Jb1" firstAttribute="bottom" secondItem="U64-vD-JRi" secondAttribute="bottom" constant="20" id="7re-Xg-aYQ"/>
                             <constraint firstItem="cU9-h1-XsZ" firstAttribute="top" secondItem="Fnu-Fa-f7Y" secondAttribute="bottom" constant="20" id="8ow-x9-oIy"/>
-                            <constraint firstItem="6sp-Zb-OUg" firstAttribute="bottom" secondItem="VLt-6g-Jb1" secondAttribute="bottom" id="8sg-BB-Rfa"/>
                             <constraint firstItem="VLt-6g-Jb1" firstAttribute="trailing" secondItem="U64-vD-JRi" secondAttribute="trailing" constant="50" id="DVk-PS-xLQ"/>
                             <constraint firstItem="Fnu-Fa-f7Y" firstAttribute="leading" secondItem="VLt-6g-Jb1" secondAttribute="leading" id="LDe-cc-YeR"/>
+                            <constraint firstItem="6sp-Zb-OUg" firstAttribute="leading" secondItem="VLt-6g-Jb1" secondAttribute="leading" id="NsZ-Eh-FWy"/>
                             <constraint firstItem="Fnu-Fa-f7Y" firstAttribute="top" secondItem="VLt-6g-Jb1" secondAttribute="top" id="Puj-uf-M9G"/>
-                            <constraint firstItem="Aaw-dQ-OLQ" firstAttribute="top" secondItem="Fnu-Fa-f7Y" secondAttribute="bottom" constant="20" id="Tw2-97-Wd3"/>
-                            <constraint firstItem="6sp-Zb-OUg" firstAttribute="trailing" secondItem="VLt-6g-Jb1" secondAttribute="trailing" id="cgs-x7-3y6"/>
+                            <constraint firstItem="6sp-Zb-OUg" firstAttribute="trailing" secondItem="VLt-6g-Jb1" secondAttribute="trailing" id="RAb-fr-oCw"/>
+                            <constraint firstItem="6sp-Zb-OUg" firstAttribute="bottom" secondItem="VLt-6g-Jb1" secondAttribute="bottom" id="Tfi-fJ-Y4C"/>
                             <constraint firstItem="U64-vD-JRi" firstAttribute="leading" secondItem="VLt-6g-Jb1" secondAttribute="leading" constant="50" id="hlf-3T-Qnr"/>
-                            <constraint firstItem="6sp-Zb-OUg" firstAttribute="top" secondItem="VLt-6g-Jb1" secondAttribute="top" id="nNI-dd-rXE"/>
-                            <constraint firstItem="VLt-6g-Jb1" firstAttribute="trailing" secondItem="Aaw-dQ-OLQ" secondAttribute="trailing" constant="20" id="nkV-BG-BaA"/>
+                            <constraint firstItem="Aaw-dQ-OLQ" firstAttribute="top" secondItem="Fnu-Fa-f7Y" secondAttribute="bottom" constant="62" id="hvX-Vv-v0M"/>
+                            <constraint firstItem="6sp-Zb-OUg" firstAttribute="top" secondItem="Fnu-Fa-f7Y" secondAttribute="bottom" id="ney-xq-kc4"/>
+                            <constraint firstItem="VLt-6g-Jb1" firstAttribute="trailing" secondItem="Aaw-dQ-OLQ" secondAttribute="trailing" constant="12" id="oGQ-n7-i7y"/>
                             <constraint firstItem="cU9-h1-XsZ" firstAttribute="leading" secondItem="VLt-6g-Jb1" secondAttribute="leading" constant="20" id="qoJ-kA-rCl"/>
                             <constraint firstItem="Fnu-Fa-f7Y" firstAttribute="trailing" secondItem="VLt-6g-Jb1" secondAttribute="trailing" id="zfz-MU-kUJ"/>
                         </constraints>
@@ -1097,7 +1097,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="832.5" y="3142.605633802817"/>
+            <point key="canvasLocation" x="831.88405797101461" y="3141.847826086957"/>
         </scene>
         <!--Profile-->
         <scene sceneID="3FV-kD-dac">
@@ -1238,33 +1238,47 @@
                                 </cells>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lcV-1A-SQG">
-                                <rect key="frame" x="385" y="170" width="24" height="24"/>
+                                <rect key="frame" x="378" y="182" width="24" height="24"/>
                                 <state key="normal" image="center_map"/>
                                 <connections>
                                     <action selector="centerMapBtn:" destination="BIn-5q-fBR" eventType="touchUpInside" id="Rto-7K-khs"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="HKK-HV-exR">
+                                <rect key="frame" x="12" y="132" width="121" height="29"/>
+                                <color key="backgroundColor" red="0.95675891639999999" green="0.95692259069999996" blue="0.95674854519999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changeMap:" destination="BIn-5q-fBR" eventType="valueChanged" id="zrf-Mq-9iw"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="zdz-LV-LeX" firstAttribute="trailing" secondItem="qLl-5t-oDF" secondAttribute="trailing" id="8l9-gE-Zny"/>
-                            <constraint firstItem="lcV-1A-SQG" firstAttribute="top" secondItem="7Ko-A9-Ghe" secondAttribute="bottom" constant="50" id="C1s-ua-5KY"/>
                             <constraint firstItem="zdz-LV-LeX" firstAttribute="top" secondItem="7Ko-A9-Ghe" secondAttribute="bottom" id="HzG-9a-yy5"/>
                             <constraint firstItem="RC7-jr-YoK" firstAttribute="trailing" secondItem="qLl-5t-oDF" secondAttribute="trailing" id="J38-0u-8eq"/>
                             <constraint firstItem="7Ko-A9-Ghe" firstAttribute="leading" secondItem="qLl-5t-oDF" secondAttribute="leading" id="Pfg-9R-j9f"/>
+                            <constraint firstItem="qLl-5t-oDF" firstAttribute="trailing" secondItem="lcV-1A-SQG" secondAttribute="trailing" constant="12" id="UMl-Tx-yfj"/>
                             <constraint firstItem="zdz-LV-LeX" firstAttribute="bottom" secondItem="qLl-5t-oDF" secondAttribute="bottom" id="Vcu-qR-PD6"/>
                             <constraint firstItem="qLl-5t-oDF" firstAttribute="bottom" secondItem="RC7-jr-YoK" secondAttribute="bottom" constant="10" id="XKZ-XJ-bJD"/>
+                            <constraint firstItem="lcV-1A-SQG" firstAttribute="top" secondItem="7Ko-A9-Ghe" secondAttribute="bottom" constant="62" id="c49-wT-k2l"/>
+                            <constraint firstItem="HKK-HV-exR" firstAttribute="top" secondItem="7Ko-A9-Ghe" secondAttribute="bottom" constant="12" id="dga-kN-cSL"/>
                             <constraint firstItem="zdz-LV-LeX" firstAttribute="leading" secondItem="qLl-5t-oDF" secondAttribute="leading" id="h28-WX-3DQ"/>
                             <constraint firstItem="7Ko-A9-Ghe" firstAttribute="trailing" secondItem="qLl-5t-oDF" secondAttribute="trailing" id="nuK-TN-IGQ"/>
                             <constraint firstItem="7Ko-A9-Ghe" firstAttribute="top" secondItem="qLl-5t-oDF" secondAttribute="top" id="sWf-hb-rsJ"/>
                             <constraint firstItem="RC7-jr-YoK" firstAttribute="leading" secondItem="qLl-5t-oDF" secondAttribute="leading" constant="10" id="t4D-bv-LkW"/>
-                            <constraint firstItem="qLl-5t-oDF" firstAttribute="trailing" secondItem="lcV-1A-SQG" secondAttribute="trailing" constant="5" id="uyF-n7-eRO"/>
+                            <constraint firstItem="HKK-HV-exR" firstAttribute="leading" secondItem="qLl-5t-oDF" secondAttribute="leading" constant="12" id="vxA-Od-ltl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qLl-5t-oDF"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="points_inactive" selectedImage="points_active" id="0ru-EQ-gg3"/>
                     <navigationItem key="navigationItem" id="7hm-Qn-a22"/>
                     <connections>
+                        <outlet property="changeMap" destination="HKK-HV-exR" id="CJX-vx-1wd"/>
                         <outlet property="map" destination="zdz-LV-LeX" id="LaA-WH-fxD"/>
                         <outlet property="searchDisplayController" destination="cUG-XP-C3o" id="1Sp-oG-ehw"/>
                         <outlet property="spotsCollecionView" destination="RC7-jr-YoK" id="chg-cC-SzO"/>
@@ -1301,18 +1315,18 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="87Y-K4-iG7">
                                 <rect key="frame" x="73" y="301" width="268" height="134"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SBT-wA-bBZ" userLabel="newSpot">
-                                        <rect key="frame" x="0.0" y="0.0" width="127" height="134"/>
-                                        <state key="normal" image="Point bubble"/>
-                                        <connections>
-                                            <action selector="newSpot:" destination="ggO-3B-DDd" eventType="touchUpInside" id="aqi-R9-F3f"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zvy-Q6-U60" userLabel="newPublication">
-                                        <rect key="frame" x="141" y="0.0" width="127" height="134"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="127" height="134"/>
                                         <state key="normal" image="Pic bubble"/>
                                         <connections>
                                             <action selector="newPublication:" destination="ggO-3B-DDd" eventType="touchUpInside" id="Y1v-bU-5cN"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SBT-wA-bBZ" userLabel="newSpot">
+                                        <rect key="frame" x="141" y="0.0" width="127" height="134"/>
+                                        <state key="normal" image="Point bubble"/>
+                                        <connections>
+                                            <action selector="newSpot:" destination="ggO-3B-DDd" eventType="touchUpInside" id="aqi-R9-F3f"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1345,47 +1359,7 @@
                     <view key="view" contentMode="scaleToFill" id="pYf-P3-I0D">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mcy-XP-sgK">
-                                <rect key="frame" x="179.66666666666666" y="646" width="55" height="55"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Mcy-XP-sgK" secondAttribute="height" multiplier="1:1" id="Alg-PQ-WiD"/>
-                                    <constraint firstAttribute="width" constant="55" id="xMy-av-2Kl"/>
-                                </constraints>
-                                <state key="normal" backgroundImage="camara_shooter"/>
-                                <connections>
-                                    <action selector="takePhotoButton:" destination="DNp-1N-RFl" eventType="touchUpInside" id="d2v-pu-d2X"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XSD-Mg-OLD">
-                                <rect key="frame" x="35" y="676" width="39.666666666666657" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="vp4-nR-IGf"/>
-                                    <constraint firstAttribute="width" secondItem="XSD-Mg-OLD" secondAttribute="height" multiplier="68:43" id="yJR-Ky-yX7"/>
-                                </constraints>
-                                <state key="normal" image="gallery"/>
-                                <connections>
-                                    <action selector="takePhotoFromGalelery:" destination="DNp-1N-RFl" eventType="touchUpInside" id="iA3-es-S1T"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uEG-AG-ef1" userLabel="flash">
-                                <rect key="frame" x="357.66666666666669" y="666" width="21.333333333333314" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="Qfl-qS-0sw"/>
-                                    <constraint firstAttribute="width" secondItem="uEG-AG-ef1" secondAttribute="height" multiplier="8:13" id="X5V-gc-Loo"/>
-                                </constraints>
-                                <state key="normal" image="flash_off"/>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="qEf-Oh-KvE" firstAttribute="bottom" secondItem="XSD-Mg-OLD" secondAttribute="bottom" constant="35" id="H5E-by-myt"/>
-                            <constraint firstItem="qEf-Oh-KvE" firstAttribute="bottom" secondItem="Mcy-XP-sgK" secondAttribute="bottom" constant="35" id="gAu-CC-Dsw"/>
-                            <constraint firstItem="qEf-Oh-KvE" firstAttribute="bottom" secondItem="uEG-AG-ef1" secondAttribute="bottom" constant="35" id="hTe-W4-1pX"/>
-                            <constraint firstItem="Mcy-XP-sgK" firstAttribute="centerX" secondItem="pYf-P3-I0D" secondAttribute="centerX" id="pc7-oW-zbZ"/>
-                            <constraint firstItem="qEf-Oh-KvE" firstAttribute="trailing" secondItem="uEG-AG-ef1" secondAttribute="trailing" constant="35" id="psZ-8x-mV4"/>
-                            <constraint firstItem="XSD-Mg-OLD" firstAttribute="leading" secondItem="qEf-Oh-KvE" secondAttribute="leading" constant="35" id="tid-bK-h7G"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="qEf-Oh-KvE"/>
                     </view>
                     <navigationItem key="navigationItem" title="Take a photo" leftItemsSupplementBackButton="YES" id="4ed-M8-cv8">
@@ -2373,12 +2347,9 @@
         <image name="background" width="375" height="667"/>
         <image name="button" width="168" height="58"/>
         <image name="buttonEmpty" width="504" height="172"/>
-        <image name="camara_shooter" width="38" height="38"/>
         <image name="center_map" width="24" height="24"/>
         <image name="feed_active" width="23" height="18"/>
         <image name="feed_inactive" width="23" height="18"/>
-        <image name="flash_off" width="32" height="52"/>
-        <image name="gallery" width="60" height="43"/>
         <image name="google maps" width="48" height="48"/>
         <image name="gps_button" width="39" height="39"/>
         <image name="no-image" width="592" height="444"/>
