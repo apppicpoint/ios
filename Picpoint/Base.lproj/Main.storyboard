@@ -1180,7 +1180,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UqT-35-sOH">
-                                                    <rect key="frame" x="92" y="41.666666666666664" width="208" height="19.333333333333336"/>
+                                                    <rect key="frame" x="92" y="41.333333333333336" width="208" height="19.666666666666664"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="UqT-35-sOH" secondAttribute="height" multiplier="213:20" id="LXf-tO-S0N"/>
                                                     </constraints>
@@ -2287,6 +2287,7 @@
                             <constraint firstAttribute="bottom" secondItem="0ia-k0-uOO" secondAttribute="bottom" id="sRW-1a-CWE"/>
                             <constraint firstItem="0ia-k0-uOO" firstAttribute="top" secondItem="Wg4-fd-E3E" secondAttribute="bottom" constant="23" id="vKJ-NV-XoQ"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="8MN-7B-qpF"/>
                     </view>
                     <connections>
                         <outlet property="commentsInputText" destination="JXw-q8-xOh" id="Ixm-1t-uff"/>
@@ -2339,6 +2340,7 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.48603572169490017" blue="0.14088429784327983" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="zdk-cQ-sUG"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EIZ-qN-Uyn" userLabel="First Responder" sceneMemberID="firstResponder"/>

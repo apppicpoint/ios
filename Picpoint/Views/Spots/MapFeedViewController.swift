@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class MapFeedViewController:MKMapView , CLLocationManagerDelegate, MKMapViewDelegate {
+class MapFeedViewController: MKMapView , CLLocationManagerDelegate, MKMapViewDelegate {
     
     var spots = [Spot]()
     var currentLongitude: Double?
@@ -18,9 +18,12 @@ class MapFeedViewController:MKMapView , CLLocationManagerDelegate, MKMapViewDele
     
     //@IBOutlet weak var map: MKMapView!
     
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.delegate = self
+        
     }
     
     

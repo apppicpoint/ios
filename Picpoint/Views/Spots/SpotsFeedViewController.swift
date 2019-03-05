@@ -50,8 +50,20 @@ class SpotsFeedViewController: UIViewController,  UICollectionViewDelegate, UICo
             
             //Centra el mapa
             map.centerMap()
+            
+            map.showsCompass = false  // Hide built-in compass
+            
+            let compassButton = MKCompassButton(mapView: map)   // Make a new compass
+            compassButton.compassVisibility = .visible          // Make it visible
+            
+            map.addSubview(compassButton) // Add it to the view
+            
+            // Position it as required
+            
+            compassButton.translatesAutoresizingMaskIntoConstraints = false
+            compassButton.trailingAnchor.constraint(equalTo: map.trailingAnchor, constant: -12).isActive = true
+            compassButton.topAnchor.constraint(equalTo: map.topAnchor, constant: 12).isActive = true
         }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
