@@ -38,7 +38,6 @@
 		7F327EE9222558CA00ABD796 /* AddSpotNewPublicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F327EE8222558CA00ABD796 /* AddSpotNewPublicationViewController.swift */; };
 		7F912FA6222597F900F116AB /* SpotDetailTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F912FA5222597F900F116AB /* SpotDetailTagCollectionViewCell.swift */; };
 		7FD34B57221EF2DD00268775 /* SpotTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD34B56221EF2DD00268775 /* SpotTagCollectionViewCell.swift */; };
-		7FD4FD80222E6D3B0041420C /* Publication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD4FD7F222E6D3B0041420C /* Publication.swift */; };
 		7FE602B1221C33960032A2D1 /* TagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE602B0221C33960032A2D1 /* TagsViewController.swift */; };
 		7FE602B3221C4E030032A2D1 /* TagsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE602B2221C4E020032A2D1 /* TagsCollectionViewCell.swift */; };
 		7FE602B5221C56510032A2D1 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE602B4221C56510032A2D1 /* Tag.swift */; };
@@ -84,7 +83,6 @@
 		7F327EE8222558CA00ABD796 /* AddSpotNewPublicationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSpotNewPublicationViewController.swift; sourceTree = "<group>"; };
 		7F912FA5222597F900F116AB /* SpotDetailTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetailTagCollectionViewCell.swift; sourceTree = "<group>"; };
 		7FD34B56221EF2DD00268775 /* SpotTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotTagCollectionViewCell.swift; sourceTree = "<group>"; };
-		7FD4FD7F222E6D3B0041420C /* Publication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publication.swift; sourceTree = "<group>"; };
 		7FE602B0221C33960032A2D1 /* TagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsViewController.swift; sourceTree = "<group>"; };
 		7FE602B2221C4E020032A2D1 /* TagsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCollectionViewCell.swift; sourceTree = "<group>"; };
 		7FE602B4221C56510032A2D1 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
@@ -204,7 +202,6 @@
 		7FB4A0A2222E89BE000B2EFD /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				7FD4FD7F222E6D3B0041420C /* Publication.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -406,7 +403,6 @@
 				6355EAC92204814B00B784EB /* MapFeedViewController.swift in Sources */,
 				639EFB9622046261005AC6A1 /* PublicationDetailViewController.swift in Sources */,
 				D2C2EAB421EC7D1500D547BD /* AppDelegate.swift in Sources */,
-				7FD4FD80222E6D3B0041420C /* Publication.swift in Sources */,
 				639EFB822201A3D0005AC6A1 /* CustomAlertViewController.swift in Sources */,
 				D2B2884721FA13A20060F8A2 /* Connectivity.swift in Sources */,
 				7F27ACD02214101F00146B57 /* SpotsCollectionViewController.swift in Sources */,
