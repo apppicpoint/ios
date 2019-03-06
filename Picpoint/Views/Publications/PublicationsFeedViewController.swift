@@ -203,7 +203,7 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
         let cell = tableView.dequeueReusableCell(withIdentifier: "publicationCell", for: indexPath) as! PublicationTableViewCell
         
         cell.publicationImage.image = publications[indexPath.row].image
-        cell.descriptionPub.text = publications[indexPath.row].description
+        cell.descriptionPub.text = publications[indexPath.row].description!
         cell.userName.text = publications[indexPath.row].userName
         cell.userImage.image = publications[indexPath.row].userImage
         cell.likeBtn.tag = indexPath.row

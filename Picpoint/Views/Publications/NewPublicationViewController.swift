@@ -143,7 +143,7 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
         
         
         let parameters: Parameters = [
-            "description":titleTextField.text,
+            "description":titleTextField.text!,
             "media":imageName!,
             "tag_id": sendid ?? nil,
             "spot_id": NewPublicationViewController.pointSelected?.id ?? nil
