@@ -13,4 +13,6 @@ class SpotCommentsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageUser: UIImageView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var comment: UILabel!
+    
+    
 }

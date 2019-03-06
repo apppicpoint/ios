@@ -11,5 +11,6 @@ import UIKit
 
 class PicsCollectionViewCell: UICollectionViewCell {
     
+    var picImage: UIImage?
     
 }

@@ -172,11 +172,11 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
     
     @IBAction func segmentedControl(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
-            commentsView.alpha = 1
-            picsView.alpha = 0
+            picsView.isHidden = true
+            commentsView.isHidden = false
         } else {
-            commentsView.alpha = 0
-            picsView.alpha = 1
+            picsView.isHidden = false
+            commentsView.isHidden = true
         }
         
     }

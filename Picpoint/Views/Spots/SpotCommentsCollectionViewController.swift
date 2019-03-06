@@ -5,6 +5,7 @@
 //  Created by alumnos on 5/3/19.
 //
 import UIKit
+import Alamofire
 
 private let reuseIdentifier = "Cell"
 
@@ -19,6 +20,7 @@ class SpotCommentsCollectionViewController: UICollectionViewController {
         self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "commentCell")
         
         comments.append(Comment(id: 5, text: "Que chuloooo", user_id: 2,comment_id: 2, spot_id: 6, userImage: #imageLiteral(resourceName: "mari"), userName: "Mari"))
+        print(comments.count)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,7 +36,7 @@ class SpotCommentsCollectionViewController: UICollectionViewController {
     
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(comments.count)
+        print("comments count",comments.count)
         return comments.count
     }
     
@@ -49,7 +51,7 @@ class SpotCommentsCollectionViewController: UICollectionViewController {
     
     //Get comments
     func commentsList(){
-        
+        let url = Constants.url
     }
     
 }

@@ -67,7 +67,7 @@ class SpotsFeedViewController: UIViewController,  UICollectionViewDelegate, UICo
         }
         
         changeMap.setImage(UIImage.init(imageLiteralResourceName: "mapa"), forSegmentAt: 0)
-        changeMap.setImage(UIImage.init(imageLiteralResourceName: "satelite"), forSegmentAt: 1)
+        //changeMap.setImage(UIImage.init(imageLiteralResourceName: "satelite"), forSegmentAt: 1)
     }
     
     override func viewWillAppear(_ animated: Bool) {
