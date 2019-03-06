@@ -1211,7 +1211,7 @@
                                             <constraint firstAttribute="trailing" secondItem="KCj-2g-eCV" secondAttribute="trailing" constant="80" id="udY-Aa-VaQ"/>
                                             <constraint firstAttribute="height" constant="1000" id="xp1-79-uLB"/>
                                         </constraints>
-                                    </view>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ogd-BU-Ec2">
