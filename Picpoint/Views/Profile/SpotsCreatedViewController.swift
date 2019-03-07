@@ -11,4 +11,8 @@ import UIKit
 
 class SpotsCreatedViewController: UIViewController {
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear , SpotsCreatedViewController")
+    }
 }

@@ -97,7 +97,7 @@ class TagsViewController: UIViewController , UICollectionViewDelegate , UICollec
                     
                     tagsSelected.append(Tag(id: tags[indexPath.row].id!, name: tags[indexPath.row].name!))
                     cell.state = true
-                    cell.backgroundColor = UIColor.magenta
+                    cell.backgroundColor = UIColor.init(red: 0.505882352941176, green: 0, blue: 0.564705882352941, alpha: 1)
                 }
             
             }
@@ -111,7 +111,7 @@ class TagsViewController: UIViewController , UICollectionViewDelegate , UICollec
                     
                     tagsSelected.append(Tag(id: tags[indexPath.row].id!, name: tags[indexPath.row].name!))
                     cell.state = true
-                    cell.backgroundColor = UIColor.magenta
+                    cell.backgroundColor = UIColor.init(red: 0.505882352941176, green: 0, blue: 0.564705882352941, alpha: 1)
                 }
             
             }

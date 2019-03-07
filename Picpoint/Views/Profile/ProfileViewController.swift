@@ -12,35 +12,47 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var segmentedController: UISegmentedControl!
     
+    @IBOutlet weak var PicPersonsalContainer: UIView!
+    @IBOutlet weak var SpotsCreatedContainer: UIView!
+    @IBOutlet weak var PicPorfolioContainer: UIView!
+    
     @IBAction func ChangeFeed(_ sender: UISegmentedControl) {
         
         switch sender.selectedSegmentIndex {
             
         case 0:
             let child = PicPortfolioCreatedViewController()
-            addChildViewController(child)
-            view.addSubview(child.view)
-            child.didMove(toParentViewController: self)
+            child.viewWillAppear(true)
+            PicPorfolioContainer.isHidden = false
+            PicPersonsalContainer.isHidden = true
+            SpotsCreatedContainer.isHidden = true
+            
+
             break
             
         case 1:
             let child = PicPersonalCreatedViewController()
-            addChildViewController(child)
-            view.addSubview(child.view)
-            child.didMove(toParentViewController: self)
+            child.viewWillAppear(true)
+            PicPorfolioContainer.isHidden = true
+            PicPersonsalContainer.isHidden = false
+            SpotsCreatedContainer.isHidden = true
+
             break
             
         case 2:
             let child = SpotsCreatedViewController()
-            addChildViewController(child)
-            view.addSubview(child.view)
-            child.didMove(toParentViewController: self)
+            child.viewWillAppear(true)
+            PicPorfolioContainer.isHidden = true
+            PicPersonsalContainer.isHidden = true
+            SpotsCreatedContainer.isHidden = false
+        
             break
             
         default:
             break
         }
     }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

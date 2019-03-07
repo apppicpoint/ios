@@ -134,10 +134,13 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
     
     func storeLocation() {
         
+        self.showSpinner(onView: self.view)
+        
         var sendid:[Int] = [Int]()
         
+        print(NewSpotViewController.tagsId.count , "NewPublicationViewController.tagsId" )
+        
         for tag in NewPublicationViewController.tagsId {
-            
             sendid.append(tag.id!)
         }
         
@@ -145,8 +148,8 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
         let parameters: Parameters = [
             "description":titleTextField.text!,
             "media":imageName!,
-            "tag_id": sendid ?? nil,
-            "spot_id": NewPublicationViewController.pointSelected?.id ?? nil
+            "tag_id": sendid,
+            "spot_id": NewPublicationViewController.pointSelected?.id ?? NSNull()
         ]
         let url = Constants.url+"publications"
         let _headers : HTTPHeaders = [
@@ -156,6 +159,8 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
         ]
         Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: _headers).responseJSON{
             response in
+            
+            self.removeSpinner()
             
             switch response.result {
             case .success:
@@ -193,6 +198,9 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
     }
     
     func uploadPhotoRequest(){
+        
+        self.showSpinner(onView: self.view)
+        
         let image = self.image
         let imgData = UIImageJPEGRepresentation(image!, 1)
         let url = Constants.url+"img"
@@ -208,12 +216,16 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
             
             print(self.imageName!+".png")
         }, usingThreshold: UInt64.init(), to: url, method: .post, headers: headers) { (result) in
+            
+            
+            
             switch result{
             case .success(let upload, _, _):
                 upload.responseJSON { response in
                     
                     if(response.response?.statusCode == 200){
                         print("Foto subida")
+                        self.removeSpinner()
                         self.storeLocation()
                         return
                     }

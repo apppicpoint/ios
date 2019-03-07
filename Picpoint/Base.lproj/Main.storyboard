@@ -1270,6 +1270,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="profile_inactive" selectedImage="profile_active" id="zhU-kB-PtV"/>
                     <connections>
+                        <outlet property="PicPersonsalContainer" destination="PO9-TX-t3T" id="PTh-KS-4JF"/>
+                        <outlet property="PicPorfolioContainer" destination="4m1-WC-tGe" id="JDD-LP-l3S"/>
+                        <outlet property="SpotsCreatedContainer" destination="iyp-RP-GLe" id="7ek-6r-Et7"/>
                         <outlet property="descriptionProfile" destination="yxM-dJ-L0u" id="dag-Nv-gOj"/>
                         <outlet property="nickName" destination="j8M-oE-Yu0" id="MOR-Oj-NQ3"/>
                         <outlet property="numberOfLikes" destination="YRA-IG-Chp" id="bTE-Xf-WtY"/>
@@ -2554,7 +2557,7 @@
                     <view key="view" contentMode="scaleToFill" id="VcS-7h-txa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="644"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.16991838810000001" green="0.34978163239999999" blue="0.63625431060000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.16991838810000001" green="0.34978163239999999" blue="0.087842399691358028" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="baM-bd-jSn"/>
                     </view>
                 </viewController>
