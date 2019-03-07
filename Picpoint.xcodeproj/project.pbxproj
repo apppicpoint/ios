@@ -32,7 +32,6 @@
 		639EFB9C22046300005AC6A1 /* PublicationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639EFB9B22046300005AC6A1 /* PublicationTableViewController.swift */; };
 		63DD0A40220C4FA500276B1A /* NoLoggedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DD0A3F220C4FA500276B1A /* NoLoggedViewController.swift */; };
 		7F144046222E797700E32B60 /* SpotCommentsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F144045222E797700E32B60 /* SpotCommentsCollectionViewCell.swift */; };
-		7F144048222E79F000E32B60 /* SpotCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F144047222E79F000E32B60 /* SpotCommentsViewController.swift */; };
 		7F14404C222E83C500E32B60 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14404B222E83C500E32B60 /* Comment.swift */; };
 		7F144050222E8AA200E32B60 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		7F144052222EA1EC00E32B60 /* PicsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F144051222EA1EC00E32B60 /* PicsCollectionViewController.swift */; };
@@ -85,7 +84,6 @@
 		63DD0A3F220C4FA500276B1A /* NoLoggedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoLoggedViewController.swift; sourceTree = "<group>"; };
 		7E5DABCEB6E2279A2BA6280E /* Pods_Picpoint.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Picpoint.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F144045222E797700E32B60 /* SpotCommentsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotCommentsCollectionViewCell.swift; sourceTree = "<group>"; };
-		7F144047222E79F000E32B60 /* SpotCommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotCommentsViewController.swift; sourceTree = "<group>"; };
 		7F14404B222E83C500E32B60 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		7F144051222EA1EC00E32B60 /* PicsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicsCollectionViewController.swift; sourceTree = "<group>"; };
 		7F144053222EA38F00E32B60 /* picsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = picsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -225,13 +223,6 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		7F4805FA222E8C6700095610 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		7FE602AF221C33690032A2D1 /* Tags */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,7 +237,6 @@
 		7FE8ED01222FFBCC0020E157 /* Comments */ = {
 			isa = PBXGroup;
 			children = (
-				7F144047222E79F000E32B60 /* SpotCommentsViewController.swift */,
 				7F3CB8B7222E921E00006A58 /* SpotCommentsCollectionViewController.swift */,
 				7F144045222E797700E32B60 /* SpotCommentsCollectionViewCell.swift */,
 			);
@@ -268,7 +258,6 @@
 				D2C2EAB121EC7D1500D547BD /* Products */,
 				544DCEB6A3EE3ECEFB8A9F55 /* Pods */,
 				C56A70AE010E6CD43AD7729B /* Frameworks */,
-				7F14404D222E877B00E32B60 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -409,7 +398,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F144048222E79F000E32B60 /* SpotCommentsViewController.swift in Sources */,
 				7FE602B5221C56510032A2D1 /* Tag.swift in Sources */,
 				63DD0A40220C4FA500276B1A /* NoLoggedViewController.swift in Sources */,
 				7F144046222E797700E32B60 /* SpotCommentsCollectionViewCell.swift in Sources */,

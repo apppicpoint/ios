@@ -54,10 +54,6 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
         //performSegue(withIdentifier: <#T##String#>, sender: <#T##Any?#>)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        
-    }
-    
     func getTagsSpot(){
         let url = Constants.url+"spotHasTags"
         let headers: HTTPHeaders = [
@@ -152,7 +148,6 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
         var cell = SpotDetailTagCollectionViewCell()
         cell = collectionView.dequeueReusableCell(withReuseIdentifier: "spotDetailTagCell", for: indexPath) as! SpotDetailTagCollectionViewCell
         cell.SpotTagName.text = tags[indexPath.row].name
-        print(cell.SpotTagName.text)
         return cell
     }
     
@@ -175,16 +170,12 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
         
     }
     
-    /*func configureApp(){
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        commentsViewController = storyboard.instantiateViewController(withIdentifier: "comments")
-        picsViewController = storyboard.instantiateViewController(withIdentifier: "pics")
-    }*/
-    
     @IBAction func segmentedControl(_ sender: UISegmentedControl) {
         
-        
         if sender.selectedSegmentIndex == 0 {
+            let child = SpotCommentsCollectionViewController()
+            child.viewWillAppear(true)
+            
             commentsView.isHidden = false
             picsView.isHidden = true
            
@@ -195,30 +186,7 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
         }
         
     }
-   /*
-    private var activeViewController : UIViewController {
-        didSet {
-            removeInactiveViewController(inactiveViewController: oldValue)
-            updateActiveViewController()
-        }
-    }
-    
-    func removeInactiveViewController(inactiveViewController: UIViewController?){
-        if let inactiveVC = inactiveViewController{
-            inactiveVC.willMove(toParentViewController: nil)
-            inactiveVC.view.removeFromSuperview()
-            inactiveVC.removeFromParentViewController()
-        }
-    }
-    
-    func updateActiveViewController(){
-        if let activeVC = activeViewController {
-            addChildViewController(activeVC)
-            activeVC.view.frame = picsView.bounds
-            contentVC.addSubview(activeVC.view)
-            activeVC.didMove(toParentViewController: self)
-        }
-    }*/
+   
     
 }
 

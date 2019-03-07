@@ -2329,7 +2329,7 @@
         <!--Comments-->
         <scene sceneID="weL-fY-FCv">
             <objects>
-                <viewController title="Comments" id="FUb-XB-6eS" customClass="SpotCommentsViewController" customModule="Picpoint" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Comments" id="FUb-XB-6eS" customClass="SpotCommentsCollectionViewController" customModule="Picpoint" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="y2z-Mi-itf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="299"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2344,13 +2344,13 @@
                                 <rect key="frame" x="284" y="22" width="30" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <action selector="sendCommentButton:" destination="FUb-XB-6eS" eventType="touchUpInside" id="7cv-Ex-bXy"/>
+                                    <action selector="sendCommentBtn:" destination="FUb-XB-6eS" eventType="touchUpInside" id="JBL-lG-pCB"/>
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ia-k0-uOO">
                                 <rect key="frame" x="0.0" y="75" width="320" height="224"/>
                                 <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jvS-pr-g68" customClass="SpotsCollectionViewController" customModule="Picpoint" customModuleProvider="target">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jvS-pr-g68">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="224"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="m3B-Hs-ToR">
@@ -2360,7 +2360,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ZsY-3D-GKI" customClass="SpotCommentsCollectionViewCell" customModule="Picpoint" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="commentCell" reuseIdentifier="commentCell" id="ZsY-3D-GKI" customClass="SpotCommentsCollectionViewCell" customModule="Picpoint" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="67"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -2431,7 +2431,8 @@
                         <viewLayoutGuide key="safeArea" id="8MN-7B-qpF"/>
                     </view>
                     <connections>
-                        <outlet property="commentsInputText" destination="JXw-q8-xOh" id="Ixm-1t-uff"/>
+                        <outlet property="commentInput" destination="JXw-q8-xOh" id="x5G-sY-uK6"/>
+                        <outlet property="commentsCollectionView" destination="jvS-pr-g68" id="utu-3b-FYb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GVL-Ve-Dch" userLabel="First Responder" sceneMemberID="firstResponder"/>
