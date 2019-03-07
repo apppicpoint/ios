@@ -12,4 +12,7 @@ import UIKit
 
 class PicPersonalCreatedViewController: UIViewController {
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear , PicPersonalCreatedViewController")
+    }
 }
