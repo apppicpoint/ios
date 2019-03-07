@@ -1,30 +1,28 @@
-//
-//  PicsCollectionViewController.swift
-//  Picpoint
-//
-//  Created by alumnos on 5/3/19.
-//  Copyright © 2019 Joaquín Collazo Ruiz. All rights reserved.
-//
+
 
 import Foundation
 import UIKit
 import Alamofire
 
-class PicsCollectionViewController: UICollectionViewController {
+class PicsCollectionViewController: UINavigationController, UICollectionViewDelegate, UICollectionViewDataSource {
     var pics = [Publication]()
     
     override func viewDidLoad() {
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         pics.append(Publication(id: 1, description: "Holaaaaaaa", imageName: "Imagen", user_id: 2, tags: [Tag.init(id: 2, name: "Fiezzta")]))
         print(pics.count)
     }
     
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return pics.count
     }
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "commentCell", for: indexPath) as! PicsCollectionViewCell
         cell.picImage = pics[indexPath.row].image
         

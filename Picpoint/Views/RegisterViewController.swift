@@ -53,12 +53,14 @@ class RegisterViewController: UIViewController {
     }
     //Peticion con la api para usuario sin registro
     func requestGuest()
-    {
+    {self.showSpinner(onView: self.view)
         if Connectivity.isConnectedToInternet() {
             request(Constants.url+"guest",
                     method: .post,
                     encoding: URLEncoding.httpBody).responseJSON { (replyQuestGLL) in
+                        self.removeSpinner()
                         switch replyQuestGLL.result {
+                            
                         case .success:
                             var jsonResponse = replyQuestGLL.result.value as! [String:Any]
                             if((replyQuestGLL.response?.statusCode) != 200)

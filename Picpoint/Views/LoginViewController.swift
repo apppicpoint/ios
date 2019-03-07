@@ -54,11 +54,13 @@ class LoginViewController: UIViewController {
     //Petición con la api
     func requestLogin()
     {
+        self.showSpinner(onView: self.view)
         if Connectivity.isConnectedToInternet() {
             request(Constants.url+"login",
                     method: .post,
                     parameters: ["email":emailFieldL.text!, "password":passwordFieldL.text!],
                     encoding: URLEncoding.httpBody).responseJSON { (replyQuestL) in
+                        self.removeSpinner()
                         print(replyQuestL.response?.statusCode ?? 0)
                         print(replyQuestL.result.value!)
                         
@@ -96,10 +98,12 @@ class LoginViewController: UIViewController {
     //Petición del usuario sin registro
     func requestGuest()
     {
+        self.showSpinner(onView: self.view)
         if Connectivity.isConnectedToInternet() {
             request(Constants.url+"guest",
                     method: .post,
                     encoding: URLEncoding.httpBody).responseJSON { (replyQuestGLL) in
+                        self.removeSpinner()
                         switch replyQuestGLL.result {
                         case .success:
                             var jsonResponse = replyQuestGLL.result.value as! [String:Any]

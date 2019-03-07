@@ -20,7 +20,7 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.showSpinner(onView: self.view)
         self.TagCollectionView.delegate = self
         self.TagCollectionView.dataSource = self
         
@@ -55,6 +55,7 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
     }
     
     func getTagsSpot(){
+        
         let url = Constants.url+"spotHasTags"
         let headers: HTTPHeaders = [
             "Content-Type":"application/x-www-form-urlencoded",
@@ -105,8 +106,11 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
     }
     
     func getSpotImage(imageName: String){
+        
         let url = Constants.url+"imgFull/"+imageName //Se le pasa el nombre de la foto, el cual lo tiene el spot.
         Alamofire.request(url, method: .get).responseImage { response in
+            
+            self.removeSpinner()
             switch response.result {
             case .success:
                 let data = response.result.value
@@ -125,6 +129,7 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
     }
 
     func getUserName(){
+        
         let url = Constants.url+"users/"+String(spot.user_id!)
         let _headers : HTTPHeaders = [
             "Content-Type":"application/x-www-form-urlencoded",
@@ -174,13 +179,11 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
         
         if sender.selectedSegmentIndex == 0 {
             let child = SpotCommentsCollectionViewController()
-            child.viewWillAppear(true)
-            
             commentsView.isHidden = false
             picsView.isHidden = true
-           
-            
+            child.viewWillAppear(true)
         } else {
+            
             picsView.isHidden = false
             commentsView.isHidden = true
         }
