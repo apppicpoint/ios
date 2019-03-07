@@ -138,8 +138,9 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
         
         var sendid:[Int] = [Int]()
         
+        print(NewSpotViewController.tagsId.count , "NewPublicationViewController.tagsId" )
+        
         for tag in NewPublicationViewController.tagsId {
-            
             sendid.append(tag.id!)
         }
         
@@ -147,8 +148,8 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
         let parameters: Parameters = [
             "description":titleTextField.text!,
             "media":imageName!,
-            "tag_id": sendid ?? nil,
-            "spot_id": NewPublicationViewController.pointSelected?.id ?? nil
+            "tag_id": sendid,
+            "spot_id": NewPublicationViewController.pointSelected?.id ?? NSNull()
         ]
         let url = Constants.url+"publications"
         let _headers : HTTPHeaders = [
@@ -216,7 +217,7 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
             print(self.imageName!+".png")
         }, usingThreshold: UInt64.init(), to: url, method: .post, headers: headers) { (result) in
             
-            self.removeSpinner()
+            
             
             switch result{
             case .success(let upload, _, _):
@@ -224,6 +225,7 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
                     
                     if(response.response?.statusCode == 200){
                         print("Foto subida")
+                        self.removeSpinner()
                         self.storeLocation()
                         return
                     }
