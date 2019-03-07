@@ -11,10 +11,9 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
     @IBOutlet weak var createdBy: UILabel!
     @IBOutlet weak var TagCollectionView: UICollectionView!
     
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var commentsView: UIView!
     @IBOutlet weak var picsView: UIView!
-    let contentVC: UIView! = nil
-    
     
     var spot = Spot()
     var tags:[Tag] = [Tag]()
@@ -31,6 +30,7 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
         getUserName()
         getSpotImage(imageName: spot.imageName!)
         getTagsSpot()
+        
         commentsView.isHidden = false
         picsView.isHidden = true
         
@@ -55,7 +55,7 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(true, animated: animated)
+        
     }
     
     func getTagsSpot(){
@@ -187,6 +187,7 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
         if sender.selectedSegmentIndex == 0 {
             commentsView.isHidden = false
             picsView.isHidden = true
+           
             
         } else {
             picsView.isHidden = false

@@ -9,12 +9,12 @@ class SpotCommentsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("View Did Load!")
         
     }
 
     @IBAction func sendCommentButton(_ sender: Any) {
-        //Alert in proceso de desarrollo
+        print("boton pulsado enviar comentario")
     }
     
 }
