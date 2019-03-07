@@ -134,6 +134,8 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
     
     func storeLocation() {
         
+        self.showSpinner(onView: self.view)
+        
         var sendid:[Int] = [Int]()
         
         for tag in NewPublicationViewController.tagsId {
@@ -156,6 +158,8 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
         ]
         Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: _headers).responseJSON{
             response in
+            
+            self.removeSpinner()
             
             switch response.result {
             case .success:
@@ -193,6 +197,9 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
     }
     
     func uploadPhotoRequest(){
+        
+        self.showSpinner(onView: self.view)
+        
         let image = self.image
         let imgData = UIImageJPEGRepresentation(image!, 1)
         let url = Constants.url+"img"
@@ -208,6 +215,9 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
             
             print(self.imageName!+".png")
         }, usingThreshold: UInt64.init(), to: url, method: .post, headers: headers) { (result) in
+            
+            self.removeSpinner()
+            
             switch result{
             case .success(let upload, _, _):
                 upload.responseJSON { response in
