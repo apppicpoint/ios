@@ -99,7 +99,7 @@ class NewSpotViewController: UIViewController, MKMapViewDelegate, UITextFieldDel
     func storeLocation() {
         
         print(NewSpotViewController.tagsId.count)
-
+        
         var sendid:[Int] = [Int]()
         
         for tag in NewSpotViewController.tagsId {
@@ -116,7 +116,7 @@ class NewSpotViewController: UIViewController, MKMapViewDelegate, UITextFieldDel
             "image":imageName!,
             "city": city!,
             "country":country!,
-            "tag_id": sendid
+            "tags_id": sendid
         ]
         let url = Constants.url+"spots"
         let _headers : HTTPHeaders = [
@@ -127,6 +127,7 @@ class NewSpotViewController: UIViewController, MKMapViewDelegate, UITextFieldDel
         Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: _headers).responseJSON{
             response in
             
+            self.removeSpinner()
             switch response.result {
             case .success:
                 let jsonResponse = response.result.value as! [String:Any]
@@ -163,6 +164,7 @@ class NewSpotViewController: UIViewController, MKMapViewDelegate, UITextFieldDel
     }
     
     func uploadPhotoRequest(){
+        self.showSpinner(onView: self.view)
         let image = self.image
         let imgData = UIImageJPEGRepresentation(image!, 1)
         //let imgData: Data = UIImagePNGRepresentation(image!)!

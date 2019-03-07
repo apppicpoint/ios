@@ -157,9 +157,12 @@ class TagsViewController: UIViewController , UICollectionViewDelegate , UICollec
         
         if new == "pub"{
             
+           
             NewPublicationViewController.tagsId = []
             NewPublicationViewController.clase?.tagCollectionView.reloadData()
             NewPublicationViewController.tagsId.append(contentsOf: tagsSelected)
+            
+            print(NewPublicationViewController.tagsId.count ,"En close pop up")
             
         }
             
