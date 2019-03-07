@@ -46,11 +46,11 @@ class PicsCollectionViewController: UICollectionViewController {
             case .success:
                 let jsonResponse = response.result.value as! [String:Any]
                 let data = jsonResponse["user"] as! [String: Any]
-                self.pics.append(Publication(id: jsonResponse["id"] as! [String: Int],
+                /*self.pics.append(Publication(id: jsonResponse["id"] as! [String: Int],
                                         description: jsonResponse["description"] as! [String: String],
                                         imageName: jsonResponse["media"] as! [String: UIImage],
                                         user_id: jsonResponse["user_id"] as! [String: Int],
-                                        tags: ))
+                                        tags: ))*/
                 
                 break
                 
@@ -58,7 +58,8 @@ class PicsCollectionViewController: UICollectionViewController {
                 break
                 
             }
-        }
+        }*/
     
-    }*/
-}
+    }
+
+ 

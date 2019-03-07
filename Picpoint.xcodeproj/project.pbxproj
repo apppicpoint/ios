@@ -141,6 +141,7 @@
 		639EFB6C220048A8005AC6A1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7FE8ED01222FFBCC0020E157 /* Comments */,
 				7FE602AF221C33690032A2D1 /* Tags */,
 				639EFB9222046172005AC6A1 /* Spots */,
 				639EFB9122046164005AC6A1 /* Publications */,
@@ -180,6 +181,8 @@
 		639EFB9122046164005AC6A1 /* Publications */ = {
 			isa = PBXGroup;
 			children = (
+				7F144053222EA38F00E32B60 /* picsCollectionViewCell.swift */,
+				7F144051222EA1EC00E32B60 /* PicsCollectionViewController.swift */,
 				639EFB782200CDD9005AC6A1 /* PublicationsFeedViewController.swift */,
 				639EFB7A2200CDED005AC6A1 /* NewPublicationViewController.swift */,
 				639EFB9522046261005AC6A1 /* PublicationDetailViewController.swift */,
@@ -201,13 +204,6 @@
 				639EFB932204622A005AC6A1 /* SpotDetailViewController.swift */,
 				6355EACA2204C9D600B784EB /* PinAnnotation.swift */,
 				7F27ACCF2214101F00146B57 /* SpotsCollectionViewController.swift */,
-				7FD34B56221EF2DD00268775 /* SpotTagCollectionViewCell.swift */,
-				7F912FA5222597F900F116AB /* SpotDetailTagCollectionViewCell.swift */,
-				7F144047222E79F000E32B60 /* SpotCommentsViewController.swift */,
-				7F144045222E797700E32B60 /* SpotCommentsCollectionViewCell.swift */,
-				7F3CB8B7222E921E00006A58 /* SpotCommentsCollectionViewController.swift */,
-				7F144051222EA1EC00E32B60 /* PicsCollectionViewController.swift */,
-				7F144053222EA38F00E32B60 /* picsCollectionViewCell.swift */,
 			);
 			path = Spots;
 			sourceTree = "<group>";
@@ -222,10 +218,22 @@
 		7FE602AF221C33690032A2D1 /* Tags */ = {
 			isa = PBXGroup;
 			children = (
+				7FD34B56221EF2DD00268775 /* SpotTagCollectionViewCell.swift */,
+				7F912FA5222597F900F116AB /* SpotDetailTagCollectionViewCell.swift */,
 				7FE602B0221C33960032A2D1 /* TagsViewController.swift */,
 				7FE602B2221C4E020032A2D1 /* TagsCollectionViewCell.swift */,
 			);
 			name = Tags;
+			sourceTree = "<group>";
+		};
+		7FE8ED01222FFBCC0020E157 /* Comments */ = {
+			isa = PBXGroup;
+			children = (
+				7F144047222E79F000E32B60 /* SpotCommentsViewController.swift */,
+				7F3CB8B7222E921E00006A58 /* SpotCommentsCollectionViewController.swift */,
+				7F144045222E797700E32B60 /* SpotCommentsCollectionViewCell.swift */,
+			);
+			path = Comments;
 			sourceTree = "<group>";
 		};
 		C56A70AE010E6CD43AD7729B /* Frameworks */ = {

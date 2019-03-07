@@ -13,6 +13,8 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
     
     @IBOutlet weak var commentsView: UIView!
     @IBOutlet weak var picsView: UIView!
+    let contentVC: UIView! = nil
+    
     
     var spot = Spot()
     var tags:[Tag] = [Tag]()
@@ -29,12 +31,15 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
         getUserName()
         getSpotImage(imageName: spot.imageName!)
         getTagsSpot()
+        commentsView.isHidden = false
+        picsView.isHidden = true
         
         
         let flowLayout = TagCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
         
         flowLayout?.scrollDirection = .horizontal
     }
+    
     
     @IBAction func showInMapButton(_ sender: Any) {
         if (UIApplication.shared.canOpenURL(NSURL(string:"comgooglemaps://")! as URL)) {
@@ -46,7 +51,7 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
     }
     
     @IBAction func goAuthorProfile(_ sender: Any) {
-        
+        //performSegue(withIdentifier: <#T##String#>, sender: <#T##Any?#>)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -170,16 +175,49 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
         
     }
     
+    /*func configureApp(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        commentsViewController = storyboard.instantiateViewController(withIdentifier: "comments")
+        picsViewController = storyboard.instantiateViewController(withIdentifier: "pics")
+    }*/
+    
     @IBAction func segmentedControl(_ sender: UISegmentedControl) {
+        
+        
         if sender.selectedSegmentIndex == 0 {
-            picsView.isHidden = true
             commentsView.isHidden = false
+            picsView.isHidden = true
+            
         } else {
             picsView.isHidden = false
             commentsView.isHidden = true
         }
         
     }
+   /*
+    private var activeViewController : UIViewController {
+        didSet {
+            removeInactiveViewController(inactiveViewController: oldValue)
+            updateActiveViewController()
+        }
+    }
+    
+    func removeInactiveViewController(inactiveViewController: UIViewController?){
+        if let inactiveVC = inactiveViewController{
+            inactiveVC.willMove(toParentViewController: nil)
+            inactiveVC.view.removeFromSuperview()
+            inactiveVC.removeFromParentViewController()
+        }
+    }
+    
+    func updateActiveViewController(){
+        if let activeVC = activeViewController {
+            addChildViewController(activeVC)
+            activeVC.view.frame = picsView.bounds
+            contentVC.addSubview(activeVC.view)
+            activeVC.didMove(toParentViewController: self)
+        }
+    }*/
     
 }
 
