@@ -66,7 +66,7 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
             tagCollectionView.isHidden = false
         }
         else {
-            tagCollectionView.isHidden = true
+            tagCollectionView.isHidden = false
         }
     }
     
@@ -138,7 +138,7 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
         
         var sendid:[Int] = [Int]()
         
-        print(NewSpotViewController.tagsId.count , "NewPublicationViewController.tagsId" )
+        print(NewPublicationViewController.tagsId.count , "NewPublicationViewController.tagsId" )
         
         for tag in NewPublicationViewController.tagsId {
             sendid.append(tag.id!)
@@ -148,7 +148,7 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
         let parameters: Parameters = [
             "description":titleTextField.text!,
             "media":imageName!,
-            "tag_id": sendid,
+            "tags_id": sendid,
             "spot_id": NewPublicationViewController.pointSelected?.id ?? NSNull()
         ]
         let url = Constants.url+"publications"
@@ -218,14 +218,13 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
         }, usingThreshold: UInt64.init(), to: url, method: .post, headers: headers) { (result) in
             
             
-            
+            self.removeSpinner()
             switch result{
             case .success(let upload, _, _):
                 upload.responseJSON { response in
                     
                     if(response.response?.statusCode == 200){
                         print("Foto subida")
-                        self.removeSpinner()
                         self.storeLocation()
                         return
                     }
