@@ -13,17 +13,19 @@ import MapKit
 
 class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var publications = [Publication]()
+    var publications : [Publication]!
     @IBOutlet weak var table: UITableView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getPublications()
         table.delegate = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        getPublications()
+
     }
     
     
@@ -101,6 +103,25 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
         }
     }
     
+    func getUserImage(imageName: String, publication: Publication){
+        let url = Constants.url+"imgLow/"+imageName //Se le pasa el nombre de la foto, el cual lo tiene el spot.
+        Alamofire.request(url, method: .get).responseImage { response in
+            switch response.result {
+            case .success:
+                let data = response.result.value
+                publication.userImage = data!
+            case .failure(let error):
+                print(error,"error img")
+                let alert = UIAlertController(title: "Ups! Something was wrong.", message:
+                    "Check your connection and try it later", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "ok", style:
+                    .cancel, handler: { (accion) in}))
+                self.present(alert, animated: true, completion: nil)
+            }
+            
+        }
+    }
+    
     func getUserData(publication: Publication, user_id: Int){
         let url = Constants.url+"users/"+String(user_id)
         let _headers : HTTPHeaders = [
@@ -116,7 +137,7 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
                 let jsonResponse = response.result.value as! [String:Any]
                 let data = jsonResponse["user"] as! [String: Any]
                 publication.userName = data["name"] as! String
-                
+                self.getUserImage(imageName: data["photo"] as! String, publication: publication)
             case .failure(let error):
                 print(error,"error user")
                 let alert = UIAlertController(title: "Ups! Something was wrong.", message:
@@ -182,15 +203,107 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
         let cell = tableView.dequeueReusableCell(withIdentifier: "publicationCell", for: indexPath) as! PublicationTableViewCell
         
         cell.publicationImage.image = publications[indexPath.row].image
-        cell.descriptionPub.text = publications[indexPath.row].description
+        cell.descriptionPub.text = publications[indexPath.row].description!
         cell.userName.text = publications[indexPath.row].userName
-        cell.userImage.image = UIImage(named: "circle_point")
+        cell.userImage.image = publications[indexPath.row].userImage
+        cell.likeBtn.tag = indexPath.row
+        cell.likeBtn.addTarget(self, action: Selector("changeLikeFeed:"), for: UIControlEvents.touchUpInside)
+        
+        
+        
+        cell.userImage.layer.cornerRadius = cell.userImage.frame.size.width / 2
+        cell.userImage.clipsToBounds = true
+
+        isLiked(publication_id: publications[indexPath.row].id!, cell: cell)
         
         if publications[indexPath.row].spot_id != nil {
-            cell.pointName.titleLabel?.text = publications[indexPath.row].spotName
+            cell.pointName.setTitle(publications[indexPath.row].spotName, for: .normal)
+        }
+        else {
+            cell.pointName.setTitle("", for: .normal)
         }
         
         return cell
+    }
+    
+    @IBAction func changeLikeFeed(_ sender: UIButton) {
+        
+        likePub(indexPath: sender.tag)
+        
+        if sender.currentImage == UIImage(named: "heartfalse"){
+            sender.setImage(UIImage(named: "hearttrue"), for: .normal)
+        }
+        else {
+            sender.setImage(UIImage(named: "heartfalse"), for: .normal)
+        }
+        
+    }
+    
+    func isLiked(publication_id : Int, cell : PublicationTableViewCell){
+        
+        let url = Constants.url+"isLiked/"+String(publication_id)
+        let _headers : HTTPHeaders = [
+            "Content-Type":"application/x-www-form-urlencoded",
+            "Authorization":UserDefaults.standard.string(forKey: "token")!
+        ]
+        
+        Alamofire.request(url, method: .get, encoding: URLEncoding.httpBody, headers: _headers).responseJSON{
+            response in
+            
+            switch response.result {
+            case .success:
+                let jsonResponse = response.result.value as! [String:Bool]
+                
+                if jsonResponse["is_liked"]! {
+                    
+                    cell.likeBtn.setImage(UIImage(named: "hearttrue"), for: .normal)
+                }
+                else{
+                    cell.likeBtn.setImage(UIImage(named: "heartfalse"), for: .normal)
+                }
+                
+            case .failure(let error):
+                print(error,"error like")
+                let alert = UIAlertController(title: "Ups! Something was wrong.", message:
+                    "Check your connection and try it later", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "ok", style:
+                    .cancel, handler: { (accion) in}))
+                self.present(alert, animated: true, completion: nil)
+            }
+            
+        }
+
+    }
+    
+    func likePub(indexPath : Int){
+        
+        let url = Constants.url+"like"
+        let _headers : HTTPHeaders = [
+            "Content-Type":"application/x-www-form-urlencoded",
+            "Authorization":UserDefaults.standard.string(forKey: "token")!
+        ]
+        
+        let parameters: Parameters = [
+            "publication_id": publications[indexPath].id!
+        ]
+        
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: _headers).responseJSON{
+            response in
+            
+            switch response.result {
+            case .success:
+                let jsonResponse = response.result.value as! [String:String]
+                print(jsonResponse["message"]!)
+            case .failure(let error):
+                print(error,"error like dar")
+                let alert = UIAlertController(title: "Ups! Something was wrong.", message:
+                    "Check your connection and try it later", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "ok", style:
+                    .cancel, handler: { (accion) in}))
+                self.present(alert, animated: true, completion: nil)
+            }
+            
+        }
     }
     
 }
