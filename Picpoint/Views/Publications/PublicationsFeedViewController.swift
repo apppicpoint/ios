@@ -30,6 +30,7 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
     
     
     func getPublications(){
+        self.showSpinner(onView: self.view)
         publications = [Publication]()
         let url = Constants.url+"publications"
         let _headers : HTTPHeaders = [
@@ -39,7 +40,7 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
         
         Alamofire.request(url, method: .get, encoding: URLEncoding.httpBody, headers: _headers).responseJSON{
             response in
-            
+            self.removeSpinner()
             switch response.result {
             case .success:
                 if(response.response?.statusCode == 200){
