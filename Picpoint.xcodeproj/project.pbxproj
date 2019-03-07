@@ -36,6 +36,9 @@
 		7F14404C222E83C500E32B60 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14404B222E83C500E32B60 /* Comment.swift */; };
 		7F27ACD02214101F00146B57 /* SpotsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F27ACCF2214101F00146B57 /* SpotsCollectionViewController.swift */; };
 		7F327EE9222558CA00ABD796 /* AddSpotNewPublicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F327EE8222558CA00ABD796 /* AddSpotNewPublicationViewController.swift */; };
+		7F340AF5222FFC3300FE3F96 /* PicPortfolioCreatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F340AF4222FFC3300FE3F96 /* PicPortfolioCreatedViewController.swift */; };
+		7F340AF7222FFE7600FE3F96 /* PicPersonalCreatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F340AF6222FFE7600FE3F96 /* PicPersonalCreatedViewController.swift */; };
+		7F340AF9222FFFC700FE3F96 /* SpotsCreatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F340AF8222FFFC700FE3F96 /* SpotsCreatedViewController.swift */; };
 		7F3CB8B4222E908200006A58 /* Publication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3CB8B3222E908200006A58 /* Publication.swift */; };
 		7F3CB8B8222E921E00006A58 /* SpotCommentsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3CB8B7222E921E00006A58 /* SpotCommentsCollectionViewController.swift */; };
 		7F912FA6222597F900F116AB /* SpotDetailTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F912FA5222597F900F116AB /* SpotDetailTagCollectionViewCell.swift */; };
@@ -83,6 +86,9 @@
 		7F14404B222E83C500E32B60 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		7F27ACCF2214101F00146B57 /* SpotsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotsCollectionViewController.swift; sourceTree = "<group>"; };
 		7F327EE8222558CA00ABD796 /* AddSpotNewPublicationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSpotNewPublicationViewController.swift; sourceTree = "<group>"; };
+		7F340AF4222FFC3300FE3F96 /* PicPortfolioCreatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicPortfolioCreatedViewController.swift; sourceTree = "<group>"; };
+		7F340AF6222FFE7600FE3F96 /* PicPersonalCreatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicPersonalCreatedViewController.swift; sourceTree = "<group>"; };
+		7F340AF8222FFFC700FE3F96 /* SpotsCreatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotsCreatedViewController.swift; sourceTree = "<group>"; };
 		7F3CB8B3222E908200006A58 /* Publication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publication.swift; sourceTree = "<group>"; };
 		7F3CB8B7222E921E00006A58 /* SpotCommentsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotCommentsCollectionViewController.swift; sourceTree = "<group>"; };
 		7F912FA5222597F900F116AB /* SpotDetailTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetailTagCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -142,7 +148,7 @@
 				D2C2EAC521EC82B200D547BD /* RegisterViewController.swift */,
 				D2C2EACB21EC86C600D547BD /* LoginViewController.swift */,
 				D2CFD83B21F5D3160024EF0D /* RecoverPasswordViewController.swift */,
-				639EFB762200CDC3005AC6A1 /* ProfileViewController.swift */,
+				7F340AF3222FFB6300FE3F96 /* Profile */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -203,6 +209,17 @@
 				7F3CB8B7222E921E00006A58 /* SpotCommentsCollectionViewController.swift */,
 			);
 			path = Spots;
+			sourceTree = "<group>";
+		};
+		7F340AF3222FFB6300FE3F96 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				639EFB762200CDC3005AC6A1 /* ProfileViewController.swift */,
+				7F340AF4222FFC3300FE3F96 /* PicPortfolioCreatedViewController.swift */,
+				7F340AF6222FFE7600FE3F96 /* PicPersonalCreatedViewController.swift */,
+				7F340AF8222FFFC700FE3F96 /* SpotsCreatedViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		7F4805FA222E8C6700095610 /* Recovered References */ = {
@@ -390,6 +407,7 @@
 				7F14404C222E83C500E32B60 /* Comment.swift in Sources */,
 				639EFB732200CD38005AC6A1 /* CustomTabBar.swift in Sources */,
 				639EFB8E22045ED4005AC6A1 /* Spot.swift in Sources */,
+				7F340AF9222FFFC700FE3F96 /* SpotsCreatedViewController.swift in Sources */,
 				639EFB752200CDA4005AC6A1 /* SpotsFeedViewController.swift in Sources */,
 				7F3CB8B4222E908200006A58 /* Publication.swift in Sources */,
 				639EFB7D2200CE3A005AC6A1 /* NewSpotViewController.swift in Sources */,
@@ -398,9 +416,11 @@
 				639EFB792200CDD9005AC6A1 /* PublicationsFeedViewController.swift in Sources */,
 				7FE602B3221C4E030032A2D1 /* TagsCollectionViewCell.swift in Sources */,
 				639EFB8A220306FA005AC6A1 /* Utils.swift in Sources */,
+				7F340AF5222FFC3300FE3F96 /* PicPortfolioCreatedViewController.swift in Sources */,
 				639EFB8C2203099F005AC6A1 /* PreviewImageViewController.swift in Sources */,
 				639EFB7B2200CDED005AC6A1 /* NewPublicationViewController.swift in Sources */,
 				7FE602B1221C33960032A2D1 /* TagsViewController.swift in Sources */,
+				7F340AF7222FFE7600FE3F96 /* PicPersonalCreatedViewController.swift in Sources */,
 				7F327EE9222558CA00ABD796 /* AddSpotNewPublicationViewController.swift in Sources */,
 				639EFB9C22046300005AC6A1 /* PublicationTableViewController.swift in Sources */,
 				7FD34B57221EF2DD00268775 /* SpotTagCollectionViewCell.swift in Sources */,
