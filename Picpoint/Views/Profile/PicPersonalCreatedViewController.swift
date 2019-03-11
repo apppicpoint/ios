@@ -12,6 +12,9 @@ import UIKit
 
 class PicPersonalCreatedViewController: UIViewController {
     
+    @IBOutlet weak var picPersonalCollectionView: UICollectionView!
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         print("viewWillAppear , PicPersonalCreatedViewController")
     }

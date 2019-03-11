@@ -48,6 +48,7 @@
 		7FE602B1221C33960032A2D1 /* TagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE602B0221C33960032A2D1 /* TagsViewController.swift */; };
 		7FE602B3221C4E030032A2D1 /* TagsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE602B2221C4E020032A2D1 /* TagsCollectionViewCell.swift */; };
 		7FE602B5221C56510032A2D1 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE602B4221C56510032A2D1 /* Tag.swift */; };
+		7FFD200922368B45003F9849 /* PicPersonalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD200822368B45003F9849 /* PicPersonalCell.swift */; };
 		D2B2884721FA13A20060F8A2 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B2884621FA13A20060F8A2 /* Connectivity.swift */; };
 		D2C2EAB421EC7D1500D547BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C2EAB321EC7D1500D547BD /* AppDelegate.swift */; };
 		D2C2EAB921EC7D1500D547BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C2EAB721EC7D1500D547BD /* Main.storyboard */; };
@@ -99,6 +100,7 @@
 		7FE602B0221C33960032A2D1 /* TagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsViewController.swift; sourceTree = "<group>"; };
 		7FE602B2221C4E020032A2D1 /* TagsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCollectionViewCell.swift; sourceTree = "<group>"; };
 		7FE602B4221C56510032A2D1 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		7FFD200822368B45003F9849 /* PicPersonalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicPersonalCell.swift; sourceTree = "<group>"; };
 		C05BA933E4DAAB37B56E6706 /* Pods-Picpoint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Picpoint.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Picpoint/Pods-Picpoint.debug.xcconfig"; sourceTree = "<group>"; };
 		D2B2884621FA13A20060F8A2 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		D2C2EAB021EC7D1500D547BD /* Picpoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Picpoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -219,6 +221,7 @@
 				7F340AF4222FFC3300FE3F96 /* PicPortfolioCreatedViewController.swift */,
 				7F340AF6222FFE7600FE3F96 /* PicPersonalCreatedViewController.swift */,
 				7F340AF8222FFFC700FE3F96 /* SpotsCreatedViewController.swift */,
+				7FFD200822368B45003F9849 /* PicPersonalCell.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 				639EFB822201A3D0005AC6A1 /* CustomAlertViewController.swift in Sources */,
 				7F144054222EA38F00E32B60 /* picsCollectionViewCell.swift in Sources */,
 				D2B2884721FA13A20060F8A2 /* Connectivity.swift in Sources */,
+				7FFD200922368B45003F9849 /* PicPersonalCell.swift in Sources */,
 				7F27ACD02214101F00146B57 /* SpotsCollectionViewController.swift in Sources */,
 				639EFB862201BC5C005AC6A1 /* MapViewController.swift in Sources */,
 				639EFB9A220462C6005AC6A1 /* PublicationTableViewCell.swift in Sources */,
