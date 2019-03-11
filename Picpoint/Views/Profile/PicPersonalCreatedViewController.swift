@@ -7,10 +7,9 @@
 //
 
 import Foundation
-
 import UIKit
-
 import Alamofire
+import AlamofireImage
 
 class PicPersonalCreatedViewController: UIViewController, UICollectionViewDelegate , UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
  
