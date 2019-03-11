@@ -93,7 +93,7 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
                 let data = response.result.value
                 publication.image = data!
             case .failure(let error):
-                print(error,"error img")
+                print(error,"error img point")
                 let alert = UIAlertController(title: "Ups! Something was wrong.", message:
                     "Check your connection and try it later", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "ok", style:
@@ -205,11 +205,13 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
         
         cell.publicationImage.image = publications[indexPath.row].image
         cell.descriptionPub.text = publications[indexPath.row].description!
-        cell.userName.text = publications[indexPath.row].userName
+        cell.userName.setTitle(publications[indexPath.row].userName, for: .normal)
+        cell.userName.tag = publications[indexPath.row].user_id!
         cell.userImage.image = publications[indexPath.row].userImage
         cell.likeBtn.tag = indexPath.row
         cell.likeBtn.addTarget(self, action: Selector("changeLikeFeed:"), for: UIControlEvents.touchUpInside)
-        
+        cell.pointName.addTarget(self, action: Selector("goSpot:"), for: UIControlEvents.touchUpInside)
+        cell.userName.addTarget(self, action: Selector("goUser:"), for: UIControlEvents.touchUpInside)
         
         
         cell.userImage.layer.cornerRadius = cell.userImage.frame.size.width / 2
@@ -218,6 +220,9 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
         isLiked(publication_id: publications[indexPath.row].id!, cell: cell)
         
         if publications[indexPath.row].spot_id != nil {
+           
+            cell.pointName.tag = publications[indexPath.row].spot_id!
+        
             cell.pointName.setTitle(publications[indexPath.row].spotName, for: .normal)
         }
         else {
@@ -225,6 +230,63 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
         }
         
         return cell
+    }
+    
+    @IBAction func goUser(_ sender: UIButton) {
+        
+        let displayVC : otherProfileViewController = UIStoryboard(name: "OtherProfile", bundle: nil).instantiateViewController(withIdentifier: "otherProfile") as! otherProfileViewController
+        
+        displayVC.user_id = sender.tag
+        
+        self.present(displayVC, animated: true, completion: nil)
+    }
+    
+    @IBAction func goSpot(_ sender: UIButton) {
+        
+        let displayVC : SpotDetailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PointDetail") as! SpotDetailViewController
+        
+        let url = Constants.url+"spots/"+String(sender.tag)
+        let _headers : HTTPHeaders = [
+            "Content-Type":"application/x-www-form-urlencoded",
+            "Authorization":UserDefaults.standard.string(forKey: "token")!
+        ]
+        
+        Alamofire.request(url, method: .get, encoding: URLEncoding.httpBody, headers: _headers).responseJSON{
+            response in
+            
+            switch response.result {
+            case .success:
+                if(response.response?.statusCode == 200){
+                    let jsonResponse = response.result.value as! [String:Any]
+                    let data = jsonResponse["spot"] as! [String: Any]
+                        let spot = Spot(id: data["id"] as! Int,
+                                        name: data["name"] as! String,
+                                        desc: data["description"] as? String,
+                                        longitude: data["longitude"] as! Double,
+                                        latitude: data["latitude"] as! Double,
+                                        user_id: data["user_id"] as! Int,
+                                        distance: 0,
+                                        imageName: data["image"] as! String
+                        )
+                        
+                        displayVC.spot = spot
+                    
+                }
+                
+                self.present(displayVC, animated: true, completion: nil)
+                
+            //Si falla la conexión se muestra un alert.
+            case .failure(let error):
+                print("Sin conexión en get spot")
+                print(error)
+                let alert = UIAlertController(title: "Ups! Something was wrong.", message:
+                    "Check your connection and try it later", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "ok", style:
+                    .cancel, handler: { (accion) in}))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+        
     }
     
     @IBAction func changeLikeFeed(_ sender: UIButton) {

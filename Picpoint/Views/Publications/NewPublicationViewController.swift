@@ -31,7 +31,6 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
     @IBOutlet weak var addTagsBtn: UIButton!
     
     @IBOutlet weak var namePoint: UILabel!
-    @IBOutlet weak var addressPoint: UILabel!
     
     
     let utils = Utils()
@@ -98,11 +97,10 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
         
         if NewPublicationViewController.pointSelected != nil {
             namePoint.text = NewPublicationViewController.pointSelected?.name
-            addressPoint.text = NewPublicationViewController.pointSelected?.desc
+
         }
         else {
             namePoint.text = "Point name"
-            addressPoint.text = "Address"
         }
     }
     
