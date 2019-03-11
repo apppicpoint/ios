@@ -17,6 +17,12 @@ class PicPersonalCreatedViewController: UIViewController, UICollectionViewDelega
     var picsPersonal:[Publication] = []
     
     override func viewDidLoad() {
+  
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear , PicPersonalCreatedViewController")
+        
         picPersonalCollectionView.delegate = self
         picPersonalCollectionView.dataSource = self
         
@@ -27,10 +33,6 @@ class PicPersonalCreatedViewController: UIViewController, UICollectionViewDelega
         flowLayout?.minimumInteritemSpacing = 5
         
         getPublications()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        print("viewWillAppear , PicPersonalCreatedViewController")
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
