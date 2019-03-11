@@ -2,6 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "circle_point.png",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
       "scale" : "1x"
     },
     {

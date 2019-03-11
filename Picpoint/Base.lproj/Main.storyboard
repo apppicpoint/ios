@@ -1043,11 +1043,11 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cU9-h1-XsZ">
-                                <rect key="frame" x="20" y="140" width="127" height="29"/>
+                                <rect key="frame" x="20" y="140" width="77" height="29"/>
                                 <color key="backgroundColor" red="0.95675891639999999" green="0.95692259069999996" blue="0.95674854519999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <segments>
-                                    <segment title=""/>
-                                    <segment title="Satellite"/>
+                                    <segment title="" image="mapa"/>
+                                    <segment title="" image="Satelite"/>
                                 </segments>
                                 <connections>
                                     <action selector="changeMap:" destination="T0F-7n-y2V" eventType="valueChanged" id="8Cn-9x-s7N"/>
@@ -1192,28 +1192,28 @@
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ng5-Ew-VjG">
                                                 <rect key="frame" x="5" y="327.5" width="310" height="29"/>
                                                 <segments>
-                                                    <segment title="Work"/>
+                                                    <segment title="Portfolio"/>
                                                     <segment title="Personal"/>
-                                                    <segment title="Spots"/>
+                                                    <segment title="Points"/>
                                                 </segments>
                                                 <connections>
                                                     <action selector="ChangeFeed:" destination="Rkp-Oe-Z19" eventType="valueChanged" id="Gfe-ms-nVy"/>
                                                 </connections>
                                             </segmentedControl>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PO9-TX-t3T" userLabel="PicPersonaContainerView">
-                                                <rect key="frame" x="0.0" y="356" width="320" height="644"/>
+                                                <rect key="frame" x="0.0" y="355.5" width="320" height="644.5"/>
                                                 <connections>
                                                     <segue destination="JTm-Jv-kkG" kind="embed" id="oxk-3h-JNP"/>
                                                 </connections>
                                             </containerView>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iyp-RP-GLe" userLabel="SpotsCreatedContainer View">
-                                                <rect key="frame" x="0.0" y="356" width="320" height="644"/>
+                                                <rect key="frame" x="0.0" y="355.5" width="320" height="644.5"/>
                                                 <connections>
                                                     <segue destination="3Ww-n4-xhT" kind="embed" id="ctS-dH-jjh"/>
                                                 </connections>
                                             </containerView>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4m1-WC-tGe" userLabel="PicPortfolioContainer View">
-                                                <rect key="frame" x="0.0" y="361" width="320" height="639"/>
+                                                <rect key="frame" x="0.0" y="360.5" width="320" height="639.5"/>
                                                 <connections>
                                                     <segue destination="GXq-Kv-VPK" kind="embed" id="eiz-JI-KRY"/>
                                                 </connections>
@@ -1409,11 +1409,11 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="HKK-HV-exR">
-                                <rect key="frame" x="12" y="132" width="121" height="29"/>
+                                <rect key="frame" x="12" y="132" width="77" height="29"/>
                                 <color key="backgroundColor" red="0.95675891639999999" green="0.95692259069999996" blue="0.95674854519999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
+                                    <segment title="" image="mapa"/>
+                                    <segment title="" image="Satelite"/>
                                 </segments>
                                 <connections>
                                     <action selector="changeMap:" destination="BIn-5q-fBR" eventType="valueChanged" id="zrf-Mq-9iw"/>
@@ -1444,6 +1444,7 @@
                     <connections>
                         <outlet property="changeMap" destination="HKK-HV-exR" id="CJX-vx-1wd"/>
                         <outlet property="map" destination="zdz-LV-LeX" id="LaA-WH-fxD"/>
+                        <outlet property="searchBar" destination="7Ko-A9-Ghe" id="uhg-ZA-wI8"/>
                         <outlet property="searchDisplayController" destination="cUG-XP-C3o" id="1Sp-oG-ehw"/>
                         <outlet property="spotsCollecionView" destination="RC7-jr-YoK" id="chg-cC-SzO"/>
                     </connections>
@@ -1915,13 +1916,13 @@
                                                 <rect key="frame" x="0.0" y="208" width="280" height="194"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XrJ-YN-iMw">
-                                                        <rect key="frame" x="0.0" y="0.0" width="280" height="20"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="280" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yhy-6o-z0q">
-                                                        <rect key="frame" x="0.0" y="22" width="280" height="30"/>
+                                                        <rect key="frame" x="0.0" y="22.5" width="280" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="8sW-yI-dfq"/>
                                                         </constraints>
@@ -1930,7 +1931,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tags" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GuX-MO-Er3">
-                                                        <rect key="frame" x="0.0" y="67" width="280" height="21"/>
+                                                        <rect key="frame" x="0.0" y="67.5" width="280" height="20.5"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20.5" id="1Ma-jm-rST"/>
                                                         </constraints>
@@ -2285,7 +2286,7 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a place" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OwL-AC-avy">
-                                <rect key="frame" x="106" y="32" width="108" height="21"/>
+                                <rect key="frame" x="106" y="31.5" width="108" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -2507,7 +2508,7 @@
             <objects>
                 <viewController title="PicPortfolioCreatedViewController" id="GXq-Kv-VPK" customClass="PicPortfolioCreatedViewController" customModule="Picpoint" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fU1-EI-gWm">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="639"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="639.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.0" blue="0.084040851149999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="MB8-GP-oWc"/>
@@ -2522,26 +2523,40 @@
             <objects>
                 <viewController title="PicPersonalCreatedViewController" id="JTm-Jv-kkG" customClass="PicPersonalCreatedViewController" customModule="Picpoint" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pd0-1P-77t">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="644"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="644.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Odd-V9-Rfc">
                                 <rect key="frame" x="0.0" y="20" width="320" height="624"/>
                                 <color key="backgroundColor" red="0.74609375" green="0.54872524680000001" blue="0.28979780890000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AJ4-LB-nQR">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Mub-Pd-xij">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Hyn-0F-apz">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Hyn-0F-apz" customClass="PicPersonalCell" customModule="Picpoint" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B0w-dy-DMQ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                </imageView>
+                                            </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="B0w-dy-DMQ" secondAttribute="trailing" id="JFd-fJ-ooX"/>
+                                            <constraint firstItem="B0w-dy-DMQ" firstAttribute="top" secondItem="Hyn-0F-apz" secondAttribute="top" id="cpK-gh-ozo"/>
+                                            <constraint firstItem="B0w-dy-DMQ" firstAttribute="leading" secondItem="Hyn-0F-apz" secondAttribute="leading" id="gCM-Vf-T3M"/>
+                                            <constraint firstAttribute="bottom" secondItem="B0w-dy-DMQ" secondAttribute="bottom" id="sb2-HV-9Hf"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="picImage" destination="B0w-dy-DMQ" id="KjZ-k8-fly"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -2555,6 +2570,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="sBo-pP-58I"/>
                     </view>
+                    <connections>
+                        <outlet property="picPersonalCollectionView" destination="Odd-V9-Rfc" id="pDi-BF-3y7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M6E-gQ-2v8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2565,7 +2583,7 @@
             <objects>
                 <viewController title="SpotsCreatedViewController" id="3Ww-n4-xhT" customClass="SpotsCreatedViewController" customModule="Picpoint" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VcS-7h-txa">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="644"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="644.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.16991838810000001" green="0.34978163239999999" blue="0.087842399691358028" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="baM-bd-jSn"/>
@@ -2580,6 +2598,7 @@
         <image name="Logo picpoint " width="264" height="71"/>
         <image name="Pic bubble" width="127" height="127"/>
         <image name="Point bubble" width="127" height="134"/>
+        <image name="Satelite" width="24" height="23"/>
         <image name="add_active" width="24" height="24"/>
         <image name="add_inactive" width="23" height="23"/>
         <image name="add_tag_button" width="139" height="39"/>
@@ -2592,6 +2611,7 @@
         <image name="google maps" width="48" height="48"/>
         <image name="gps_button" width="39" height="39"/>
         <image name="heartfalse" width="30" height="30"/>
+        <image name="mapa" width="23" height="24"/>
         <image name="no-image" width="592" height="444"/>
         <image name="noLogged" width="283" height="351"/>
         <image name="points_active" width="15" height="24"/>

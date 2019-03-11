@@ -11,8 +11,11 @@ import UIKit
 import AlamofireImage
 import Alamofire
 import MapKit
+import GoogleMaps
+import GooglePlaces
 
-class SpotsFeedViewController: UIViewController,  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, CLLocationManagerDelegate {
+
+class SpotsFeedViewController: UIViewController,  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, CLLocationManagerDelegate, UISearchDisplayDelegate {
     
     @IBOutlet weak var map: MapFeedViewController!
     
@@ -22,10 +25,22 @@ class SpotsFeedViewController: UIViewController,  UICollectionViewDelegate, UICo
     var currentLatitude: Double?
     let locationManager = CLLocationManager()
     
+    var tableDataSource: GMSAutocompleteTableDataSource?
+    var srchDisplayController: UISearchController?
+    var mapView = GMSMapView()
+    var saveString = NSString()
+    
+    var lat = Double()
+    var long = Double()
+
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     @IBOutlet weak var changeMap: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        performGoogleSearch(for: "Gaztambide, 65")
         //Configura los delegados del controlador de ubicaciones
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
@@ -68,6 +83,11 @@ class SpotsFeedViewController: UIViewController,  UICollectionViewDelegate, UICo
         
         changeMap.setImage(UIImage.init(imageLiteralResourceName: "mapa"), forSegmentAt: 0)
         //changeMap.setImage(UIImage.init(imageLiteralResourceName: "satelite"), forSegmentAt: 1)
+        
+        
+        searchDisplayController?.searchBar.showsCancelButton = false
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -283,36 +303,44 @@ class SpotsFeedViewController: UIViewController,  UICollectionViewDelegate, UICo
         print("he volvido")
         getSpots()
     }
+    
+    func performGoogleSearch(for string: String) {
+        print("*****API MAPS", string)
+        var components = URLComponents(string: "https://maps.googleapis.com/maps/api/geocode/json")!
+        let key = URLQueryItem(name: "key", value: "AIzaSyDSYkDLcFanUVqPkFlPneHE9avGWX2SYZw") // use your key
+        let address = URLQueryItem(name: "address", value: string)
+        components.queryItems = [key, address]
+        
+        let task = URLSession.shared.dataTask(with: components.url!) { data, response, error in
+            guard let data = data, let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200, error == nil else {
+                print(String(describing: response))
+                print(String(describing: error))
+                return
+            }
+            
+            guard let json = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any] else {
+                print("not JSON format expected")
+                print(String(data: data, encoding: .utf8) ?? "Not string?!?")
+                return
+            }
+            
+            guard let results = json["results"] as? [[String: Any]],
+                let status = json["status"] as? String,
+                status == "OK" else {
+                    print("no results")
+                    print(String(describing: json))
+                    return
+            }
+            
+            DispatchQueue.main.async {
+                // now do something with the results, e.g. grab `formatted_address`:
+                let strings = results.compactMap { $0["formatted_address"] as? String }
+                print("*****DIRECCIÓN", strings)
+            }
+        }
+        
+        task.resume()
+    }
 }
 
 
-// Rellena cada una de las celdas con su información correspondiente.
-/*func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
- var cell = SpotTableViewCell()
- 
- cell = tableView.dequeueReusableCell(withIdentifier: "spotCell", for: indexPath) as! SpotTableViewCell
- cell.titleTextField.text = spots[indexPath.row].name
- cell.distanceTextField.text = String(spots[indexPath.row].distance!) + " km from you"
- cell.spotImage?.layer.masksToBounds = true
- cell.spotImage?.contentMode = .scaleAspectFill
- cell.spotImage?.image = spots[indexPath.row].image
- 
- print(cell.imageView?.clipsToBounds)
- 
- return cell
- }*/
-
-// Establece la altura de las columnas de la tabla
-/*func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
- {
- 
- return 85 // Tamaño de la celda de spots
- }*/
-
-/*func numberOfSections(in tableView: UITableView) -> Int {
- return 1
- }
- 
- func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
- return (spots.count)
- }*/
