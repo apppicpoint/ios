@@ -1,5 +1,7 @@
 import UIKit
 import GoogleMaps
+import GooglePlaces
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -9,6 +11,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //Esta función se encarga de mantener la sesión iniciada
    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
    {
+        GMSPlacesClient.provideAPIKey("AIzaSyDSYkDLcFanUVqPkFlPneHE9avGWX2SYZw")
+        GMSServices.provideAPIKey("AIzaSyDSYkDLcFanUVqPkFlPneHE9avGWX2SYZw")
         self.window = UIWindow(frame: UIScreen.main.bounds)
     
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -18,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = initialViewController
         self.window?.makeKeyAndVisible()
     
-        GMSServices.provideAPIKey("AIzaSyDSYkDLcFanUVqPkFlPneHE9avGWX2SYZw")
+    
 
         return true
     }

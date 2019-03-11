@@ -33,11 +33,14 @@ class SpotsFeedViewController: UIViewController,  UICollectionViewDelegate, UICo
     var lat = Double()
     var long = Double()
 
+    @IBOutlet weak var searchBar: UISearchBar!
     
     @IBOutlet weak var changeMap: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        performGoogleSearch(for: "Gaztambide, 65")
         //Configura los delegados del controlador de ubicaciones
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
@@ -299,6 +302,44 @@ class SpotsFeedViewController: UIViewController,  UICollectionViewDelegate, UICo
     @IBAction func backFromNewSpotToFeed(_ segue: UIStoryboardSegue) {
         print("he volvido")
         getSpots()
+    }
+    
+    func performGoogleSearch(for string: String) {
+        print("*****API MAPS", string)
+        var components = URLComponents(string: "https://maps.googleapis.com/maps/api/geocode/json")!
+        let key = URLQueryItem(name: "key", value: "AIzaSyDSYkDLcFanUVqPkFlPneHE9avGWX2SYZw") // use your key
+        let address = URLQueryItem(name: "address", value: string)
+        components.queryItems = [key, address]
+        
+        let task = URLSession.shared.dataTask(with: components.url!) { data, response, error in
+            guard let data = data, let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200, error == nil else {
+                print(String(describing: response))
+                print(String(describing: error))
+                return
+            }
+            
+            guard let json = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any] else {
+                print("not JSON format expected")
+                print(String(data: data, encoding: .utf8) ?? "Not string?!?")
+                return
+            }
+            
+            guard let results = json["results"] as? [[String: Any]],
+                let status = json["status"] as? String,
+                status == "OK" else {
+                    print("no results")
+                    print(String(describing: json))
+                    return
+            }
+            
+            DispatchQueue.main.async {
+                // now do something with the results, e.g. grab `formatted_address`:
+                let strings = results.compactMap { $0["formatted_address"] as? String }
+                print("*****DIRECCIÓN", strings)
+            }
+        }
+        
+        task.resume()
     }
 }
 
