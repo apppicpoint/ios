@@ -1440,6 +1440,7 @@
                     <connections>
                         <outlet property="changeMap" destination="HKK-HV-exR" id="CJX-vx-1wd"/>
                         <outlet property="map" destination="zdz-LV-LeX" id="LaA-WH-fxD"/>
+                        <outlet property="searchBar" destination="7Ko-A9-Ghe" id="uhg-ZA-wI8"/>
                         <outlet property="searchDisplayController" destination="cUG-XP-C3o" id="1Sp-oG-ehw"/>
                         <outlet property="spotsCollecionView" destination="RC7-jr-YoK" id="chg-cC-SzO"/>
                     </connections>

@@ -11,8 +11,11 @@ import UIKit
 import AlamofireImage
 import Alamofire
 import MapKit
+import GoogleMaps
+import GooglePlaces
 
-class SpotsFeedViewController: UIViewController,  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, CLLocationManagerDelegate {
+
+class SpotsFeedViewController: UIViewController,  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, CLLocationManagerDelegate, UISearchDisplayDelegate {
     
     @IBOutlet weak var map: MapFeedViewController!
     
@@ -21,6 +24,15 @@ class SpotsFeedViewController: UIViewController,  UICollectionViewDelegate, UICo
     var currentLongitude: Double?
     var currentLatitude: Double?
     let locationManager = CLLocationManager()
+    
+    var tableDataSource: GMSAutocompleteTableDataSource?
+    var srchDisplayController: UISearchController?
+    var mapView = GMSMapView()
+    var saveString = NSString()
+    
+    var lat = Double()
+    var long = Double()
+
     
     @IBOutlet weak var changeMap: UISegmentedControl!
     
@@ -68,6 +80,11 @@ class SpotsFeedViewController: UIViewController,  UICollectionViewDelegate, UICo
         
         changeMap.setImage(UIImage.init(imageLiteralResourceName: "mapa"), forSegmentAt: 0)
         //changeMap.setImage(UIImage.init(imageLiteralResourceName: "satelite"), forSegmentAt: 1)
+        
+        
+        searchDisplayController?.searchBar.showsCancelButton = false
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -286,33 +303,3 @@ class SpotsFeedViewController: UIViewController,  UICollectionViewDelegate, UICo
 }
 
 
-// Rellena cada una de las celdas con su información correspondiente.
-/*func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
- var cell = SpotTableViewCell()
- 
- cell = tableView.dequeueReusableCell(withIdentifier: "spotCell", for: indexPath) as! SpotTableViewCell
- cell.titleTextField.text = spots[indexPath.row].name
- cell.distanceTextField.text = String(spots[indexPath.row].distance!) + " km from you"
- cell.spotImage?.layer.masksToBounds = true
- cell.spotImage?.contentMode = .scaleAspectFill
- cell.spotImage?.image = spots[indexPath.row].image
- 
- print(cell.imageView?.clipsToBounds)
- 
- return cell
- }*/
-
-// Establece la altura de las columnas de la tabla
-/*func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
- {
- 
- return 85 // Tamaño de la celda de spots
- }*/
-
-/*func numberOfSections(in tableView: UITableView) -> Int {
- return 1
- }
- 
- func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
- return (spots.count)
- }*/

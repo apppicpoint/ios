@@ -33,7 +33,7 @@
 		63DD0A40220C4FA500276B1A /* NoLoggedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DD0A3F220C4FA500276B1A /* NoLoggedViewController.swift */; };
 		7F144046222E797700E32B60 /* SpotCommentsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F144045222E797700E32B60 /* SpotCommentsCollectionViewCell.swift */; };
 		7F14404C222E83C500E32B60 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14404B222E83C500E32B60 /* Comment.swift */; };
-		7F144050222E8AA200E32B60 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		7F144050222E8AA200E32B60 /* BuildFile in Resources */ = {isa = PBXBuildFile; };
 		7F144052222EA1EC00E32B60 /* PicsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F144051222EA1EC00E32B60 /* PicsCollectionViewController.swift */; };
 		7F144054222EA38F00E32B60 /* picsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F144053222EA38F00E32B60 /* picsCollectionViewCell.swift */; };
 		7F27ACD02214101F00146B57 /* SpotsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F27ACCF2214101F00146B57 /* SpotsCollectionViewController.swift */; };
@@ -299,6 +299,7 @@
 				D2C2EAAD21EC7D1500D547BD /* Frameworks */,
 				D2C2EAAE21EC7D1500D547BD /* Resources */,
 				D3B6D59D0D8D09279A6F2BDF /* [CP] Embed Pods Frameworks */,
+				02594C7492E593EF5DDB1B11 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -347,7 +348,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F144050222E8AA200E32B60 /* (null) in Resources */,
+				7F144050222E8AA200E32B60 /* BuildFile in Resources */,
 				D2C2EABB21EC7D1600D547BD /* Assets.xcassets in Resources */,
 				D2C2EAB921EC7D1500D547BD /* Main.storyboard in Resources */,
 			);
@@ -356,6 +357,30 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		02594C7492E593EF5DDB1B11 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Picpoint/Pods-Picpoint-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Picpoint/Pods-Picpoint-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		CCDDD13988B8AB69AA7BBF95 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
