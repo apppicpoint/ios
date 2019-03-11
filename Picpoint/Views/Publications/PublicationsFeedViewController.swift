@@ -205,11 +205,13 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
         
         cell.publicationImage.image = publications[indexPath.row].image
         cell.descriptionPub.text = publications[indexPath.row].description!
-        cell.userName.text = publications[indexPath.row].userName
+        cell.userName.setTitle(publications[indexPath.row].userName, for: .normal)
+        cell.userName.tag = publications[indexPath.row].user_id!
         cell.userImage.image = publications[indexPath.row].userImage
         cell.likeBtn.tag = indexPath.row
         cell.likeBtn.addTarget(self, action: Selector("changeLikeFeed:"), for: UIControlEvents.touchUpInside)
         cell.pointName.addTarget(self, action: Selector("goSpot:"), for: UIControlEvents.touchUpInside)
+        cell.userName.addTarget(self, action: Selector("goUser:"), for: UIControlEvents.touchUpInside)
         
         
         cell.userImage.layer.cornerRadius = cell.userImage.frame.size.width / 2
@@ -228,6 +230,15 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
         }
         
         return cell
+    }
+    
+    @IBAction func goUser(_ sender: UIButton) {
+        
+        let displayVC : otherProfileViewController = UIStoryboard(name: "OtherProfile", bundle: nil).instantiateViewController(withIdentifier: "otherProfile") as! otherProfileViewController
+        
+        displayVC.user_id = sender.tag
+        
+        self.present(displayVC, animated: true, completion: nil)
     }
     
     @IBAction func goSpot(_ sender: UIButton) {

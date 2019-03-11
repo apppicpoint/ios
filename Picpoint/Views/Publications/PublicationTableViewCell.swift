@@ -12,7 +12,7 @@ import Alamofire
 class PublicationTableViewCell: UITableViewCell {
     
     @IBOutlet weak var userImage: UIImageView!
-    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var userName: UIButton!
     @IBOutlet weak var publicationImage: UIImageView!
     @IBOutlet weak var pointName: UIButton!
     @IBOutlet weak var descriptionPub: UILabel!

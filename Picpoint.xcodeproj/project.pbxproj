@@ -43,6 +43,8 @@
 		7F340AF9222FFFC700FE3F96 /* SpotsCreatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F340AF8222FFFC700FE3F96 /* SpotsCreatedViewController.swift */; };
 		7F3CB8B4222E908200006A58 /* Publication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3CB8B3222E908200006A58 /* Publication.swift */; };
 		7F3CB8B8222E921E00006A58 /* SpotCommentsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F3CB8B7222E921E00006A58 /* SpotCommentsCollectionViewController.swift */; };
+		7F5F6AFB2236898D000CB9A2 /* OtherProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F5F6AFA2236898D000CB9A2 /* OtherProfile.storyboard */; };
+		7F5F6AFD223689FE000CB9A2 /* otherProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5F6AFC223689FE000CB9A2 /* otherProfileViewController.swift */; };
 		7F912FA6222597F900F116AB /* SpotDetailTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F912FA5222597F900F116AB /* SpotDetailTagCollectionViewCell.swift */; };
 		7FD34B57221EF2DD00268775 /* SpotTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD34B56221EF2DD00268775 /* SpotTagCollectionViewCell.swift */; };
 		7FE602B1221C33960032A2D1 /* TagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE602B0221C33960032A2D1 /* TagsViewController.swift */; };
@@ -94,6 +96,8 @@
 		7F340AF8222FFFC700FE3F96 /* SpotsCreatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotsCreatedViewController.swift; sourceTree = "<group>"; };
 		7F3CB8B3222E908200006A58 /* Publication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Publication.swift; sourceTree = "<group>"; };
 		7F3CB8B7222E921E00006A58 /* SpotCommentsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotCommentsCollectionViewController.swift; sourceTree = "<group>"; };
+		7F5F6AFA2236898D000CB9A2 /* OtherProfile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OtherProfile.storyboard; sourceTree = "<group>"; };
+		7F5F6AFC223689FE000CB9A2 /* otherProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = otherProfileViewController.swift; sourceTree = "<group>"; };
 		7F912FA5222597F900F116AB /* SpotDetailTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetailTagCollectionViewCell.swift; sourceTree = "<group>"; };
 		7FD34B56221EF2DD00268775 /* SpotTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotTagCollectionViewCell.swift; sourceTree = "<group>"; };
 		7FE602B0221C33960032A2D1 /* TagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsViewController.swift; sourceTree = "<group>"; };
@@ -219,6 +223,7 @@
 				7F340AF4222FFC3300FE3F96 /* PicPortfolioCreatedViewController.swift */,
 				7F340AF6222FFE7600FE3F96 /* PicPersonalCreatedViewController.swift */,
 				7F340AF8222FFFC700FE3F96 /* SpotsCreatedViewController.swift */,
+				7F5F6AFC223689FE000CB9A2 /* otherProfileViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -274,6 +279,7 @@
 			children = (
 				D2C2EAB321EC7D1500D547BD /* AppDelegate.swift */,
 				D2C2EAB721EC7D1500D547BD /* Main.storyboard */,
+				7F5F6AFA2236898D000CB9A2 /* OtherProfile.storyboard */,
 				639EFB6D220048B6005AC6A1 /* Beans */,
 				639EFB6C220048A8005AC6A1 /* Views */,
 				639EFB6B220048A0005AC6A1 /* Utils */,
@@ -345,6 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F144050222E8AA200E32B60 /* (null) in Resources */,
+				7F5F6AFB2236898D000CB9A2 /* OtherProfile.storyboard in Resources */,
 				D2C2EABB21EC7D1600D547BD /* Assets.xcassets in Resources */,
 				D2C2EAB921EC7D1500D547BD /* Main.storyboard in Resources */,
 			);
@@ -434,6 +441,7 @@
 				639EFB842201BC4E005AC6A1 /* CameraViewController.swift in Sources */,
 				6355EACB2204C9D600B784EB /* PinAnnotation.swift in Sources */,
 				6355EAC92204814B00B784EB /* MapFeedViewController.swift in Sources */,
+				7F5F6AFD223689FE000CB9A2 /* otherProfileViewController.swift in Sources */,
 				639EFB9622046261005AC6A1 /* PublicationDetailViewController.swift in Sources */,
 				D2C2EAB421EC7D1500D547BD /* AppDelegate.swift in Sources */,
 				639EFB822201A3D0005AC6A1 /* CustomAlertViewController.swift in Sources */,
