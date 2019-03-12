@@ -42,7 +42,7 @@ class PicPersonalCreatedViewController: UIViewController, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "picPersonalCell", for: indexPath) as! PicPersonalCell
-        cell.picImage.image = picsPersonal[indexPath.row].image
+        /*cell.picImage.image = picsPersonal[indexPath.row].image*/
         return cell
         
     }

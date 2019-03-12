@@ -33,7 +33,7 @@
 		63DD0A40220C4FA500276B1A /* NoLoggedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DD0A3F220C4FA500276B1A /* NoLoggedViewController.swift */; };
 		7F144046222E797700E32B60 /* SpotCommentsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F144045222E797700E32B60 /* SpotCommentsCollectionViewCell.swift */; };
 		7F14404C222E83C500E32B60 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F14404B222E83C500E32B60 /* Comment.swift */; };
-		7F144050222E8AA200E32B60 /* BuildFile in Resources */ = {isa = PBXBuildFile; };
+		7F144050222E8AA200E32B60 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		7F144052222EA1EC00E32B60 /* PicsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F144051222EA1EC00E32B60 /* PicsCollectionViewController.swift */; };
 		7F144054222EA38F00E32B60 /* picsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F144053222EA38F00E32B60 /* picsCollectionViewCell.swift */; };
 		7F27ACD02214101F00146B57 /* SpotsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F27ACCF2214101F00146B57 /* SpotsCollectionViewController.swift */; };
@@ -47,10 +47,10 @@
 		7F5F6AFD223689FE000CB9A2 /* otherProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5F6AFC223689FE000CB9A2 /* otherProfileViewController.swift */; };
 		7F912FA6222597F900F116AB /* SpotDetailTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F912FA5222597F900F116AB /* SpotDetailTagCollectionViewCell.swift */; };
 		7FD34B57221EF2DD00268775 /* SpotTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD34B56221EF2DD00268775 /* SpotTagCollectionViewCell.swift */; };
+		7FD79CD722379EF500FCA956 /* PicPersonalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD79CD622379EF500FCA956 /* PicPersonalCell.swift */; };
 		7FE602B1221C33960032A2D1 /* TagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE602B0221C33960032A2D1 /* TagsViewController.swift */; };
 		7FE602B3221C4E030032A2D1 /* TagsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE602B2221C4E020032A2D1 /* TagsCollectionViewCell.swift */; };
 		7FE602B5221C56510032A2D1 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE602B4221C56510032A2D1 /* Tag.swift */; };
-		7FFD200922368B45003F9849 /* PicPersonalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFD200822368B45003F9849 /* PicPersonalCell.swift */; };
 		D2B2884721FA13A20060F8A2 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B2884621FA13A20060F8A2 /* Connectivity.swift */; };
 		D2C2EAB421EC7D1500D547BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C2EAB321EC7D1500D547BD /* AppDelegate.swift */; };
 		D2C2EAB921EC7D1500D547BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C2EAB721EC7D1500D547BD /* Main.storyboard */; };
@@ -101,10 +101,10 @@
 		7F5F6AFC223689FE000CB9A2 /* otherProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = otherProfileViewController.swift; sourceTree = "<group>"; };
 		7F912FA5222597F900F116AB /* SpotDetailTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetailTagCollectionViewCell.swift; sourceTree = "<group>"; };
 		7FD34B56221EF2DD00268775 /* SpotTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotTagCollectionViewCell.swift; sourceTree = "<group>"; };
+		7FD79CD622379EF500FCA956 /* PicPersonalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicPersonalCell.swift; sourceTree = "<group>"; };
 		7FE602B0221C33960032A2D1 /* TagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsViewController.swift; sourceTree = "<group>"; };
 		7FE602B2221C4E020032A2D1 /* TagsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCollectionViewCell.swift; sourceTree = "<group>"; };
 		7FE602B4221C56510032A2D1 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
-		7FFD200822368B45003F9849 /* PicPersonalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicPersonalCell.swift; sourceTree = "<group>"; };
 		C05BA933E4DAAB37B56E6706 /* Pods-Picpoint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Picpoint.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Picpoint/Pods-Picpoint.debug.xcconfig"; sourceTree = "<group>"; };
 		D2B2884621FA13A20060F8A2 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		D2C2EAB021EC7D1500D547BD /* Picpoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Picpoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -226,8 +226,16 @@
 				7F340AF6222FFE7600FE3F96 /* PicPersonalCreatedViewController.swift */,
 				7F340AF8222FFFC700FE3F96 /* SpotsCreatedViewController.swift */,
 				7F5F6AFC223689FE000CB9A2 /* otherProfileViewController.swift */,
+				7FD79CD622379EF500FCA956 /* PicPersonalCell.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		7FD79CD322379D8300FCA956 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		7FE602AF221C33690032A2D1 /* Tags */ = {
@@ -265,6 +273,7 @@
 				D2C2EAB121EC7D1500D547BD /* Products */,
 				544DCEB6A3EE3ECEFB8A9F55 /* Pods */,
 				C56A70AE010E6CD43AD7729B /* Frameworks */,
+				7FD79CD322379D8300FCA956 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -368,16 +377,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Picpoint/Pods-Picpoint-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
@@ -446,6 +451,7 @@
 				7F14404C222E83C500E32B60 /* Comment.swift in Sources */,
 				639EFB732200CD38005AC6A1 /* CustomTabBar.swift in Sources */,
 				639EFB8E22045ED4005AC6A1 /* Spot.swift in Sources */,
+				7FD79CD722379EF500FCA956 /* PicPersonalCell.swift in Sources */,
 				7F340AF9222FFFC700FE3F96 /* SpotsCreatedViewController.swift in Sources */,
 				639EFB752200CDA4005AC6A1 /* SpotsFeedViewController.swift in Sources */,
 				7F3CB8B4222E908200006A58 /* Publication.swift in Sources */,
@@ -474,7 +480,6 @@
 				639EFB822201A3D0005AC6A1 /* CustomAlertViewController.swift in Sources */,
 				7F144054222EA38F00E32B60 /* picsCollectionViewCell.swift in Sources */,
 				D2B2884721FA13A20060F8A2 /* Connectivity.swift in Sources */,
-				7FFD200922368B45003F9849 /* PicPersonalCell.swift in Sources */,
 				7F27ACD02214101F00146B57 /* SpotsCollectionViewController.swift in Sources */,
 				639EFB862201BC5C005AC6A1 /* MapViewController.swift in Sources */,
 				639EFB9A220462C6005AC6A1 /* PublicationTableViewCell.swift in Sources */,
