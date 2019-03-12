@@ -21,11 +21,10 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
         super.viewDidLoad()
         getPublications()
         table.delegate = self
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-
+        self.table.reloadData()
     }
     
     
@@ -238,7 +237,13 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
         
         displayVC.user_id = sender.tag
         
+        sendUserId(userID: sender.tag)
+        
         self.present(displayVC, animated: true, completion: nil)
+    }
+    
+    func sendUserId(userID : Int){
+        otherProfilePersonalViewController.user_id = userID
     }
     
     @IBAction func goSpot(_ sender: UIButton) {
@@ -367,6 +372,14 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
             }
             
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let displayVC : PublicationDetailViewController = UIStoryboard(name: "OtherProfile", bundle: nil).instantiateViewController(withIdentifier: "publicationDetail") as! PublicationDetailViewController
+        
+        displayVC.publication_id = publications[indexPath.row].id
+        
+        self.present(displayVC, animated: true, completion: nil)
     }
     
 }

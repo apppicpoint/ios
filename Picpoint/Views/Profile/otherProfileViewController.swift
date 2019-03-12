@@ -41,6 +41,8 @@ class otherProfileViewController : UIViewController {
             personalView.isHidden = true
             pointsView.isHidden = true
         case 1:
+            let child = otherProfilePersonalViewController()
+            child.viewWillAppear(true)
             portfolioView.isHidden = true
             personalView.isHidden = false
             pointsView.isHidden = true
@@ -70,6 +72,8 @@ class otherProfileViewController : UIViewController {
                 
                 self.titleNav.title = data["nickName"] as! String
                 self.userName.text = data["name"] as! String
+                
+                self.getUserImg(imageName: data["photo"] as! String)
                 
                 if let desc = data["biography"] as? String {
                     self.userDescrp.text = desc

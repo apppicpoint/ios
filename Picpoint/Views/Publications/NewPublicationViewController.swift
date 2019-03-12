@@ -32,6 +32,8 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
     
     @IBOutlet weak var namePoint: UILabel!
     
+    @IBOutlet weak var addPointBtn: UIButton!
+    @IBOutlet weak var pointViewCell: UIView!
     
     let utils = Utils()
     
@@ -71,6 +73,7 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        personalRadioBtn.setImage(UIImage(named: "radiobuttontrue"), for: UIControlState.normal)
         imageView.image = image
         NewPublicationViewController.clase = self
         self.titleTextField.delegate = self
@@ -94,6 +97,25 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+        if NewPublicationViewController.tagsId.count == 0 {
+            tagCollectionView.isHidden = true
+            tagCollectionView.isHidden = true
+        }
+        else {
+            tagCollectionView.isHidden = false
+            tagCollectionView.isHidden = false
+        }
+        
+        if NewPublicationViewController.pointSelected == nil {
+            pointViewCell.isHidden = true
+            pointViewCell.isHidden = true
+        }
+        else {
+            pointViewCell.isHidden = false
+            pointViewCell.isHidden = false
+            addPointBtn.setTitle("Change point", for: .normal)
+        }
         
         if NewPublicationViewController.pointSelected != nil {
             namePoint.text = NewPublicationViewController.pointSelected?.name
