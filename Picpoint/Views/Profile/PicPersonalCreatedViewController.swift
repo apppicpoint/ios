@@ -56,14 +56,20 @@ class PicPersonalCreatedViewController: UIViewController, UICollectionViewDelega
         var width: CGFloat = bounds.size.width
         width = width - 4
         let dimension = width / 3
-        if(self.picsPersonal.count >= 3) {
+        
+        print(dimension , "esta es la altura de la pic")
+        
+        if(self.picsPersonal.count > 3) {
             
-            let heigth = Int(dimension) + 10 / Int(self.picsPersonal.count / 3)
+            let heigth = Int(dimension) * (Int(self.picsPersonal.count / 3) + 1)
+            
+            print(heigth , "esta es la altura")
+            
             self.view.frame = CGRect(x: 0, y: 0, width: Int(self.view.frame.width), height: heigth)
             
         }else
         {
-             self.view.frame = CGRect(x: 0, y: 0, width: Int(self.view.frame.width), height: 40)
+            self.view.frame = CGRect(x: 0, y: 0, width: Int(self.view.frame.width), height: Int(dimension))
         }
 
         return CGSize(width: dimension,height: dimension)
