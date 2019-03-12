@@ -11,4 +11,5 @@ import UIKit
 
 class PicPersonalCell: UICollectionViewCell  {
     
+    @IBOutlet weak var picImage: UIImageView!
 }
