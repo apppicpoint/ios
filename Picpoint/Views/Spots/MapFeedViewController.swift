@@ -93,6 +93,14 @@ class MapFeedViewController: MKMapView , CLLocationManagerDelegate, MKMapViewDel
 
     }
     
+    func mapView(_ mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!) {
+        if control == view.rightCalloutAccessoryView {
+            print(view.annotation?.title) // annotation's title
+            print(view.annotation?.subtitle) // annotation's subttitle
+            
+        }
+    }
+    
     func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
       
         if(self.spots.count > 0) {
@@ -140,5 +148,9 @@ class MapFeedViewController: MKMapView , CLLocationManagerDelegate, MKMapViewDel
 
         annotationView.detailCalloutAccessoryView = view
     }
+    
+
+    
+    
     
 }
