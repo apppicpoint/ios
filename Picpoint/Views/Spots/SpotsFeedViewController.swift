@@ -40,7 +40,7 @@ class SpotsFeedViewController: UIViewController,  UICollectionViewDelegate, UICo
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        performGoogleSearch(for: "Gaztambide, 65")
+        //performGoogleSearch(for: "Gaztambide, 65") // No funcionan las apis de google
         //Configura los delegados del controlador de ubicaciones
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
@@ -85,7 +85,6 @@ class SpotsFeedViewController: UIViewController,  UICollectionViewDelegate, UICo
         //changeMap.setImage(UIImage.init(imageLiteralResourceName: "satelite"), forSegmentAt: 1)
         
         
-        searchDisplayController?.searchBar.showsCancelButton = false
         
         
     }

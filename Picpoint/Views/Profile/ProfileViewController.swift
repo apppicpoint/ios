@@ -21,30 +21,50 @@ class ProfileViewController: UIViewController {
         switch sender.selectedSegmentIndex {
             
         case 0:
-            let child = PicPortfolioCreatedViewController()
-            child.viewWillAppear(true)
+           
             PicPorfolioContainer.isHidden = false
             PicPersonsalContainer.isHidden = true
             SpotsCreatedContainer.isHidden = true
             
-
+            for ViewController in childViewControllers{
+                
+                if(ViewController as? PicPortfolioCreatedViewController != nil){
+                    
+                    ViewController.viewWillAppear(true)
+                }
+            }
+       
             break
             
         case 1:
-            let child = PicPersonalCreatedViewController()
-            child.viewWillAppear(true)
+            
             PicPorfolioContainer.isHidden = true
             PicPersonsalContainer.isHidden = false
             SpotsCreatedContainer.isHidden = true
+            
+            for ViewController in childViewControllers{
+                
+                if(ViewController as? PicPersonalCreatedViewController != nil){
+                    
+                    ViewController.viewWillAppear(true)
+                }
+            }
 
             break
             
         case 2:
-            let child = SpotsCreatedViewController()
-            child.viewWillAppear(true)
+           
             PicPorfolioContainer.isHidden = true
             PicPersonsalContainer.isHidden = true
             SpotsCreatedContainer.isHidden = false
+            
+            for ViewController in childViewControllers{
+                
+                if(ViewController as? SpotsCreatedViewController != nil ){
+                    
+                    ViewController.viewWillAppear(true)
+                }
+            }
         
             break
             

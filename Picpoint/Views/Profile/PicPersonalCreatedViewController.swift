@@ -14,14 +14,10 @@ import AlamofireImage
 class PicPersonalCreatedViewController: UIViewController, UICollectionViewDelegate , UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
  
     @IBOutlet weak var picPersonalCollectionView: UICollectionView!
+    
     var picsPersonal:[Publication] = []
     
     override func viewDidLoad() {
-  
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        print("viewWillAppear , PicPersonalCreatedViewController")
         
         picPersonalCollectionView.delegate = self
         picPersonalCollectionView.dataSource = self
@@ -29,9 +25,13 @@ class PicPersonalCreatedViewController: UIViewController, UICollectionViewDelega
         let flowLayout = picPersonalCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
         
         flowLayout?.scrollDirection = .vertical
-        flowLayout?.minimumLineSpacing = 5
-        flowLayout?.minimumInteritemSpacing = 5
-        
+        flowLayout?.minimumLineSpacing = 2
+        flowLayout?.minimumInteritemSpacing = 2
+  
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear , PicPersonalCreatedViewController")
         getPublications()
     }
     
@@ -42,7 +42,7 @@ class PicPersonalCreatedViewController: UIViewController, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "picPersonalCell", for: indexPath) as! PicPersonalCell
-        /*cell.picImage.image = picsPersonal[indexPath.row].image*/
+        cell.picImage.image = picsPersonal[indexPath.row].image
         return cell
         
     }
@@ -51,9 +51,26 @@ class PicPersonalCreatedViewController: UIViewController, UICollectionViewDelega
         
         let bounds: CGRect = UIScreen.main.bounds
         
+        
+        
         var width: CGFloat = bounds.size.width
-        width = width - 30
+        width = width - 4
         let dimension = width / 3
+        
+        print(dimension , "esta es la altura de la pic")
+        
+        if(self.picsPersonal.count > 3) {
+            
+            let heigth = Int(dimension) * (Int(self.picsPersonal.count / 3) + 1)
+            
+            print(heigth , "esta es la altura")
+            
+            self.view.frame = CGRect(x: 0, y: 0, width: Int(self.view.frame.width), height: heigth)
+            
+        }else
+        {
+            self.view.frame = CGRect(x: 0, y: 0, width: Int(self.view.frame.width), height: Int(dimension))
+        }
 
         return CGSize(width: dimension,height: dimension)
     }
@@ -64,7 +81,7 @@ class PicPersonalCreatedViewController: UIViewController, UICollectionViewDelega
         picsPersonal = [Publication]()
         let url = Constants.url+"publications"
         let _headers : HTTPHeaders = [
-            "user_id ":UserDefaults.standard.string(forKey: "user_id")!,
+            "user_id":UserDefaults.standard.string(forKey: "user_id")!,
             "Content-Type":"application/x-www-form-urlencoded",
             "Authorization":UserDefaults.standard.string(forKey: "token")!
         ]
@@ -82,16 +99,14 @@ class PicPersonalCreatedViewController: UIViewController, UICollectionViewDelega
                                                       description: dataItem["description"] as! String,
                                                       imageName: dataItem["media"] as! String,
                                                       user_id: dataItem["user_id"] as! Int,
-                                                      tags: dataItem["tags"] as! [Tag]
+                                                      tags: []
                         )
                         
                         //Por cada objeto en el json se añade un spot al array.
-                        self.getPointImage(imageName: publication.imageName!, publication: publication)
+                        self.getImage(imageName: publication.imageName!, publication: publication)
                         self.picsPersonal.append(publication)
                     }
-                    
-                    
-                    self.picPersonalCollectionView.reloadData()
+                    print("peticion terminada aqui tienes todos los pic" ,  self.picsPersonal.count)
                 }
                 
             case .failure(let error):
@@ -105,13 +120,14 @@ class PicPersonalCreatedViewController: UIViewController, UICollectionViewDelega
         }
     }
     
-    func getPointImage(imageName: String, publication: Publication){
+    func getImage(imageName: String, publication: Publication){
         let url = Constants.url+"imgLow/"+imageName //Se le pasa el nombre de la foto, el cual lo tiene el spot.
         Alamofire.request(url, method: .get).responseImage { response in
             switch response.result {
             case .success:
                 let data = response.result.value
                 publication.image = data!
+                self.picPersonalCollectionView.reloadData()
             case .failure(let error):
                 print(error,"error img")
                 let alert = UIAlertController(title: "Ups! Something was wrong.", message:
