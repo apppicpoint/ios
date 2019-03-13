@@ -31,6 +31,7 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
     @IBOutlet weak var addTagsBtn: UIButton!
     
     @IBOutlet weak var namePoint: UILabel!
+    @IBOutlet weak var imagePoint: UIImageView!
     
     @IBOutlet weak var addPointBtn: UIButton!
     @IBOutlet weak var pointViewCell: UIView!
@@ -110,6 +111,7 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
         if NewPublicationViewController.pointSelected == nil {
             pointViewCell.isHidden = true
             pointViewCell.isHidden = true
+            addPointBtn.setTitle("Is the pic related a point? Add it", for: .normal)
         }
         else {
             pointViewCell.isHidden = false
@@ -119,6 +121,8 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
         
         if NewPublicationViewController.pointSelected != nil {
             namePoint.text = NewPublicationViewController.pointSelected?.name
+            imagePoint.image = NewPublicationViewController.pointSelected?.image
+            
 
         }
         else {
