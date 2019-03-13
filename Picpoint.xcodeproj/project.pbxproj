@@ -52,6 +52,7 @@
 		7FE602B1221C33960032A2D1 /* TagsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE602B0221C33960032A2D1 /* TagsViewController.swift */; };
 		7FE602B3221C4E030032A2D1 /* TagsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE602B2221C4E020032A2D1 /* TagsCollectionViewCell.swift */; };
 		7FE602B5221C56510032A2D1 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE602B4221C56510032A2D1 /* Tag.swift */; };
+		7FE7D2682238F81F00272F4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FE7D2672238F81F00272F4A /* Main.storyboard */; };
 		D2B2884721FA13A20060F8A2 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B2884621FA13A20060F8A2 /* Connectivity.swift */; };
 		D2C2EAB421EC7D1500D547BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C2EAB321EC7D1500D547BD /* AppDelegate.swift */; };
 		D2C2EAB921EC7D1500D547BD /* versiondos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C2EAB721EC7D1500D547BD /* versiondos.storyboard */; };
@@ -107,6 +108,7 @@
 		7FE602B0221C33960032A2D1 /* TagsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsViewController.swift; sourceTree = "<group>"; };
 		7FE602B2221C4E020032A2D1 /* TagsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCollectionViewCell.swift; sourceTree = "<group>"; };
 		7FE602B4221C56510032A2D1 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		7FE7D2672238F81F00272F4A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C05BA933E4DAAB37B56E6706 /* Pods-Picpoint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Picpoint.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Picpoint/Pods-Picpoint.debug.xcconfig"; sourceTree = "<group>"; };
 		D2B2884621FA13A20060F8A2 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		D2C2EAB021EC7D1500D547BD /* Picpoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Picpoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -292,6 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				D2C2EAB321EC7D1500D547BD /* AppDelegate.swift */,
+				7FE7D2672238F81F00272F4A /* Main.storyboard */,
 				D2C2EAB721EC7D1500D547BD /* versiondos.storyboard */,
 				7F5F6AFA2236898D000CB9A2 /* OtherProfile.storyboard */,
 				639EFB6D220048B6005AC6A1 /* Beans */,
@@ -366,6 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F144050222E8AA200E32B60 /* (null) in Resources */,
+				7FE7D2682238F81F00272F4A /* Main.storyboard in Resources */,
 				7F5F6AFB2236898D000CB9A2 /* OtherProfile.storyboard in Resources */,
 				D2C2EABB21EC7D1600D547BD /* Assets.xcassets in Resources */,
 				D2C2EAB921EC7D1500D547BD /* versiondos.storyboard in Resources */,
