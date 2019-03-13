@@ -21,11 +21,9 @@ class otherProfileViewController : UIViewController {
     
     @IBOutlet weak var pointsView: UIView!
     @IBOutlet weak var personalView: UIView!
-    @IBOutlet weak var portfolioView: UIView!
     
     override func viewDidLoad() {
         getUserData()
-        personalView.isHidden = true
         pointsView.isHidden = true
     }
     
@@ -37,17 +35,12 @@ class otherProfileViewController : UIViewController {
         switch segmentedControl.selectedSegmentIndex
         {
         case 0:
-            portfolioView.isHidden = false
-            personalView.isHidden = true
+            personalView.isHidden = false
             pointsView.isHidden = true
         case 1:
-            let child = otherProfilePersonalViewController()
-            child.viewWillAppear(true)
-            portfolioView.isHidden = true
             personalView.isHidden = false
             pointsView.isHidden = true
         case 2:
-            portfolioView.isHidden = true
             personalView.isHidden = true
             pointsView.isHidden = false
         default:

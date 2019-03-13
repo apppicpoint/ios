@@ -18,6 +18,7 @@ class otherProfilePersonalViewController : UIViewController, UICollectionViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getUserPicPersonal()
         gridPhotos.delegate = self
         gridPhotos.dataSource = self
         
@@ -29,13 +30,15 @@ class otherProfilePersonalViewController : UIViewController, UICollectionViewDat
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        getUserPicPersonal()
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "personalPhotoCell", for: indexPath) as! otherPersonalCell
-        cell.photoCell.image = publications[indexPath.row].image
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "personalPhotoCell", for: indexPath as IndexPath) as! otherPersonalCell
+        
+//        cell.photoPub.image = publications[indexPath.row].image
+        
         return cell
         
     }
@@ -50,7 +53,7 @@ class otherProfilePersonalViewController : UIViewController, UICollectionViewDat
         
         if(self.publications.count > 3) {
             
-            let heigth = Int(dimension) * (Int(self.publications.count / 3) + 1)
+            let heigth = Int(dimension) * Int(self.publications.count / 3)
             
             self.view.frame = CGRect(x: 0, y: 0, width: Int(self.view.frame.width), height: heigth)
             
@@ -89,9 +92,10 @@ class otherProfilePersonalViewController : UIViewController, UICollectionViewDat
                                                       tags: []
                         )
                         
-                        self.getPointImage(imageName: publication.imageName!, publication: publication)
+                        self.getPubImage(imageName: publication.imageName!, publication: publication)
                         
                         self.publications.append(publication)
+
                     }
                     
                     self.gridPhotos.reloadData()
@@ -109,7 +113,7 @@ class otherProfilePersonalViewController : UIViewController, UICollectionViewDat
         }
     }
     
-    func getPointImage(imageName: String, publication: Publication){
+    func getPubImage(imageName: String, publication: Publication){
         let url = Constants.url+"imgLow/"+imageName
         Alamofire.request(url, method: .get).responseImage { response in
             switch response.result {
@@ -117,7 +121,7 @@ class otherProfilePersonalViewController : UIViewController, UICollectionViewDat
                 let data = response.result.value
                 publication.image = data!
             case .failure(let error):
-                print(error,"error img point")
+                print(error,"error img pub")
                 let alert = UIAlertController(title: "Ups! Something was wrong.", message:
                     "Check your connection and try it later", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "ok", style:
@@ -144,7 +148,8 @@ class otherProfilePersonalViewController : UIViewController, UICollectionViewDat
     
 }
 
-class otherPersonalCell: UICollectionViewCell {
+class otherPersonalCell: UICollectionViewCell  {
     
-    @IBOutlet weak var photoCell: UIImageView!
+    @IBOutlet weak var photoPub: UIImageView!
 }
+
