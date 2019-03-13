@@ -116,10 +116,8 @@ class otherProfilePersonalViewController : UIViewController, UICollectionViewDel
     }
     
     func getPubImage(imageName: String, publication: Publication){
-        self.showSpinner(onView: self.view)
         let url = Constants.url+"imgLow/"+imageName
         Alamofire.request(url, method: .get).responseImage { response in
-            self.removeSpinner()
             switch response.result {
             case .success:
                 let data = response.result.value

@@ -66,7 +66,19 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
     }
     
     @IBAction func goAuthorProfile(_ sender: Any) {
-        //performSegue(withIdentifier: <#T##String#>, sender: <#T##Any?#>)
+        
+        let displayVC : otherProfileViewController = UIStoryboard(name: "OtherProfile", bundle: nil).instantiateViewController(withIdentifier: "otherProfile") as! otherProfileViewController
+        
+        displayVC.user_id = spot.user_id
+        
+        sendUserId(userID: spot.user_id!)
+        
+        self.present(displayVC, animated: true, completion: nil)
+    }
+    
+    func sendUserId(userID : Int){
+        otherProfilePersonalViewController.user_id = userID
+        otherSpotsCreatedViewController.user_id = userID
     }
     
     func getTagsSpot(){

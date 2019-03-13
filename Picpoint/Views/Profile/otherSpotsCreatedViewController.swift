@@ -27,7 +27,6 @@ class otherSpotsCreatedViewController : UIViewController, UITableViewDelegate , 
     }
     
     func getUserPointsPersonal(){
-        self.showSpinner(onView: self.view)
         let url = Constants.url+"spots"
         let _headers : HTTPHeaders = [
             "Content-Type":"application/x-www-form-urlencoded",
@@ -37,7 +36,6 @@ class otherSpotsCreatedViewController : UIViewController, UITableViewDelegate , 
         
         Alamofire.request(url, method: .get, encoding: URLEncoding.httpBody, headers: _headers).responseJSON{
             response in
-            self.removeSpinner()
             switch response.result {
             case .success:
                 if(response.response?.statusCode == 200){
@@ -60,6 +58,8 @@ class otherSpotsCreatedViewController : UIViewController, UITableViewDelegate , 
                         
                     }
                     
+                    print(self.points)
+                    
                     self.poinsTable.reloadData()
                 }
                 
@@ -76,10 +76,8 @@ class otherSpotsCreatedViewController : UIViewController, UITableViewDelegate , 
     }
     
     func getPointImage(imageName: String, point: Spot){
-        self.showSpinner(onView: self.view)
         let url = Constants.url+"imgLow/"+imageName
         Alamofire.request(url, method: .get).responseImage { response in
-            self.removeSpinner()
             switch response.result {
             case .success:
                 let data = response.result.value
@@ -127,6 +125,56 @@ class otherSpotsCreatedViewController : UIViewController, UITableViewDelegate , 
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let displayVC : SpotDetailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PointDetail") as! SpotDetailViewController
+        
+        let navController = UINavigationController(rootViewController: displayVC)
+        
+        
+        let url = Constants.url+"spots/"+String(points[indexPath.row].id!)
+        let _headers : HTTPHeaders = [
+            "Content-Type":"application/x-www-form-urlencoded",
+            "Authorization":UserDefaults.standard.string(forKey: "token")!
+        ]
+        
+        Alamofire.request(url, method: .get, encoding: URLEncoding.httpBody, headers: _headers).responseJSON{
+            response in
+            
+            switch response.result {
+            case .success:
+                if(response.response?.statusCode == 200){
+                    let jsonResponse = response.result.value as! [String:Any]
+                    let data = jsonResponse["spot"] as! [String: Any]
+                    let spot = Spot(id: data["id"] as! Int,
+                                    name: data["name"] as! String,
+                                    desc: data["description"] as? String,
+                                    longitude: data["longitude"] as! Double,
+                                    latitude: data["latitude"] as! Double,
+                                    user_id: data["user_id"] as! Int,
+                                    distance: 0,
+                                    imageName: data["image"] as! String
+                    )
+                    
+                    displayVC.spot = spot
+                    displayVC.navBar = 1
+                    
+                }
+                
+                self.present(navController, animated:true, completion: nil)
+                
+            //Si falla la conexión se muestra un alert.
+            case .failure(let error):
+                print("Sin conexión en get spot")
+                print(error)
+                let alert = UIAlertController(title: "Ups! Something was wrong.", message:
+                    "Check your connection and try it later", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "ok", style:
+                    .cancel, handler: { (accion) in}))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
     
 }
 
