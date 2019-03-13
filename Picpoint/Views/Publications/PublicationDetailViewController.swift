@@ -27,6 +27,14 @@ class PublicationDetailViewController: UIViewController {
         isLiked()
     }
 
+    @IBAction func reportBtn(_ sender: Any) {
+        let alert = UIAlertController(title: "Not available", message:
+            "Functionality in development", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "ok", style:
+            .cancel, handler: { (accion) in}))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     @IBAction func goBack(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }

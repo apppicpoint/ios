@@ -19,6 +19,7 @@ class PublicationTableViewCell: UITableViewCell {
     
     @IBOutlet weak var likeBtn: UIButton!
     
+    @IBOutlet weak var reportBtn: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

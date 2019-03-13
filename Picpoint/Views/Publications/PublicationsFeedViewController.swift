@@ -211,6 +211,7 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
         cell.likeBtn.addTarget(self, action: Selector("changeLikeFeed:"), for: UIControlEvents.touchUpInside)
         cell.pointName.addTarget(self, action: Selector("goSpot:"), for: UIControlEvents.touchUpInside)
         cell.userName.addTarget(self, action: Selector("goUser:"), for: UIControlEvents.touchUpInside)
+        cell.reportBtn.addTarget(self, action: Selector("reportBtn:"), for: UIControlEvents.touchUpInside)
         
         
         cell.userImage.layer.cornerRadius = cell.userImage.frame.size.width / 2
@@ -296,6 +297,14 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
             }
         }
         
+    }
+    
+    @IBAction func reportBtn(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Not available", message:
+            "Functionality in development", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "ok", style:
+            .cancel, handler: { (accion) in}))
+        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func changeLikeFeed(_ sender: UIButton) {
