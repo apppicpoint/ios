@@ -630,7 +630,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1xj-f7-Mc1">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xj-f7-Mc1">
                                 <rect key="frame" x="0.0" y="88" width="320" height="829"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ohc-2E-cfl">
@@ -2615,7 +2615,7 @@
         <image name="star 0" width="161" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="e92-fa-1kN"/>
+        <segue reference="Ham-9a-Vix"/>
         <segue reference="fOT-Tv-ZUK"/>
         <segue reference="Wpa-CT-FGJ"/>
         <segue reference="O4x-hw-Oym"/>
