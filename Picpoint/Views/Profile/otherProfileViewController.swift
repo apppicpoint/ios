@@ -19,11 +19,13 @@ class otherProfileViewController : UIViewController {
     @IBOutlet weak var titleNav: UINavigationItem!
     var user_id : Int!
     
+    @IBOutlet weak var followersCount: UILabel!
     @IBOutlet weak var pointsView: UIView!
     @IBOutlet weak var personalView: UIView!
     
     override func viewDidLoad() {
         getUserData()
+        getFollowers()
         pointsView.isHidden = true
     }
     
@@ -45,6 +47,32 @@ class otherProfileViewController : UIViewController {
             pointsView.isHidden = false
         default:
             break
+        }
+    }
+    
+    func getFollowers(){
+        let url = Constants.url+"followersCount/"+String(self.user_id)
+        let _headers : HTTPHeaders = [
+            "Content-Type":"application/x-www-form-urlencoded",
+            "Authorization":UserDefaults.standard.string(forKey: "token")!
+        ]
+        
+        Alamofire.request(url, method: .get, encoding: URLEncoding.httpBody, headers: _headers).responseJSON{
+            response in
+            
+            switch response.result {
+            case .success:
+                let jsonResponse = response.result.value as! [String:Int]
+                self.followersCount.text = String(jsonResponse["followings"]!)
+            case .failure(let error):
+                print(error,"error user")
+                let alert = UIAlertController(title: "Ups! Something was wrong.", message:
+                    "Check your connection and try it later", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "ok", style:
+                    .cancel, handler: { (accion) in}))
+                self.present(alert, animated: true, completion: nil)
+            }
+            
         }
     }
     
