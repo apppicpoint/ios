@@ -53,6 +53,7 @@
 		7FE602B3221C4E030032A2D1 /* TagsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE602B2221C4E020032A2D1 /* TagsCollectionViewCell.swift */; };
 		7FE602B5221C56510032A2D1 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE602B4221C56510032A2D1 /* Tag.swift */; };
 		7FE7D2682238F81F00272F4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FE7D2672238F81F00272F4A /* Main.storyboard */; };
+		7FF2B36022392EA400DEF9E6 /* otherSpotsCreatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF2B35F22392EA400DEF9E6 /* otherSpotsCreatedViewController.swift */; };
 		D2B2884721FA13A20060F8A2 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B2884621FA13A20060F8A2 /* Connectivity.swift */; };
 		D2C2EAB421EC7D1500D547BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C2EAB321EC7D1500D547BD /* AppDelegate.swift */; };
 		D2C2EAB921EC7D1500D547BD /* versiondos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2C2EAB721EC7D1500D547BD /* versiondos.storyboard */; };
@@ -109,6 +110,7 @@
 		7FE602B2221C4E020032A2D1 /* TagsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsCollectionViewCell.swift; sourceTree = "<group>"; };
 		7FE602B4221C56510032A2D1 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		7FE7D2672238F81F00272F4A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		7FF2B35F22392EA400DEF9E6 /* otherSpotsCreatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = otherSpotsCreatedViewController.swift; sourceTree = "<group>"; };
 		C05BA933E4DAAB37B56E6706 /* Pods-Picpoint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Picpoint.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Picpoint/Pods-Picpoint.debug.xcconfig"; sourceTree = "<group>"; };
 		D2B2884621FA13A20060F8A2 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		D2C2EAB021EC7D1500D547BD /* Picpoint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Picpoint.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -232,6 +234,7 @@
 				7F5F6AFC223689FE000CB9A2 /* otherProfileViewController.swift */,
 				7FD79CD622379EF500FCA956 /* PicPersonalCell.swift */,
 				7FC58A1B2237A6510091862D /* otherProfilePersonalViewController.swift */,
+				7FF2B35F22392EA400DEF9E6 /* otherSpotsCreatedViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				7F144046222E797700E32B60 /* SpotCommentsCollectionViewCell.swift in Sources */,
 				639EFB882201BCE9005AC6A1 /* MapNewSpotViewController.swift in Sources */,
 				639EFB6A22004890005AC6A1 /* Validator.swift in Sources */,
+				7FF2B36022392EA400DEF9E6 /* otherSpotsCreatedViewController.swift in Sources */,
 				D2CFD83C21F5D3160024EF0D /* RecoverPasswordViewController.swift in Sources */,
 				639EFB98220462A9005AC6A1 /* SpotCollectionViewCell.swift in Sources */,
 				7FC58A1C2237A6510091862D /* otherProfilePersonalViewController.swift in Sources */,

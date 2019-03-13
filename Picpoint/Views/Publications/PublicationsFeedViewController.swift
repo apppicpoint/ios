@@ -245,6 +245,7 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
     
     func sendUserId(userID : Int){
         otherProfilePersonalViewController.user_id = userID
+        otherSpotsCreatedViewController.user_id = userID
     }
     
     @IBAction func goSpot(_ sender: UIButton) {

@@ -10,7 +10,7 @@ import UIKit
 import AlamofireImage
 import Alamofire
 
-class otherProfilePersonalViewController : UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
+class otherProfilePersonalViewController : UIViewController, UICollectionViewDelegate , UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var gridPhotos: UICollectionView!
     public static var user_id : Int!
@@ -116,8 +116,10 @@ class otherProfilePersonalViewController : UIViewController, UICollectionViewDat
     }
     
     func getPubImage(imageName: String, publication: Publication){
+        self.showSpinner(onView: self.view)
         let url = Constants.url+"imgLow/"+imageName
         Alamofire.request(url, method: .get).responseImage { response in
+            self.removeSpinner()
             switch response.result {
             case .success:
                 let data = response.result.value
