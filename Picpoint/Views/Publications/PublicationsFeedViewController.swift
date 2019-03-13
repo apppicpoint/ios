@@ -250,6 +250,9 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
         
         let displayVC : SpotDetailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PointDetail") as! SpotDetailViewController
         
+        let navController = UINavigationController(rootViewController: displayVC)
+        
+        
         let url = Constants.url+"spots/"+String(sender.tag)
         let _headers : HTTPHeaders = [
             "Content-Type":"application/x-www-form-urlencoded",
@@ -275,10 +278,11 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
                         )
                         
                         displayVC.spot = spot
+                        displayVC.navBar = 1
                     
                 }
                 
-                self.present(displayVC, animated: true, completion: nil)
+                self.present(navController, animated:true, completion: nil)
                 
             //Si falla la conexión se muestra un alert.
             case .failure(let error):

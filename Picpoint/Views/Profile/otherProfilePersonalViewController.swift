@@ -18,7 +18,7 @@ class otherProfilePersonalViewController : UIViewController, UICollectionViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getUserPicPersonal()
+        
         gridPhotos.delegate = self
         gridPhotos.dataSource = self
         
@@ -27,6 +27,8 @@ class otherProfilePersonalViewController : UIViewController, UICollectionViewDat
         flowLayout?.scrollDirection = .vertical
         flowLayout?.minimumLineSpacing = 2
         flowLayout?.minimumInteritemSpacing = 2
+        
+        getUserPicPersonal()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,7 +39,7 @@ class otherProfilePersonalViewController : UIViewController, UICollectionViewDat
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "personalPhotoCell", for: indexPath as IndexPath) as! otherPersonalCell
         
-//        cell.photoPub.image = publications[indexPath.row].image
+        cell.photoPub.image = publications[indexPath.row].image
         
         return cell
         

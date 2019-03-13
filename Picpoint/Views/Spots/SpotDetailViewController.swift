@@ -18,8 +18,20 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
     var spot = Spot()
     var tags:[Tag] = [Tag]()
     
+    var navBar = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if navBar == 1 {
+            let backButton = UIButton(type: .custom)
+            backButton.setTitle("< Back", for: .normal)
+            backButton.setTitleColor(UIColor.purple, for: .normal)
+            backButton.addTarget(self, action: #selector(self.backAction(_:)), for: .touchUpInside)
+            
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
+        }
+
         self.showSpinner(onView: self.view)
         self.TagCollectionView.delegate = self
         self.TagCollectionView.dataSource = self
@@ -40,6 +52,9 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
         flowLayout?.scrollDirection = .horizontal
     }
     
+    @IBAction func backAction(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func showInMapButton(_ sender: Any) {
         if (UIApplication.shared.canOpenURL(NSURL(string:"comgooglemaps://")! as URL)) {
