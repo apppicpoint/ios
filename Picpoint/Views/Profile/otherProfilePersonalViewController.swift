@@ -18,12 +18,50 @@ class otherProfilePersonalViewController : UIViewController, UICollectionViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getUserPicPersonal()
+        gridPhotos.delegate = self
+        gridPhotos.dataSource = self
+        
+        let flowLayout = gridPhotos.collectionViewLayout as? UICollectionViewFlowLayout
+        
+        flowLayout?.scrollDirection = .vertical
+        flowLayout?.minimumLineSpacing = 2
+        flowLayout?.minimumInteritemSpacing = 2
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        getUserPicPersonal()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "personalPhotoCell", for: indexPath) as! otherPersonalCell
+        cell.photoCell.image = publications[indexPath.row].image
+        return cell
         
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let bounds: CGRect = UIScreen.main.bounds
+        
+        var width: CGFloat = bounds.size.width
+        width = width - 4
+        let dimension = width / 3
+        
+        if(self.publications.count > 3) {
+            
+            let heigth = Int(dimension) * (Int(self.publications.count / 3) + 1)
+            
+            self.view.frame = CGRect(x: 0, y: 0, width: Int(self.view.frame.width), height: heigth)
+            
+        }else
+        {
+            self.view.frame = CGRect(x: 0, y: 0, width: Int(self.view.frame.width), height: Int(dimension))
+        }
+        
+        return CGSize(width: dimension,height: dimension)
+    }
+
     
     func getUserPicPersonal(){
         publications = [Publication]()
@@ -94,23 +132,14 @@ class otherProfilePersonalViewController : UIViewController, UICollectionViewDat
         return publications.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "personalPhotoCell", for: indexPath as IndexPath) as! otherPersonalCell
-        
-        cell.photoCell.image = publications[indexPath.row].image
-
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let  size = collectionView.frame.size.width / CGFloat(3) - CGFloat((3 - 0)) * 0
-        return CGSize(width: size, height: size)
-    }
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
-        print("You selected cell")
+        
+        let displayVC : PublicationDetailViewController = UIStoryboard(name: "OtherProfile", bundle: nil).instantiateViewController(withIdentifier: "publicationDetail") as! PublicationDetailViewController
+        
+        displayVC.publication_id = publications[indexPath.row].id
+        
+        self.present(displayVC, animated: true, completion: nil)
+        
     }
     
 }

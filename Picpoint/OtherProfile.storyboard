@@ -157,18 +157,17 @@
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="102.99850074962519"/>
         </scene>
-        <!--View Controller-->
+        <!--Other Profile Personal View Controller-->
         <scene sceneID="oV0-tW-l9w">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JFv-H7-wy9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="puB-7O-6fl" sceneMemberID="viewController">
+                <viewController id="puB-7O-6fl" customClass="otherProfilePersonalViewController" customModule="Picpoint" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="P6g-Qe-11m">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="374"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="P8S-yL-qQK">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="374"/>
-                                <color key="backgroundColor" red="1" green="0.38650110549395922" blue="0.22388687546053831" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="8Va-GG-QGe">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -176,13 +175,24 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Mj0-d6-72Z">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Mj0-d6-72Z" customClass="otherPersonalCell">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2EM-iC-0pT">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                </imageView>
+                                            </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="2EM-iC-0pT" secondAttribute="bottom" id="DMN-hY-e7c"/>
+                                            <constraint firstItem="2EM-iC-0pT" firstAttribute="leading" secondItem="Mj0-d6-72Z" secondAttribute="leading" id="HHt-VL-Onz"/>
+                                            <constraint firstItem="2EM-iC-0pT" firstAttribute="top" secondItem="Mj0-d6-72Z" secondAttribute="top" id="fKc-xP-VOl"/>
+                                            <constraint firstAttribute="trailing" secondItem="2EM-iC-0pT" secondAttribute="trailing" id="gQP-bz-bBv"/>
+                                        </constraints>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -197,13 +207,13 @@
                         <viewLayoutGuide key="safeArea" id="SHl-jI-eEF"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JFv-H7-wy9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-700" y="745.72713643178417"/>
         </scene>
         <!--Other Profile Personal View Controller-->
         <scene sceneID="b3d-1a-7QK">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qOA-eK-0BL" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="otherProfilePersonal" id="zhY-c5-58G" customClass="otherProfilePersonalViewController" customModule="Picpoint" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yl6-gl-E5N">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="374"/>
@@ -211,7 +221,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Rsr-ra-JAG">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="374"/>
-                                <color key="backgroundColor" red="0.57596727570963724" green="1" blue="0.54607139078808098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Gjo-cr-mbP">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -231,7 +241,6 @@
                                                 </imageView>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" red="1" green="0.36884868003372151" blue="0.33745828893102225" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="FaS-lB-QxB" firstAttribute="leading" secondItem="tWJ-D0-UiQ" secondAttribute="leading" id="9MP-fs-RZ1"/>
                                             <constraint firstItem="FaS-lB-QxB" firstAttribute="top" secondItem="tWJ-D0-UiQ" secondAttribute="top" id="IRf-ao-DRR"/>
@@ -262,13 +271,13 @@
                         <outlet property="gridPhotos" destination="Rsr-ra-JAG" id="xLE-Ms-0BD"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qOA-eK-0BL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="118" y="746"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="kLp-c8-ErH">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="O3U-YX-9ua" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="DI2-S8-HeJ" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EC9-dG-Sqo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="374"/>
@@ -277,6 +286,7 @@
                         <viewLayoutGuide key="safeArea" id="qgs-pi-Xad"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O3U-YX-9ua" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="950" y="746"/>
         </scene>
