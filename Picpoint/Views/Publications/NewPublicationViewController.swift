@@ -53,7 +53,7 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
         
         sender.setImage(UIImage(named: "radiobuttontrue"), for: UIControlState.normal)
         
-        if sender.titleLabel?.text == "personal"{
+        if sender.tag == 1{
             
             portfolioRadiobtn.setImage(UIImage(named: "radiobuttonfalse"), for: UIControlState.normal)
         }
@@ -111,7 +111,7 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
         if NewPublicationViewController.pointSelected == nil {
             pointViewCell.isHidden = true
             pointViewCell.isHidden = true
-            addPointBtn.setTitle("Is the pic related a point? Add it", for: .normal)
+            addPointBtn.setTitle("Is the pic related to a point? Add it", for: .normal)
         }
         else {
             pointViewCell.isHidden = false
