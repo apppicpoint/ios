@@ -14,7 +14,7 @@ class otherProfilePersonalViewController : UIViewController, UICollectionViewDel
     
     @IBOutlet weak var gridPhotos: UICollectionView!
     public static var user_id : Int!
-    var publications = [Publication]()
+    var publications:[Publication] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,8 +69,8 @@ class otherProfilePersonalViewController : UIViewController, UICollectionViewDel
 
     
     func getUserPicPersonal(){
+        publications = [Publication]()
         
-        self.showSpinner(onView: self.view)
         let url = Constants.url+"publications"
         let _headers : HTTPHeaders = [
             "Content-Type":"application/x-www-form-urlencoded",
@@ -80,7 +80,7 @@ class otherProfilePersonalViewController : UIViewController, UICollectionViewDel
         
         Alamofire.request(url, method: .get, encoding: URLEncoding.httpBody, headers: _headers).responseJSON{
             response in
-            self.removeSpinner()
+
             switch response.result {
             case .success:
                 if(response.response?.statusCode == 200){
@@ -122,6 +122,7 @@ class otherProfilePersonalViewController : UIViewController, UICollectionViewDel
             case .success:
                 let data = response.result.value
                 publication.image = data!
+                self.gridPhotos.reloadData()
             case .failure(let error):
                 print(error,"error img pub")
                 let alert = UIAlertController(title: "Ups! Something was wrong.", message:

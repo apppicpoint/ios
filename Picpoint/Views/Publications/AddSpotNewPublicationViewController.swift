@@ -216,20 +216,26 @@ class AddSpotNewPublicationViewController: UIViewController, CLLocationManagerDe
     //Se llama al pulsar cada Pin
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         
-        viewSelected.isHidden = false
-        let annotation = view.annotation as! PinAnnotation
-        changeStateAnn()
-        let spotSelected = searchSpot(id: annotation.id!)
+        if view.annotation is MKUserLocation {
+            
+        }
+        else {
+            viewSelected.isHidden = false
+            let annotation = view.annotation as! PinAnnotation
+            changeStateAnn()
+            let spotSelected = searchSpot(id: annotation.id!)
+            
+            centerMap(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
+            
+            acceptBtn.isEnabled = true
+            
+            resizePinImage(pin: annotation, width: 40, height: 65,map: map)
+            
+            setDetails(name: spotSelected.name!, image: spotSelected.image!)
+            
+            AddSpotNewPublicationViewController.pointSelected = spotSelected
+        }
         
-        centerMap(latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
-        
-        acceptBtn.isEnabled = true
-        
-        resizePinImage(pin: annotation, width: 40, height: 65,map: map)
-
-        setDetails(name: spotSelected.name!, image: spotSelected.image!)
-        
-        AddSpotNewPublicationViewController.pointSelected = spotSelected
     
     }
     
