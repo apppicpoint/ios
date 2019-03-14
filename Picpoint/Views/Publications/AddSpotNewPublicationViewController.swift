@@ -76,10 +76,11 @@ class AddSpotNewPublicationViewController: UIViewController, CLLocationManagerDe
         super.viewDidLoad()
         viewSelected.isHidden = true
         map.delegate = self
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        viewSelected.layer.cornerRadius = 10
+        
         AddSpotNewPublicationViewController.pointSelected = NewPublicationViewController.pointSelected
         
         if AddSpotNewPublicationViewController.pointSelected == nil{
