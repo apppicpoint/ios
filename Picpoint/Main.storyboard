@@ -1127,9 +1127,13 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uNu-Fo-vNd">
                                         <rect key="frame" x="0.0" y="157" width="375" height="659"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N4k-WF-WUc" userLabel="logOut">
-                                                <rect key="frame" x="319" y="5" width="51" height="30"/>
-                                                <state key="normal" title="LogOut"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N4k-WF-WUc" userLabel="logOut">
+                                                <rect key="frame" x="335" y="15" width="25" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="QaA-Gw-1Ig"/>
+                                                    <constraint firstAttribute="width" constant="25" id="lWO-uA-pkc"/>
+                                                </constraints>
+                                                <state key="normal" title="LogOut" image="logout"/>
                                                 <connections>
                                                     <action selector="logOut:" destination="Rkp-Oe-Z19" eventType="touchUpInside" id="S36-jI-doA"/>
                                                 </connections>
@@ -1153,7 +1157,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ccd-4d-LMD">
                                                         <rect key="frame" x="0.0" y="0.0" width="99.666666666666671" height="40"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04F-2X-v7J">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="236" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04F-2X-v7J">
                                                                 <rect key="frame" x="0.0" y="0.0" width="99.666666666666671" height="20"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
@@ -1173,7 +1177,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="099-pG-0pj">
                                                         <rect key="frame" x="99.666666666666657" y="0.0" width="99.333333333333343" height="40"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="60" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hl3-6A-Gxs">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1432" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hl3-6A-Gxs">
                                                                 <rect key="frame" x="0.0" y="0.0" width="99.333333333333329" height="20"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
@@ -1240,19 +1244,19 @@
                                             <constraint firstItem="1iw-Yf-dS3" firstAttribute="top" secondItem="5Vv-Uk-q6P" secondAttribute="bottom" constant="29" id="8Fr-XD-eTk"/>
                                             <constraint firstAttribute="bottom" secondItem="GAP-9B-GVN" secondAttribute="bottom" constant="-100" id="B6k-9T-xdB"/>
                                             <constraint firstItem="GAP-9B-GVN" firstAttribute="top" secondItem="GuN-8s-d72" secondAttribute="bottom" constant="5" id="Bdn-Et-8a1"/>
+                                            <constraint firstItem="N4k-WF-WUc" firstAttribute="top" secondItem="uNu-Fo-vNd" secondAttribute="top" constant="15" id="CQ7-Ft-tir"/>
                                             <constraint firstItem="GuN-8s-d72" firstAttribute="top" secondItem="1iw-Yf-dS3" secondAttribute="bottom" constant="10" id="Dba-gl-W8c"/>
                                             <constraint firstAttribute="trailing" secondItem="GAP-9B-GVN" secondAttribute="trailing" id="I26-Ru-Vy0"/>
                                             <constraint firstItem="58v-Rp-DHH" firstAttribute="centerX" secondItem="uNu-Fo-vNd" secondAttribute="centerX" id="KbM-rt-lHl"/>
                                             <constraint firstAttribute="height" constant="659" id="Mn7-od-67Q"/>
                                             <constraint firstItem="GuN-8s-d72" firstAttribute="centerX" secondItem="uNu-Fo-vNd" secondAttribute="centerX" id="O6u-Fq-H0r"/>
-                                            <constraint firstAttribute="trailing" secondItem="N4k-WF-WUc" secondAttribute="trailing" constant="5" id="PZM-nv-c15"/>
                                             <constraint firstItem="GAP-9B-GVN" firstAttribute="leading" secondItem="uNu-Fo-vNd" secondAttribute="leading" id="Qfx-w9-AdZ"/>
                                             <constraint firstItem="5Vv-Uk-q6P" firstAttribute="centerX" secondItem="uNu-Fo-vNd" secondAttribute="centerX" id="SB3-r9-Ibg"/>
                                             <constraint firstItem="5Vv-Uk-q6P" firstAttribute="leading" secondItem="uNu-Fo-vNd" secondAttribute="leading" constant="88" id="iYW-sd-7Ow"/>
                                             <constraint firstItem="5Vv-Uk-q6P" firstAttribute="top" secondItem="QS6-Xf-Apw" secondAttribute="bottom" constant="10" id="jqI-Go-v4j"/>
                                             <constraint firstItem="QS6-Xf-Apw" firstAttribute="centerX" secondItem="uNu-Fo-vNd" secondAttribute="centerX" id="kcX-TK-Lxi"/>
-                                            <constraint firstItem="N4k-WF-WUc" firstAttribute="top" secondItem="uNu-Fo-vNd" secondAttribute="top" constant="5" id="tYp-SD-hcs"/>
                                             <constraint firstItem="QS6-Xf-Apw" firstAttribute="top" secondItem="58v-Rp-DHH" secondAttribute="bottom" constant="10" id="wSs-aH-htw"/>
+                                            <constraint firstAttribute="trailing" secondItem="N4k-WF-WUc" secondAttribute="trailing" constant="15" id="xEx-uP-rpi"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -2585,6 +2589,7 @@
         <image name="google maps" width="48" height="48"/>
         <image name="gps_button" width="39" height="39"/>
         <image name="heartfalse" width="30" height="30"/>
+        <image name="logout" width="27" height="27"/>
         <image name="mapa" width="23" height="24"/>
         <image name="no-image" width="592" height="444"/>
         <image name="noLogged" width="283" height="351"/>
