@@ -7,6 +7,7 @@ class PublicationSpotViewController: UIViewController, UICollectionViewDelegate 
 
     var picsPersonal:[Publication] = []
     
+    @IBOutlet weak var picPersonalCollectionView: UICollectionView!
     
     
     override func viewDidLoad() {

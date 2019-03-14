@@ -221,7 +221,7 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
             picsView.isHidden = false
             commentsView.isHidden = true
             for viewController in childViewControllers {
-                if viewController as?  != nil {
+                if viewController as? PublicationSpotViewController != nil {
                     viewController.viewWillAppear(true)
                 }
             }
