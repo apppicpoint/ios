@@ -17,7 +17,8 @@ class SpotCommentsCollectionViewController: UIViewController, UICollectionViewDe
     
     override func viewWillAppear(_ animated: Bool) {
         print("ViewWillAppear")
-        comments.append(Comment(id: 5, text: "Que chuloooo", user_id: 2,comment_id: 2, spot_id: 6, userImage: #imageLiteral(resourceName: "mari"), userName: "Mari"))
+        comments.removeAll()
+        comments.append(Comment(id: 5, text: "Nice spot to make photos", user_id: 2,comment_id: 2, spot_id: 6, userImage: #imageLiteral(resourceName: "mari"), userName: "Mari"))
         print("comments.count view will appear", comments.count)
         commentsCollectionView.reloadData()
     }

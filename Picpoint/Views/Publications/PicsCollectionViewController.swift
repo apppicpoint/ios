@@ -24,7 +24,7 @@ class PicsCollectionViewController: UINavigationController, UICollectionViewDele
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "commentCell", for: indexPath) as! PicsCollectionViewCell
-        cell.picImage = pics[indexPath.row].image
+        cell.picImage.image = pics[indexPath.row].image
         
         return cell
     }

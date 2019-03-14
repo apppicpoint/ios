@@ -9,7 +9,8 @@ import UIKit
 import Foundation
 
 struct Constants {
-    static let url = "http://192.168.6.162/api/public/index.php/api/" //dev
+    static let url = "http://192.168.6.162/api/public/index.php/api/" //dev david
+    //static let url = "http://192.168.6.162/api/public/index.php/api/" //dev joaquin
     //static let url = "http://localhost:8888/api/public/index.php/api/" //local
     //static let url = "picpoint.vanadis.es/api/" // pro
     
