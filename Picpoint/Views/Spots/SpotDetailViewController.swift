@@ -14,6 +14,7 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var commentsView: UIView!
     @IBOutlet weak var picsView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     var spot = Spot()
     var tags:[Tag] = [Tag]()
@@ -204,6 +205,16 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
     }
     
     @IBAction func segmentedControl(_ sender: UISegmentedControl) {
+        
+        var contentRect = CGRect.zero
+        
+        for view in scrollView.subviews {
+            
+            contentRect = contentRect.union(view.frame)
+            
+        }
+        
+        scrollView.contentSize = contentRect.size
         
         if sender.selectedSegmentIndex == 0 {
             

@@ -24,6 +24,8 @@ class PublicationSpotViewController: UIViewController, UICollectionViewDelegate 
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
+
         print("viewWillAppear , PicPersonalCreatedViewController")
         getPublications()
     }
@@ -34,7 +36,7 @@ class PublicationSpotViewController: UIViewController, UICollectionViewDelegate 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "picCell", for: indexPath) as! PicPersonalCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "picCell", for: indexPath) as! PicsCollectionViewCell
         cell.picImage.image = picsPersonal[indexPath.row].image
         return cell
         
@@ -70,9 +72,9 @@ class PublicationSpotViewController: UIViewController, UICollectionViewDelegate 
     
     
     func getPublications(){
-        self.showSpinner(onView: self.view)
+        //self.showSpinner(onView: self.view)
         picsPersonal = [Publication]()
-        let url = Constants.url+"spotPublications/1"//+UserDefaults.standard.string(forKey: "spot_id")!
+        let url = Constants.url+"spotPublications/"+UserDefaults.standard.string(forKey: "spot_id")!
         let _headers : HTTPHeaders = [
             
             "Content-Type":"application/x-www-form-urlencoded",
