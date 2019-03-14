@@ -34,7 +34,7 @@ class PublicationSpotViewController: UIViewController, UICollectionViewDelegate 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "picPersonalCell", for: indexPath) as! PicPersonalCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "picCell", for: indexPath) as! PicPersonalCell
         cell.picImage.image = picsPersonal[indexPath.row].image
         return cell
         
@@ -72,9 +72,9 @@ class PublicationSpotViewController: UIViewController, UICollectionViewDelegate 
     func getPublications(){
         self.showSpinner(onView: self.view)
         picsPersonal = [Publication]()
-        let url = Constants.url+"spotPublications"
+        let url = Constants.url+"spotPublications/1"//+UserDefaults.standard.string(forKey: "spot_id")!
         let _headers : HTTPHeaders = [
-            "spot_id":UserDefaults.standard.string(forKey: "spot_id")!,
+            
             "Content-Type":"application/x-www-form-urlencoded",
             "Authorization":UserDefaults.standard.string(forKey: "token")!
         ]
