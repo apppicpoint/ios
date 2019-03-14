@@ -14,7 +14,7 @@ class otherProfilePersonalViewController : UIViewController, UICollectionViewDel
     
     @IBOutlet weak var gridPhotos: UICollectionView!
     public static var user_id : Int!
-    var publications : [Publication]!
+    var publications = [Publication]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +69,7 @@ class otherProfilePersonalViewController : UIViewController, UICollectionViewDel
 
     
     func getUserPicPersonal(){
-        publications = [Publication]()
+        
         self.showSpinner(onView: self.view)
         let url = Constants.url+"publications"
         let _headers : HTTPHeaders = [
