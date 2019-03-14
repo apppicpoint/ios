@@ -226,7 +226,8 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
             cell.pointName.setTitle(publications[indexPath.row].spotName, for: .normal)
         }
         else {
-            cell.pointName.setTitle("", for: .normal)
+            cell.pointName.isEnabled = false
+            cell.pointName.setTitle("No point related", for: .normal)
         }
         
         return cell

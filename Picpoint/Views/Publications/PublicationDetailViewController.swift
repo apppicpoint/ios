@@ -104,6 +104,7 @@ class PublicationDetailViewController: UIViewController {
     
     func sendUserId(userID : Int){
         otherProfilePersonalViewController.user_id = userID
+        otherSpotsCreatedViewController.user_id = userID
     }
     
     func getPublications(){
@@ -133,7 +134,8 @@ class PublicationDetailViewController: UIViewController {
                             self.pointName.tag = data["spot_id"] as! Int
                         }
                         else {
-                            self.pointName.isHidden = true
+                            self.pointName.isEnabled = false
+                            self.pointName.setTitle("No point related", for: .normal)
                         }
 
                     }
