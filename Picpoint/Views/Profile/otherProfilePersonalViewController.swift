@@ -53,9 +53,13 @@ class otherProfilePersonalViewController : UIViewController, UICollectionViewDel
         width = width - 4
         let dimension = width / 3
         
+        print(dimension , "esta es la altura de la pic")
+        
         if(self.publications.count > 3) {
             
-            let heigth = Int(dimension) * Int(self.publications.count / 3)
+            let heigth = Int(dimension) * (Int(self.publications.count / 3) + 1)
+            
+            print(heigth , "esta es la altura")
             
             self.view.frame = CGRect(x: 0, y: 0, width: Int(self.view.frame.width), height: heigth)
             
