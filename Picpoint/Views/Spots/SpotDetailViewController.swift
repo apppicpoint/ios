@@ -36,6 +36,7 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
         self.TagCollectionView.delegate = self
         self.TagCollectionView.dataSource = self
         
+        UserDefaults.standard.set(spot.id, forKey: "spot_id")
         spotName.text = spot.name
         spotDescription.text = spot.desc
         
@@ -205,14 +206,25 @@ class SpotDetailViewController: UIViewController, UICollectionViewDelegate , UIC
     @IBAction func segmentedControl(_ sender: UISegmentedControl) {
         
         if sender.selectedSegmentIndex == 0 {
-            let child = SpotCommentsCollectionViewController()
+            
+            
             commentsView.isHidden = false
             picsView.isHidden = true
-            child.viewWillAppear(true)
+            for viewController in childViewControllers {
+                if viewController as? SpotCommentsCollectionViewController != nil {
+                    viewController.viewWillAppear(true)
+                }
+            }
+            
         } else {
             
             picsView.isHidden = false
             commentsView.isHidden = true
+            for viewController in childViewControllers {
+                if viewController as? PublicationSpotViewController != nil {
+                    viewController.viewWillAppear(true)
+                }
+            }
         }
         
     }

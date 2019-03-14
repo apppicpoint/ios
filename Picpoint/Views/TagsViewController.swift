@@ -46,6 +46,7 @@ class TagsViewController: UIViewController , UICollectionViewDelegate , UICollec
     @IBAction func tagsBtnAction(_ sender: UIButton) {
         
         NewSpotViewController.tagsId = []
+        NewPublicationViewController.tagsId = []
         
         for i in 0..<tagsSelected.count {
             

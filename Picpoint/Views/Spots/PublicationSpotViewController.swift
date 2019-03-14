@@ -1,46 +1,41 @@
-//
-//  otherProfilePersonalViewController.swift
-//  Picpoint
-//
-//  Created by alumnos on 12/3/19.
-//  Copyright © 2019 Joaquín Collazo Ruiz. All rights reserved.
-//
-
+import Foundation
 import UIKit
-import AlamofireImage
 import Alamofire
+import AlamofireImage
 
-class otherProfilePersonalViewController : UIViewController, UICollectionViewDelegate , UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class PublicationSpotViewController: UIViewController, UICollectionViewDelegate , UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+
+    var picsPersonal:[Publication] = []
     
-    @IBOutlet weak var gridPhotos: UICollectionView!
-    public static var user_id : Int!
-    var publications:[Publication] = []
+    @IBOutlet weak var picPersonalCollectionView: UICollectionView!
+    
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         
-        gridPhotos.delegate = self
-        gridPhotos.dataSource = self
+        picPersonalCollectionView.delegate = self
+        picPersonalCollectionView.dataSource = self
         
-        let flowLayout = gridPhotos.collectionViewLayout as? UICollectionViewFlowLayout
+        let flowLayout = picPersonalCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
         
         flowLayout?.scrollDirection = .vertical
         flowLayout?.minimumLineSpacing = 2
         flowLayout?.minimumInteritemSpacing = 2
         
-        getUserPicPersonal()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        print("viewWillAppear , PicPersonalCreatedViewController")
+        getPublications()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return picsPersonal.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "personalPhotoCell", for: indexPath as IndexPath) as! otherPersonalCell
-        
-        cell.photoPub.image = publications[indexPath.row].image
-        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "picPersonalCell", for: indexPath) as! PicPersonalCell
+        cell.picImage.image = picsPersonal[indexPath.row].image
         return cell
         
     }
@@ -49,15 +44,17 @@ class otherProfilePersonalViewController : UIViewController, UICollectionViewDel
         
         let bounds: CGRect = UIScreen.main.bounds
         
+        
+        
         var width: CGFloat = bounds.size.width
         width = width - 4
         let dimension = width / 3
         
         print(dimension , "esta es la altura de la pic")
         
-        if(self.publications.count > 3) {
+        if(self.picsPersonal.count > 3) {
             
-            let heigth = Int(dimension) * (Int(self.publications.count / 3) + 1)
+            let heigth = Int(dimension) * (Int(self.picsPersonal.count / 3) + 1)
             
             print(heigth , "esta es la altura")
             
@@ -70,21 +67,21 @@ class otherProfilePersonalViewController : UIViewController, UICollectionViewDel
         
         return CGSize(width: dimension,height: dimension)
     }
-
     
-    func getUserPicPersonal(){
-        publications = [Publication]()
-        
-        let url = Constants.url+"publications"
+    
+    func getPublications(){
+        self.showSpinner(onView: self.view)
+        picsPersonal = [Publication]()
+        let url = Constants.url+"spotPublications"
         let _headers : HTTPHeaders = [
+            "spot_id":UserDefaults.standard.string(forKey: "spot_id")!,
             "Content-Type":"application/x-www-form-urlencoded",
-            "Authorization":UserDefaults.standard.string(forKey: "token")!,
-            "user_id":String(otherProfilePersonalViewController.user_id)
+            "Authorization":UserDefaults.standard.string(forKey: "token")!
         ]
         
         Alamofire.request(url, method: .get, encoding: URLEncoding.httpBody, headers: _headers).responseJSON{
             response in
-
+            self.removeSpinner()
             switch response.result {
             case .success:
                 if(response.response?.statusCode == 200){
@@ -98,13 +95,11 @@ class otherProfilePersonalViewController : UIViewController, UICollectionViewDel
                                                       tags: []
                         )
                         
-                        self.getPubImage(imageName: publication.imageName!, publication: publication)
-                        
-                        self.publications.append(publication)
-
+                        //Por cada objeto en el json se añade un spot al array.
+                        self.getImage(imageName: publication.imageName!, publication: publication)
+                        self.picsPersonal.append(publication)
                     }
-                    
-                    self.gridPhotos.reloadData()
+                    print("peticion terminada aqui tienes todos los pic" ,  self.picsPersonal.count)
                 }
                 
             case .failure(let error):
@@ -115,20 +110,19 @@ class otherProfilePersonalViewController : UIViewController, UICollectionViewDel
                     .cancel, handler: { (accion) in}))
                 self.present(alert, animated: true, completion: nil)
             }
-            
         }
     }
     
-    func getPubImage(imageName: String, publication: Publication){
-        let url = Constants.url+"imgLow/"+imageName
+    func getImage(imageName: String, publication: Publication){
+        let url = Constants.url+"imgLow/"+imageName //Se le pasa el nombre de la foto, el cual lo tiene el spot.
         Alamofire.request(url, method: .get).responseImage { response in
             switch response.result {
             case .success:
                 let data = response.result.value
                 publication.image = data!
-                self.gridPhotos.reloadData()
+                self.picPersonalCollectionView.reloadData()
             case .failure(let error):
-                print(error,"error img pub")
+                print(error,"error img")
                 let alert = UIAlertController(title: "Ups! Something was wrong.", message:
                     "Check your connection and try it later", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "ok", style:
@@ -138,25 +132,5 @@ class otherProfilePersonalViewController : UIViewController, UICollectionViewDel
             
         }
     }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return publications.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        let displayVC : PublicationDetailViewController = UIStoryboard(name: "OtherProfile", bundle: nil).instantiateViewController(withIdentifier: "publicationDetail") as! PublicationDetailViewController
-        
-        displayVC.publication_id = publications[indexPath.row].id
-        
-        self.present(displayVC, animated: true, completion: nil)
-        
-    }
-    
-}
 
-class otherPersonalCell: UICollectionViewCell  {
-    
-    @IBOutlet weak var photoPub: UIImageView!
 }
-
