@@ -99,6 +99,16 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
     
     override func viewWillAppear(_ animated: Bool) {
         
+        pointViewCell.layer.cornerRadius = 10
+        
+        let rectShape = CAShapeLayer()
+        
+        rectShape.bounds = self.imagePoint.frame
+        rectShape.position = self.imagePoint.center
+        rectShape.path = UIBezierPath(roundedRect: self.imagePoint.bounds,     byRoundingCorners: [.bottomLeft, .topLeft], cornerRadii: CGSize(width: 10, height: 10)).cgPath
+        
+        self.imagePoint.layer.mask = rectShape
+        
         if NewPublicationViewController.tagsId.count == 0 {
             tagCollectionView.isHidden = true
             tagCollectionView.isHidden = true
