@@ -195,7 +195,6 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
             response in
             
             self.removeSpinner()
-            
             switch response.result {
             case .success:
                 let jsonResponse = response.result.value as! [String:Any]
@@ -235,7 +234,7 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
         
         self.showSpinner(onView: self.view)
         
-        let image = self.image
+        let image = self.image?.updateImageOrientionUpSide()
         let imgData = UIImageJPEGRepresentation(image!, 1)
         let url = Constants.url+"img"
         print(url)
@@ -251,8 +250,6 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
             print(self.imageName!+".png")
         }, usingThreshold: UInt64.init(), to: url, method: .post, headers: headers) { (result) in
             
-            
-            self.removeSpinner()
             switch result{
             case .success(let upload, _, _):
                 upload.responseJSON { response in

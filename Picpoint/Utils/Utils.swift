@@ -8,9 +8,10 @@
 import UIKit
 import Foundation
 
+
 struct Constants {
-    static let url = "http://192.168.6.162/api/public/index.php/api/" //dev david
-    //static let url = "http://192.168.6.162/api/public/index.php/api/" //dev joaquin
+    //static let url = "http://192.168.6.162/api/public/index.php/api/" //dev david
+    static let url = "http://172.20.10.5/api/public/index.php/api/" //Iphone Joaquin
     //static let url = "http://localhost:8888/api/public/index.php/api/" //local
     //static let url = "picpoint.vanadis.es/api/" // pro
     
@@ -34,6 +35,24 @@ class Utils {
         return randomString
     }
     
+}
+
+extension UIImage {
+    
+    func updateImageOrientionUpSide() -> UIImage? {
+        if self.imageOrientation == .up {
+            return self
+        }
+        
+        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
+        self.draw(in: CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height))
+        if let normalizedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext() {
+            UIGraphicsEndImageContext()
+            return normalizedImage
+        }
+        UIGraphicsEndImageContext()
+        return nil
+    }
 }
 
 extension UITableView {
