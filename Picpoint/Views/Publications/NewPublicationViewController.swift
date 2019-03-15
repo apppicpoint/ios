@@ -202,7 +202,11 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
                 if(response.response?.statusCode == 200){
                     print("Pic subido")
                     print(jsonResponse["message"]!)
-                    
+                    self.tagCollectionView.isHidden = true
+                    self.tagCollectionView.isHidden = true
+                    self.pointViewCell.isHidden = true
+                    self.pointViewCell.isHidden = true
+                    self.addPointBtn.setTitle("Is the pic related to a point? Add it", for: .normal)
                     let alert = UIAlertController(title: "OK", message: "Pic created", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Accept", style: .cancel, handler: { (accion) in self.performSegue(withIdentifier: "unwindToFeed", sender: nil) }))
                     self.present(alert, animated: true)
@@ -312,5 +316,6 @@ class NewPublicationViewController: UIViewController, UITextFieldDelegate , UICo
     @IBAction func textExit(_ sender: UITextField) {
         sender.resignFirstResponder()
     }
+    
 }
 
