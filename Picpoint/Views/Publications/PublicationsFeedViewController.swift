@@ -74,11 +74,11 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
                 
             case .failure(let error):
                 print(error,"error pics")
-                let alert = UIAlertController(title: "Ups! Something was wrong.", message:
-                    "Check your connection and try it later", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "ok", style:
-                    .cancel, handler: { (accion) in}))
-                self.present(alert, animated: true, completion: nil)
+//                let alert = UIAlertController(title: "Ups! Something was wrong.", message:
+//                    "Check your connection and try it later", preferredStyle: .alert)
+//                alert.addAction(UIAlertAction(title: "ok", style:
+//                    .cancel, handler: { (accion) in}))
+//                self.present(alert, animated: true, completion: nil)
             }
             
         }
@@ -93,11 +93,11 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
                 publication.image = data!
             case .failure(let error):
                 print(error,"error img point")
-                let alert = UIAlertController(title: "Ups! Something was wrong.", message:
-                    "Check your connection and try it later", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "ok", style:
-                    .cancel, handler: { (accion) in}))
-                self.present(alert, animated: true, completion: nil)
+//                let alert = UIAlertController(title: "Ups! Something was wrong.", message:
+//                    "Check your connection and try it later", preferredStyle: .alert)
+//                alert.addAction(UIAlertAction(title: "ok", style:
+//                    .cancel, handler: { (accion) in}))
+//                self.present(alert, animated: true, completion: nil)
             }
             
         }
@@ -112,11 +112,11 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
                 publication.userImage = data!
             case .failure(let error):
                 print(error,"error img")
-                let alert = UIAlertController(title: "Ups! Something was wrong.", message:
-                    "Check your connection and try it later", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "ok", style:
-                    .cancel, handler: { (accion) in}))
-                self.present(alert, animated: true, completion: nil)
+//                let alert = UIAlertController(title: "Ups! Something was wrong.", message:
+//                    "Check your connection and try it later", preferredStyle: .alert)
+//                alert.addAction(UIAlertAction(title: "ok", style:
+//                    .cancel, handler: { (accion) in}))
+//                self.present(alert, animated: true, completion: nil)
             }
             
         }
@@ -140,11 +140,11 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
                 self.getUserImage(imageName: data["photo"] as! String, publication: publication)
             case .failure(let error):
                 print(error,"error user")
-                let alert = UIAlertController(title: "Ups! Something was wrong.", message:
-                    "Check your connection and try it later", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "ok", style:
-                    .cancel, handler: { (accion) in}))
-                self.present(alert, animated: true, completion: nil)
+//                let alert = UIAlertController(title: "Ups! Something was wrong.", message:
+//                    "Check your connection and try it later", preferredStyle: .alert)
+//                alert.addAction(UIAlertAction(title: "ok", style:
+//                    .cancel, handler: { (accion) in}))
+//                self.present(alert, animated: true, completion: nil)
             }
             
         }
@@ -167,11 +167,11 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
                 publication.spotName = data["name"] as! String
             case .failure(let error):
                 print(error,"error spot")
-                let alert = UIAlertController(title: "Ups! Something was wrong.", message:
-                    "Check your connection and try it later", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "ok", style:
-                    .cancel, handler: { (accion) in}))
-                self.present(alert, animated: true, completion: nil)
+//                let alert = UIAlertController(title: "Ups! Something was wrong.", message:
+//                    "Check your connection and try it later", preferredStyle: .alert)
+//                alert.addAction(UIAlertAction(title: "ok", style:
+//                    .cancel, handler: { (accion) in}))
+//                self.present(alert, animated: true, completion: nil)
             }
             
         }
@@ -291,11 +291,11 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
             case .failure(let error):
                 print("Sin conexión en get spot")
                 print(error)
-                let alert = UIAlertController(title: "Ups! Something was wrong.", message:
-                    "Check your connection and try it later", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "ok", style:
-                    .cancel, handler: { (accion) in}))
-                self.present(alert, animated: true, completion: nil)
+//                let alert = UIAlertController(title: "Ups! Something was wrong.", message:
+//                    "Check your connection and try it later", preferredStyle: .alert)
+//                alert.addAction(UIAlertAction(title: "ok", style:
+//                    .cancel, handler: { (accion) in}))
+//                self.present(alert, animated: true, completion: nil)
             }
         }
         
@@ -347,11 +347,11 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
                 
             case .failure(let error):
                 print(error,"error like")
-                let alert = UIAlertController(title: "Ups! Something was wrong.", message:
-                    "Check your connection and try it later", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "ok", style:
-                    .cancel, handler: { (accion) in}))
-                self.present(alert, animated: true, completion: nil)
+//                let alert = UIAlertController(title: "Ups! Something was wrong.", message:
+//                    "Check your connection and try it later", preferredStyle: .alert)
+//                alert.addAction(UIAlertAction(title: "ok", style:
+//                    .cancel, handler: { (accion) in}))
+//                self.present(alert, animated: true, completion: nil)
             }
             
         }
@@ -379,11 +379,11 @@ class PublicationsFeedViewController:  UIViewController, UITableViewDelegate, UI
                 print(jsonResponse["message"]!)
             case .failure(let error):
                 print(error,"error like dar")
-                let alert = UIAlertController(title: "Ups! Something was wrong.", message:
-                    "Check your connection and try it later", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "ok", style:
-                    .cancel, handler: { (accion) in}))
-                self.present(alert, animated: true, completion: nil)
+//                let alert = UIAlertController(title: "Ups! Something was wrong.", message:
+//                    "Check your connection and try it later", preferredStyle: .alert)
+//                alert.addAction(UIAlertAction(title: "ok", style:
+//                    .cancel, handler: { (accion) in}))
+//                self.present(alert, animated: true, completion: nil)
             }
             
         }
