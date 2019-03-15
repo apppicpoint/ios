@@ -165,7 +165,7 @@ class NewSpotViewController: UIViewController, MKMapViewDelegate, UITextFieldDel
     
     func uploadPhotoRequest(){
         self.showSpinner(onView: self.view)
-        let image = self.image
+        let image = self.image?.updateImageOrientionUpSide()
         let imgData = UIImageJPEGRepresentation(image!, 1)
         //let imgData: Data = UIImagePNGRepresentation(image!)!
         //let imgData = #imageLiteral(resourceName: "Logo picpoint ")
