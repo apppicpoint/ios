@@ -129,14 +129,18 @@ class ProfileViewController: UIViewController {
                 else {
                     self.descriptionProfile.isHidden = true
                 }
+                break
             
             case .failure(let error):
+                
                 print(error,"error user")
+                /*
                 let alert = UIAlertController(title: "Ups! Something was wrong.", message:
                     "Check your connection and try it later", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "ok", style:
                     .cancel, handler: { (accion) in}))
-                self.present(alert, animated: true, completion: nil)
+                self.present(alert, animated: true, completion: nil) */
+                break
             }
         }
     }
@@ -150,14 +154,19 @@ class ProfileViewController: UIViewController {
                 self.profileImage.clipsToBounds = true
                 let data = response.result.value
                 self.profileImage.image = data!
+                break
             case .failure(let error):
+                
                 print(error,"error img")
+                /*
                 let alert = UIAlertController(title: "Ups! Something was wrong.", message:
                     "Check your connection and try it later", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "ok", style:
                     .cancel, handler: { (accion) in}))
-                self.present(alert, animated: true, completion: nil)
+                self.present(alert, animated: true, completion: nil)*/
+                break
             }
+            
             
         }
     }

@@ -81,11 +81,12 @@ class PublicationDetailViewController: UIViewController {
             case .failure(let error):
                 print("Sin conexión en get spot")
                 print(error)
+                /*
                 let alert = UIAlertController(title: "Ups! Something was wrong.", message:
                     "Check your connection and try it later", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "ok", style:
                     .cancel, handler: { (accion) in}))
-                self.present(alert, animated: true, completion: nil)
+                self.present(alert, animated: true, completion: nil)*/
             }
         }
         
@@ -142,11 +143,12 @@ class PublicationDetailViewController: UIViewController {
                 
             case .failure(let error):
                 print(error,"error pics")
+                /*
                 let alert = UIAlertController(title: "Ups! Something was wrong.", message:
                     "Check your connection and try it later", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "ok", style:
                     .cancel, handler: { (accion) in}))
-                self.present(alert, animated: true, completion: nil)
+                self.present(alert, animated: true, completion: nil) */
             }
             
         }
